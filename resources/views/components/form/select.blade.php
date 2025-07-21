@@ -1,11 +1,22 @@
-<label for="{{ $attributes->get('id') }}" class="block text-lg font-medium text-gray-700 dark:text-gray-300">
-    @if ($label)
-        {{ $label }}
+@props([
+    'label' => null,
+])
+@php
+    $hasLabel = filled($label);
+@endphp
+
+<div {{ $attributes->except('class', 'style')->merge(['class' => 'w-full'])->only('style') }}>
+    @if ($hasLabel)
+        <label for="{{ $attributes->get('id') }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            {{ $label }}
+        </label>
     @endif
-    <select {{ $attributes->merge(['class' => 'select2']) }} style="width: 100%">
+
+    <select {{ $attributes->merge(['class' => 'select2 block w-full']) }}
+        style="{{ $attributes->get('style') ?? '' }};">
         {{ $slot }}
     </select>
-</label>
+</div>
 
 @once
     @assets
@@ -22,7 +33,7 @@
             }
 
             html.dark .select2-container--default .select2-selection--single {
-                background-color: #1f2937;
+                background-color: #3c3c3c;
                 color: #f9fafb;
                 border-color: #4b5563;
             }
@@ -48,6 +59,11 @@
             .select2-results__option--highlighted {
                 background-color: #3b82f6;
                 color: white;
+            }
+
+            html.dark .select2-container--default .select2-selection--single .select2-selection__rendered {
+                color: #fff;
+                line-height: 28px;
             }
         </style>
     @endassets

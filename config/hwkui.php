@@ -35,6 +35,7 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
+                    'defer' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js',
                 ],
             ],
@@ -50,16 +51,19 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
+                    'defer' => true,
                     'location' => '//cdn.datatables.net/v/dt/dt-2.3.2/b-3.2.4/b-colvis-3.2.4/b-html5-3.2.4/b-print-3.2.4/r-3.0.5/datatables.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => false,
+                    'defer' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => false,
+                    'defer' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js',
                 ],
             ],

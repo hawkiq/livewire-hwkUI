@@ -5,6 +5,7 @@
 @php
     $hasLabel = filled($label);
     $hasPlaceholder = filled($placeholder);
+    \Hawkiq\Hwkui\Helpers\PluginLoader::require('Datetime');
 @endphp
 
 <div {{ $attributes->except('class', 'style')->merge(['class' => 'w-full'])->only('style') }}>

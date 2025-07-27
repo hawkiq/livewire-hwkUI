@@ -3,6 +3,8 @@
 ])
 @php
     $hasLabel = filled($label);
+    \Hawkiq\Hwkui\Helpers\PluginLoader::require('Jquery');
+    \Hawkiq\Hwkui\Helpers\PluginLoader::require('Select2');
 @endphp
 
 <div {{ $attributes->except('class', 'style')->merge(['class' => 'w-full'])->only('style') }}>

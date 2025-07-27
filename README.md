@@ -1,8 +1,10 @@
 # hwkUI
 
+![hwkUI Banner](assets/banner.png)
+
 [![Packagist](https://img.shields.io/packagist/v/hawkiq/hwkui.svg)](https://packagist.org/packages/hawkiq/hwkui)
 
-**hwkUI** is a Laravel package providing ready-to-use UI widgets built on top of **Livewire 3**, designed for simplicity and flexibility. It includes dynamic Select2 components and more coming soon.
+**hwkUI** is a Laravel package providing ready-to-use UI widgets built on top of **Livewire 3**, designed for simplicity and flexibility. It includes dynamic Select2 , Datetimepicker and DataTable components and more coming soon.
 
 ## 📦 Requirements
 
@@ -20,14 +22,10 @@
 composer require hawkiq/hwkui
 ```
 
-## ⛔ Before You Continue
+## 🚀 Update
 
 ```bash
-php artisan --version
-# Laravel Framework 10.x
-
-php artisan livewire:info
-# Livewire v3.x installed and configured
+composer update hawkiq/hwkui
 ```
 
 ## ⚙️ Configuration

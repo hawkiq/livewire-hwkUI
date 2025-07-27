@@ -1,5 +1,7 @@
 # hwkUI
 
+[![Packagist](https://img.shields.io/packagist/v/hawkiq/hwkui.svg)](https://packagist.org/packages/hawkiq/hwkui)
+
 **hwkUI** is a Laravel package providing ready-to-use UI widgets built on top of **Livewire 3**, designed for simplicity and flexibility. It includes dynamic Select2 components and more coming soon.
 
 ## 📦 Requirements
@@ -112,13 +114,139 @@ Laravel will generate the full asset URL using `asset('vendor/hwkui/select2.min.
 In your Blade view:
 
 ```blade
-<x-hwkui-select
-    wire:model="selectedUser"
-    label="Choose User"
-/>
+ <x-hwkui-select wire:model="selectedItem" label="Select User to PLay" placeholder="Select a user Babe">
+            @forelse ($users as $user)
+                <option wire:key="{{ $user->id }}" value="{{ $user->name }}">{{ $user->name }}</option>
+            @empty
+                <option value="">No options available</option>
+            @endforelse
+        </x-hwkui-select>
 
 ```
 Make sure to include Livewire and the component's scripts on your page.
+
+you can pass options for Select2 like via component
+
+```blade
+<x-hwkui-select
+    wire:model="selectedUser"
+    label="Choose User"
+    :options="$options" 
+>
+</x-hwkui-select>
+
+```
+
+or direct array
+
+```blade
+<x-hwkui-select
+    wire:model="selectedUser"
+    label="Choose User"
+    :options="[
+         'placeholder' => 'Select an option',
+        'allowClear' => true,
+        'multiple' => true,
+    ]" 
+>
+</x-hwkui-select>
+
+```
+
+# DateTime Picker Component
+
+don't forget to make it active in config
+
+```php
+'Datetime' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'defer' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'defer' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js',
+                ],
+            ],
+        ],
+```
+
+in your blade use it like this
+
+```blade
+
+ <x-hwkui-datetime id="test-datetime" label="Test DateTime"
+        placeholder="Select Date" wire:model="setDatetime" />
+
+```
+
+if you want to set default options for datetime you can do it in `config/hwkui.php`
+
+```php
+
+'datetime' => [
+        'defaultOptions' => [
+            'display' => [
+                'viewMode' => 'calendar',
+                'components' => [
+                    'calendar' => true,
+                    'date' => true,
+                    'year' => true,
+                    'month' => true,
+                    'clock' => true,
+                ],
+                'calendarWeeks' => false,
+            ],
+            'debug' => false,
+            'useCurrent' => true,
+            'stepping' => 1,
+            'localization' => [
+                'format' => 'yyyy-MM-dd hh:mm',
+                'locale' => app()->getLocale(),
+            ],
+        ],
+    ],
+
+
+```
+
+these are just few options from many to be set you can visit original plugin [Options page](https://getdatepicker.com/6/options/) and see what you can add.
+
+## override Options
+
+you can override Datetime picker just by pass an array to `:options`
+
+```blade
+
+ <x-hwkui-datetime id="test-datetime" :options="[
+        'display' => [
+            'components' => [
+                'date' => false,
+                'year' => true,
+                'month' => true,
+                'clock' => false,
+            ],
+        ],
+        'localization' => [
+            'format' => 'yyyy-MM h:i:s',
+            'locale' => app()->getLocale(),
+        ],
+    ]" class="border-amber-500" label="Test DateTime"
+        placeholder="Select Date" wire:model="setDatetime" />
+
+```
+
 
 ## 🧪 Testing
 
@@ -143,6 +271,5 @@ This project is open-sourced under the MIT license.
 ## 👤 Author
 
 hawkiq
-📧 info@osama.app
 
 Enjoy building awesome interfaces with hwkUI! 🚀

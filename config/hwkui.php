@@ -12,7 +12,6 @@ return [
     |
     */
 
-
     'plugins' => [
         'Jquery' => [
             'active' => true,
@@ -37,6 +36,28 @@ return [
                     'asset' => false,
                     'defer' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js',
+                ],
+            ],
+        ],
+        'Datetime' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'defer' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'defer' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js',
                 ],
             ],
         ],
@@ -70,4 +91,37 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Plugins Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here we can modify the plugin configuration defaults.
+    |
+    |
+    */
+
+    // You can see full List of options can be used here: https://getdatepicker.com/6/options/
+    'datetime' => [
+        'defaultOptions' => [
+            'display' => [
+                'viewMode' => 'calendar',
+                'components' => [
+                    'calendar' => true,
+                    'date' => true,
+                    'year' => true,
+                    'month' => true,
+                    'clock' => true,
+                ],
+                'calendarWeeks' => false,
+            ],
+            'debug' => false,
+            'useCurrent' => true,
+            'stepping' => 1,
+            'localization' => [
+                //'format' => 'yyyy-MM-dd hh:mm',
+                'locale' => app()->getLocale(),
+            ],
+        ],
+    ],
 ];

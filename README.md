@@ -6,7 +6,7 @@
 
 **hwkUI** is a Laravel package providing ready-to-use UI widgets built on top of **Livewire 3**, designed for simplicity and flexibility. It includes dynamic Select2 , Datetimepicker and DataTable components and more coming soon.
 
-## 📦 Requirements
+# 📦 Requirements
 
 - Laravel **10.x**
 - Livewire **3.x**
@@ -16,7 +16,7 @@
 
 ---
 
-## 🚀 Installation
+# 🚀 Installation
 
 ```bash
 composer require hawkiq/hwkui
@@ -28,7 +28,7 @@ composer require hawkiq/hwkui
 composer update hawkiq/hwkui
 ```
 
-## ⚙️ Configuration
+# ⚙️ Configuration
 The config file `config/hwkui.php` defines which JS/CSS plugins to load and whether to use CDN or local assets.
 
 ### 1. Publish the Config File
@@ -151,9 +151,11 @@ or direct array
 
 ```
 
-# DateTime Picker Component
+# 🗓️ DateTime Picker Component
 
-don't forget to make it active in config
+This component provides an elegant datetime picker powered by Tempus Dominus v6, ready to use in your Laravel Livewire app with a clean, customizable Blade syntax.
+
+Enable in Configuration
 
 ```php
 'Datetime' => [
@@ -182,6 +184,8 @@ don't forget to make it active in config
 
 in your blade use it like this
 
+## ✅ Basic Usage
+
 ```blade
 
  <x-hwkui-datetime id="test-datetime" label="Test DateTime"
@@ -189,7 +193,7 @@ in your blade use it like this
 
 ```
 
-if you want to set default options for datetime you can do it in `config/hwkui.php`
+🛠️ You can configure default picker options globally in  `config/hwkui.php`
 
 ```php
 
@@ -219,11 +223,11 @@ if you want to set default options for datetime you can do it in `config/hwkui.p
 
 ```
 
-these are just few options from many to be set you can visit original plugin [Options page](https://getdatepicker.com/6/options/) and see what you can add.
+You can explore all available options on the  [Options page](https://getdatepicker.com/6/options/) and see what you can add.
 
-## override Options
+## ✏️ Override Options Per Component
 
-you can override Datetime picker just by pass an array to `:options`
+yOverride settings for individual instances using the `:options`  attribute:
 
 ```blade
 
@@ -245,8 +249,62 @@ you can override Datetime picker just by pass an array to `:options`
 
 ```
 
+# ✒️ Text Editor Component
 
-## 🧪 Testing
+A rich-text editor component powered by Quill.js, built for Laravel Livewire 3. Fully supports customization, toolbar control, themes, and Livewire model binding.
+In your `config/hwkui.php`, activate the editor plugin:
+
+```php
+
+'plugins' => [
+    'Editor' => [
+        'active' => true,
+        'files' => [
+            [
+                'type' => 'css',
+                'asset' => false,
+                'location' => '//cdn.quilljs.com/1.3.6/quill.snow.css',
+            ],
+            [
+                'type' => 'js',
+                'asset' => false,
+                'location' => '//cdn.quilljs.com/1.3.6/quill.min.js',
+            ],
+        ],
+    ],
+],
+
+
+```
+
+## ✅ Basic Usage
+
+```blade
+<x-hwkui-editor id="editor" wire:model="content">
+    Default content goes here...
+</x-hwkui-editor>
+```
+## 🛠 Toolbar Customization
+Use the toolbar attribute to define your desired tools.
+
+```blade
+
+<x-hwkui-editor id="editor"
+    wire:model.live="content"
+    theme="snow"
+    toolbar="bold|italic|underline|link|image|code-block|blockquote|list|clean">
+</x-hwkui-editor>
+
+
+```
+🔹 You can customize the toolbar using Quill toolbar options separated by |.
+
+
+
+
+
+
+# 🧪 Testing
 
 Run:
 ```bash
@@ -254,7 +312,7 @@ php artisan serve
 ```
 Then visit your Livewire component using hwkUI widgets. All assets should be loaded either via CDN or local as per your config.
 
-## 🔧 Customization
+# 🔧 Customization
 
 Feel free to extend or publish views if needed:
 
@@ -262,11 +320,11 @@ Feel free to extend or publish views if needed:
 php artisan vendor:publish --tag=hwkui-views
 ```
 
-## 📝 License
+# 📝 License
 
 This project is open-sourced under the MIT license.
 
-## 👤 Author
+# 👤 Author
 
 hawkiq
 

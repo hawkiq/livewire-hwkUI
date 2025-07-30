@@ -12,6 +12,7 @@ class HwkuiServiceProvider extends ServiceProvider
     protected $formComponents = [
         'select' => Form\Select::class,
         'datetime' => Form\DateTime::class,
+        'editor' => Form\Editor::class,
     ];
 
     public function boot()

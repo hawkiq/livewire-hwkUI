@@ -89,6 +89,22 @@ return [
                 ],
             ],
         ],
+        'Editor' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'defer' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js',
+                ],
+            ],
+        ],
     ],
 
     /*
@@ -101,7 +117,15 @@ return [
     |
     */
 
-    // You can see full List of options can be used here: https://getdatepicker.com/6/options/
+    /*
+    |--------------------------------------------------------------------------
+    | Date Time Picker Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here we can modify the date time picker configuration defaults.
+    | You can see full List of options can be used here: https://getdatepicker.com/6/options/
+    |
+    */
     'datetime' => [
         'defaultOptions' => [
             'display' => [
@@ -123,5 +147,31 @@ return [
                 'locale' => app()->getLocale(),
             ],
         ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | quilljs rich text editor Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here we can modify the quilljs rich text editor configuration defaults.
+    | You can see full List of options can be used here: https://quilljs.com/docs/configuration/
+    |
+    */
+    'editor' => [
+        'defaultToolbar' => [
+            [['font' => []]],
+            [['header' => [1, 2, 3, 4, 5, 6, false]]],
+            ['bold', 'italic', 'underline', 'strike'],
+            [['color' => []], ['background' => []]],
+            ['blockquote', 'code-block'],
+            ['link', 'image', 'video', 'formula'],
+            [['list' => 'ordered'], ['list' => 'bullet'], [['script' => 'sub'], ['script' => 'super']]],
+            [['indent' => '-1'], ['indent' => '+1']],
+            [['direction' => 'rtl']],
+            [['align' => []]],
+            ['clean'],
+        ],
+        'defaultTheme' => 'snow',
     ],
 ];

@@ -1,0 +1,7 @@
+{
+  "resources/css/hwkui.css": {
+    "file": "hwkui.min.css",
+    "src": "resources/css/hwkui.css",
+    "isEntry": true
+  }
+}

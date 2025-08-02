@@ -2,8 +2,9 @@
 
 namespace Hawkiq\Hwkui;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 use Hawkiq\Hwkui\View\Components\Form;
+use Illuminate\Support\ServiceProvider;
 use Hawkiq\Hwkui\View\Components\Widget;
 
 class HwkuiServiceProvider extends ServiceProvider
@@ -27,6 +28,7 @@ class HwkuiServiceProvider extends ServiceProvider
         $this->registerPublishing();
         $this->registerViews();
         $this->loadComponents();
+        $this->registerStyles();
     }
 
     /**
@@ -44,6 +46,10 @@ class HwkuiServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/hwkui.php' => config_path('hwkui.php'),
         ], 'hwkui-config');
+
+        $this->publishes([
+            __DIR__ . '/../dist' => public_path('vendor/hwkui/dist'),
+        ], 'hwkui-assets');
     }
 
     /**
@@ -80,6 +86,13 @@ class HwkuiServiceProvider extends ServiceProvider
         $this->loadViewComponentsAs($this->packageName, $components);
     }
 
+    private function registerStyles()
+    {
+        //@hwkuiStyles
+        Blade::directive('hwkuiStyles', function () {
+            return '<link rel="stylesheet" href="' . asset('vendor/hwkui/dist/hwkui.min.css') . '">';
+        });
+    }
 
     public function register()
     {

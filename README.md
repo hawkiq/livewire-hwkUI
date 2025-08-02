@@ -44,8 +44,17 @@
 composer require hawkiq/hwkui
 ```
 
+## 🚀   Publish Assets
+
+```bash
+php artisan vendor:publish --tag=hwkui-assets
+```
+
+add `@hwkuiStyles` before `</head>` directive before `@vite(['resources/css/app.css', 'resources/js/app.js'])` to avoide any overlapping with any framework
+
 ## 🚀 Update
 
+if you want to update use 
 ```bash
 composer update hawkiq/hwkui
 ```

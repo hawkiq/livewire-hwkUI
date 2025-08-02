@@ -4,6 +4,7 @@ namespace Hawkiq\Hwkui;
 
 use Illuminate\Support\ServiceProvider;
 use Hawkiq\Hwkui\View\Components\Form;
+use Hawkiq\Hwkui\View\Components\Widget;
 
 class HwkuiServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,10 @@ class HwkuiServiceProvider extends ServiceProvider
         'editor' => Form\Editor::class,
     ];
 
+    protected $widgetComponents = [
+        'card' => Widget\Card::class,
+    ];
+
     public function boot()
     {
         $this->registerPublishing();
@@ -22,10 +27,10 @@ class HwkuiServiceProvider extends ServiceProvider
         $this->loadComponents();
     }
 
-/**
- * The function `registerPublishing` in PHP registers the publishing of views and configuration files
- * for a package.
- */
+    /**
+     * The function `registerPublishing` in PHP registers the publishing of views and configuration files
+     * for a package.
+     */
     protected function registerPublishing()
     {
 
@@ -66,7 +71,8 @@ class HwkuiServiceProvider extends ServiceProvider
     {
 
         $components = array_merge(
-            $this->formComponents
+            $this->formComponents,
+            $this->widgetComponents
         );
 
         $this->loadViewComponentsAs($this->packageName, $components);

@@ -301,8 +301,42 @@ Use the toolbar attribute to define your desired tools.
 
 
 
+# 📦 Card Widget
+A reusable friendly Card component built with Tailwind CSS v4, part of the hawkiq/hwkui widget library. It supports theme colors, outline and solid styles, optional icons, header tools, footer, and dark mode.
+
+## ✅ Basic Usage
+
+```blade
+    <x-hwkui-card title="Users" icon="fas fa-users" theme="primary">
+        Basic Card Usage
+
+        <x-slot name="tools">
+            <button class="cursor-pointer text-white hover:text-gray-200">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button class="cursor-pointer text-white hover:text-gray-200">
+                <i class="fas fa-cog"></i>
+            </button>
+        </x-slot>
+        <x-slot name="footer">
+            Card Footer
+        </x-slot>
+    </x-hwkui-card>
 
 
+    <x-hwkui-card theme="danger" theme-mode="outline">
+        A card without header has red border ...
+    </x-hwkui-card>
+
+    <x-hwkui-card icon="fas fa-cog" title="No theme-mode" theme="warning" disabled>
+        A card with header using warning color but disabled...
+    </x-hwkui-card>
+
+    <x-hwkui-card icon="fas fa-cog" title="Full Theme Mode" theme="success" theme-mode="full">
+        A card with full color...
+    </x-hwkui-card>
+
+```
 
 # 🧪 Testing
 

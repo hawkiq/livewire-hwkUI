@@ -4,15 +4,37 @@
 
 [![Packagist](https://img.shields.io/packagist/v/hawkiq/hwkui.svg)](https://packagist.org/packages/hawkiq/hwkui)
 
-**hwkUI** is a Laravel package providing ready-to-use UI widgets built on top of **Livewire 3**, designed for simplicity and flexibility. It includes dynamic Select2 , Datetimepicker and DataTable components and more coming soon.
+**hwkUI** is a Laravel package providing ready-to-use UI widgets built on top of **Livewire 3**, designed for simplicity and flexibility. It includes dynamic Select2 , Datetimepicker and Rich Text Editor components with easy to use components like cards and info boxes and more coming soon.
+
+
+## 📑 Table of Contents
+
+- [📦 Requirements](#-requirements)
+- [🚀 Installation](#-installation)
+  - [🚀 Update](#-update)
+- [⚙️ Configuration](#️-configuration)
+  - [📁 Publish the Config File](#1-publish-the-config-file)
+  - [🌐 Using CDN (Default)](#-using-cdn-default)
+  - [🗂️ Using Local Assets (Optional)](#️-using-local-assets-optional)
+- [🧩 Usage](#-usage)
+  - [Select2 Component](#select2-component)
+  - [🗓️ DateTime Picker Component](#️-datetime-picker-component)
+  - [✒️ Text Editor Component](#️-text-editor-component)
+- [🧩 Widgets](#-card-widget)
+  - [📦 Card Widget](#-card-widget)
+  - [📦 Info Box Widget](#-info-box-widget)
+  - [📦 Small Box Widget](#-small-box-widget)
+- [🔧 Customization](#-customization)
+- [📝 License](#-license)
+- [👤 Author](#-author)
+
+
 
 # 📦 Requirements
 
 - Laravel **10.x**
 - Livewire **3.x**
 - PHP **8.1+**
-
-> ⚠️ This package does **not** auto-install `select2/select2`. It loads assets via CDN by default, but you can switch to **local assets** easily (see below).
 
 ---
 
@@ -27,6 +49,8 @@ composer require hawkiq/hwkui
 ```bash
 composer update hawkiq/hwkui
 ```
+
+---
 
 # ⚙️ Configuration
 The config file `config/hwkui.php` defines which JS/CSS plugins to load and whether to use CDN or local assets.
@@ -104,6 +128,8 @@ Change asset => true and point to your local file path:
 ```
 
 Laravel will generate the full asset URL using `asset('vendor/hwkui/select2.min.css')`.
+
+---
 
 ## 🧩 Usage
 
@@ -299,7 +325,7 @@ Use the toolbar attribute to define your desired tools.
 ```
 🔹 You can customize the toolbar using Quill toolbar options separated by |.
 
-
+---
 
 # 📦 Card Widget
 A reusable friendly Card component built with Tailwind CSS v4, part of the hawkiq/hwkui widget library. It supports theme colors, outline and solid styles, optional icons, header tools, footer, and dark mode.
@@ -357,21 +383,32 @@ For display small infos with icons or progress bar
     <x-hwkui-info-box title="Downloads" text="3652" icon="fas fa-download" theme="primary" iconTheme="primary" />
 
     <x-hwkui-info-box title="Uploads" text="1987" icon="fas fa-upload" theme="danger" iconTheme="danger" />
-    
+
     <x-hwkui-info-box title="Jobs" text="65/100" description="65% of the jobs finished" icon="fas fa-tasks"
         theme="success" iconTheme="success" progress="65" />
 
 ```
 
+# 📦 Small Box Widget
+For display one info with beautiful UI
 
+![Info Box Widget](assets/small-box-widget.PNG)
+## ✅ Basic Usage
 
-# 🧪 Testing
+```blade
 
-Run:
-```bash
-php artisan serve
+<x-hwkui-small-box title="251" text="Users" icon="fas fa-users" theme="primary" url="https://osama.app"
+            urlText="View all users" urlIcon="fas fa-link" />
+
+        <x-hwkui-small-box title="Loading" text="Loading data..." icon="fas fa-tasks" theme="success"
+            url="https://osama.app" urlText="More info" urlIcon="fas fa-link" loading="true" />
+
+        <x-hwkui-small-box title="424" text="Views" icon="fas fa-eye" theme="danger"
+            url="https://osama.app" urlText="View details" urlIcon="fas fa-link" />
+
+        <x-hwkui-small-box title="Downloads" text="1205" icon="fas fa-download" />
+
 ```
-Then visit your Livewire component using hwkUI widgets. All assets should be loaded either via CDN or local as per your config.
 
 # 🔧 Customization
 

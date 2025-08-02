@@ -18,6 +18,7 @@ class HwkuiServiceProvider extends ServiceProvider
 
     protected $widgetComponents = [
         'card' => Widget\Card::class,
+        'info-box' => Widget\InfoBox::class,
     ];
 
     public function boot()

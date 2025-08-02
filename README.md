@@ -304,6 +304,8 @@ Use the toolbar attribute to define your desired tools.
 # 📦 Card Widget
 A reusable friendly Card component built with Tailwind CSS v4, part of the hawkiq/hwkui widget library. It supports theme colors, outline and solid styles, optional icons, header tools, footer, and dark mode.
 
+![Card Widget](assets/card-widget.PNG)
+
 ## ✅ Basic Usage
 
 ```blade
@@ -337,6 +339,31 @@ A reusable friendly Card component built with Tailwind CSS v4, part of the hawki
     </x-hwkui-card>
 
 ```
+
+# 📦 Info Box Widget
+For display small infos with icons or progress bar
+
+![Info Box Widget](assets/info-box-widget.PNG)
+## ✅ Basic Usage
+
+```blade
+    <x-hwkui-info-box title="Users" text="251" icon="fas fa-users" iconTheme="primary"
+        description="251 Users Registered" url="https://osama.app" urlTarget="_blank" />
+
+    <x-hwkui-info-box title="CPU Traffic" text="60%" icon="fas fa-cog" theme="warning" iconTheme="warning" />
+
+    <x-hwkui-info-box title="Test with no colors" text="No Colors" icon="fas fa-vials" />
+
+    <x-hwkui-info-box title="Downloads" text="3652" icon="fas fa-download" theme="primary" iconTheme="primary" />
+
+    <x-hwkui-info-box title="Uploads" text="1987" icon="fas fa-upload" theme="danger" iconTheme="danger" />
+    
+    <x-hwkui-info-box title="Jobs" text="65/100" description="65% of the jobs finished" icon="fas fa-tasks"
+        theme="success" iconTheme="success" progress="65" />
+
+```
+
+
 
 # 🧪 Testing
 

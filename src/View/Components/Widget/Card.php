@@ -37,7 +37,7 @@ class Card extends Component
 
     public function cardClasses(): string
     {
-        $base = 'relative rounded shadow-md overflow-hidden mb-1';
+        $base = 'relative rounded shadow-md overflow-hidden m-1';
         $color = match ($this->themeMode) {
             'full' => $this->bgColor() . ' text-white',
             'outline' => 'border border-t-7 ' . $this->borderColor() . ' bg-white dark:bg-zinc-700',

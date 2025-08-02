@@ -48,7 +48,7 @@ class HwkuiServiceProvider extends ServiceProvider
         ], 'hwkui-config');
 
         $this->publishes([
-            __DIR__ . '/../dist' => public_path('vendor/hwkui/dist'),
+            __DIR__ . '/../resources/css' => resource_path('css'),
         ], 'hwkui-assets');
     }
 

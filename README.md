@@ -49,9 +49,13 @@ composer require hawkiq/hwkui
 ```bash
 php artisan vendor:publish --tag=hwkui-assets
 ```
+this will publish file `hwkui.css` to `resources/css/` needed to correct style widgets
 
-add `@hwkuiStyles` before `</head>` directive before `@vite(['resources/css/app.css', 'resources/js/app.js'])` to avoide any overlapping with any framework
+add this line to `app.css` after `@import "tailwindcss";`
 
+```css
+@import './hwkui.css';
+```
 ## 🚀 Update
 
 if you want to update use 

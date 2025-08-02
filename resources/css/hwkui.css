@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@source '../../vendor/hawkiq/hwkui/resources/views/components/**/*.blade.php';
 
-@source "./../views/components/**/*.blade.php";
+@source inline("border border-t-7 border-{blue-600,gray-100,gray-300,gray-500,gray-800,red-600,yellow-400,green-600,cyan-500}");
+@source inline("bg-{white,blue-600,blue-900,gray-100,gray-200,gray-400,gray-500,gray-700,gray-800,gray-900,green-600,green-900,cyan-500,cyan-900,yellow-400,yellow-900,red-600,red-900}");
+@source inline("dark:bg-{blue-900,gray-200,gray-800,gray-900,green-900,cyan-900,yellow-900,red-900,zinc-700}");
+@source inline("text-{white,black} dark:text-white");
 
-/* @source inline("dark:bg-{red,green,blue,yellow,cyan}-{50,{100..900..100},950} bg-{red,green,blue,yellow,cyan}-{50,{100..900..100},950}");
-@source inline("text-{white,gray-700,gray-300}");
-@source inline("dark:bg-{gray-800,gray-900}");
-@source inline("rounded shadow-md p-4 m-1 text-sm text-2xl text-3xl font-bold font-extrabold flex items-center gap-2 justify-center mt-1 mt-2 ml-4 w-full h-1 bg-white dark:bg-zinc-700"); */
+@source inline("flex flex-col items-center justify-center justify-between w-16 h-16 p-4 px-4 py-2 m-1 mb-1 rounded rounded-full shadow-md overflow-hidden relative text-3xl");

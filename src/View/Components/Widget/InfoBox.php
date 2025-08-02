@@ -43,7 +43,7 @@ class InfoBox extends Component
 
     public function boxClasses(): string
     {
-        $base = 'flex items-center px-4 py-2 rounded shadow-md overflow-hidden mb-1';
+        $base = 'flex items-center px-4 py-2 rounded shadow-md overflow-hidden m-1';
         $theme = $this->theme ? $this->bgColor() : 'bg-white dark:bg-zinc-700';
 
         return "$base $theme";

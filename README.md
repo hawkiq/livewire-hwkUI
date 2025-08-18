@@ -144,6 +144,36 @@ Laravel will generate the full asset URL using `asset('vendor/hwkui/select2.min.
 
 ---
 
+## 🗂️ Using NPM Assets (Optional)
+
+if you prefer using npm packages you can set `false` to every plugin in config file then install packages to use for example
+```bash
+ npm install @popperjs/core @eonasdan/tempus-dominus
+
+ npm install jquery select2
+
+```
+
+this will be used for Datetime and select2 plugins, then edit `app.js` to import
+
+```js
+
+import $ from "jquery";
+import * as Popper from "@popperjs/core";
+import { TempusDominus } from "@eonasdan/tempus-dominus";
+import "@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css";
+import "select2/dist/js/select2.full.min.js";
+import "select2/dist/css/select2.min.css";
+window.Popper = Popper;
+window.TempusDominus = TempusDominus;
+window.$ = $;
+window.jQuery = $;
+window.Select2 = $.fn.select2;
+
+```
+
+___
+
 ## 🧩 Usage
 
 # Select2 Component

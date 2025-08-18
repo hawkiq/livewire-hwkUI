@@ -13,7 +13,7 @@ class HwkuiServiceProvider extends ServiceProvider
 
     protected $formComponents = [
         'select' => Form\Select::class,
-        'datetime' => Form\DateTime::class,
+        'datetime' => Form\Datetime::class,
         'editor' => Form\Editor::class,
     ];
 

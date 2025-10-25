@@ -14,8 +14,7 @@
         </label>
     @endif
 
-    <select {{ $attributes->merge(['class' => 'select2 block w-full']) }}
-        style="{{ $attributes->get('style') ?? '' }};">
+    <select {{ $attributes->merge(['class' => 'select2 block w-full']) }} style="{{ $attributes->get('style') ?? '' }};">
         {{ $slot }}
     </select>
 </div>
@@ -26,8 +25,8 @@
         @include('hwkui::plugins', ['type' => 'js'])
         <style>
             .select2-container--default .select2-selection--single {
-                height: 2.5rem;
-                padding: 0.5rem;
+                height: 2.5rem !important;
+                padding: 0.33rem 1.2rem 0 1.2rem;
                 border-radius: 0.375rem;
                 border: 1px solid #9ca3af;
                 background-color: #ffffff;
@@ -35,7 +34,7 @@
             }
 
             html.dark .select2-container--default .select2-selection--single {
-                background-color: #3c3c3c;
+                background-color: oklch(37.3% 0.034 259.733);
                 color: #f9fafb;
                 border-color: #4b5563;
             }
@@ -66,6 +65,9 @@
             html.dark .select2-container--default .select2-selection--single .select2-selection__rendered {
                 color: #fff;
                 line-height: 28px;
+            }
+            html.dark .select2-container--default .select2-results__option[aria-selected="true"] {
+                background-color: #3b82f6;
             }
         </style>
     @endassets

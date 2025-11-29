@@ -69,6 +69,24 @@
             html.dark .select2-container--default .select2-results__option[aria-selected="true"] {
                 background-color: #3b82f6;
             }
+            
+             html.dark .select2-container--default .select2-selection--multiple .select2-selection__choice {
+                background-color: #1f2937;
+                border: 1px solid #aaa;
+                border-radius: 4px;
+                cursor: default;
+                float: left;
+                margin-right: 5px;
+                margin-top: 5px;
+                padding: 0 5px;
+            }
+
+            html.dark .select2-container--default .select2-selection--multiple {
+                background-color: #364153;
+                border: 1px solid #aaa;
+                border-radius: 4px;
+                cursor: text;
+            }
         </style>
     @endassets
 @endonce

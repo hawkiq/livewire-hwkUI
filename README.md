@@ -17,7 +17,8 @@
   - [🌐 Using CDN (Default)](#-using-cdn-default)
   - [🗂️ Using Local Assets (Optional)](#️-using-local-assets-optional)
 - [🧩 Usage](#-usage)
-  - [Select2 Component](#select2-component)
+  - [⚡ TomSelect Component](#tomselect-component)
+  - [🔹 Select2 Component](#select2-component)
   - [🗓️ DateTime Picker Component](#️-datetime-picker-component)
   - [✒️ Text Editor Component](#️-text-editor-component)
 - [🧩 Widgets](#-card-widget)
@@ -32,9 +33,9 @@
 
 # 📦 Requirements
 
-- Laravel **10.x**
-- Livewire **3.x**
-- PHP **8.1+**
+- Laravel **10.x+**
+- Livewire **3.x+**
+- PHP **8.x+**
 
 ---
 
@@ -146,7 +147,7 @@ Laravel will generate the full asset URL using `asset('vendor/hwkui/select2.min.
 
 ## 🗂️ Using NPM Assets (Optional)
 
-if you prefer using npm packages you can set `false` to every plugin in config file then install packages to use for example
+If you prefer using npm packages, you can disable the plugins in the config file (set to false) and install the required packages: 
 ```bash
  npm install @popperjs/core @eonasdan/tempus-dominus
 
@@ -155,7 +156,9 @@ if you prefer using npm packages you can set `false` to every plugin in config f
  npm install tom-select
 ```
 
-this will be used for Datetime and select2 plugins or tom-select, then edit `app.js` to import
+These packages will be used for Datetime pickers, Select2, or TomSelect.
+
+Then, in your `app.js`, import the packages:
 
 ```js
 
@@ -184,8 +187,9 @@ ___
 
 # TomSelect Component
 
-this is a plugin to replace Select2.js because its using vanilla JS doesn't depends on Jquery like select2 plugin
-in Blade view
+This component replaces Select2.js with a vanilla JS alternative, so it does not depend on jQuery.
+
+Basic Usage in Blade
 
 ```blade
 <x-hwkui-tom-select
@@ -193,7 +197,7 @@ in Blade view
     wire:model="customer_id"
     label="Customer"
     placeholder="Select customer...">
-    
+
     <!-- Default empty option -->
     <option value="">Select Customer...</option>
 
@@ -207,16 +211,22 @@ in Blade view
 </x-hwkui-tom-select>
 
 ```
-You can pass additional TomSelect options via the data-options attribute:
+### Passing Additional TomSelect Options
+You can pass extra options via the `:options` attribute:
+
 ```blade
 <x-hwkui-tom-select
     wire:model="customer_id"
     label="Customer"
-    :options="['maxItems' => 3, 'create' => true,'plugins'=>['remove_button']]">
+    :options="[
+        'maxItems' => 3,
+        'create' => true,
+        'plugins' => ['remove_button']
+    ]">
 </x-hwkui-tom-select>
 ```
 
-more information about tomselect setup on [https://tom-select.js.org/]
+More information about TomSelect setup can be found at the official website [Tom Select]([https://tom-select.js.org/)
 
 # Select2 Component
 

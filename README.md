@@ -152,9 +152,10 @@ if you prefer using npm packages you can set `false` to every plugin in config f
 
  npm install jquery select2
 
+ npm install tom-select
 ```
 
-this will be used for Datetime and select2 plugins, then edit `app.js` to import
+this will be used for Datetime and select2 plugins or tom-select, then edit `app.js` to import
 
 ```js
 
@@ -164,17 +165,58 @@ import { TempusDominus } from "@eonasdan/tempus-dominus";
 import "@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css";
 import "select2/dist/js/select2.full.min.js";
 import "select2/dist/css/select2.min.css";
+
+import 'tom-select/dist/css/tom-select.css';
+import TomSelect from 'tom-select';
+
 window.Popper = Popper;
 window.TempusDominus = TempusDominus;
 window.$ = $;
 window.jQuery = $;
 window.Select2 = $.fn.select2;
+window.TomSelect = TomSelect;
 
 ```
 
 ___
 
 ## 🧩 Usage
+
+# TomSelect Component
+
+this is a plugin to replace Select2.js because its using vanilla JS doesn't depends on Jquery like select2 plugin
+in Blade view
+
+```blade
+<x-hwkui-tom-select
+    class="h-full"
+    wire:model="customer_id"
+    label="Customer"
+    placeholder="Select customer...">
+    
+    <!-- Default empty option -->
+    <option value="">Select Customer...</option>
+
+    <!-- Dynamic options -->
+    @foreach ($customers as $c)
+        <option value="{{ (string) $c->id }}" wire:key="{{ $c->id }}">
+            {{ $c->name }}
+        </option>
+    @endforeach
+
+</x-hwkui-tom-select>
+
+```
+You can pass additional TomSelect options via the data-options attribute:
+```blade
+<x-hwkui-tom-select
+    wire:model="customer_id"
+    label="Customer"
+    :options="['maxItems' => 3, 'create' => true,'plugins'=>['remove_button']]">
+</x-hwkui-tom-select>
+```
+
+more information about tomselect setup on [https://tom-select.js.org/]
 
 # Select2 Component
 

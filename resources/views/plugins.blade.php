@@ -4,7 +4,7 @@
 @endphp
 
 @foreach (config('hwkui.plugins') as $pluginName => $plugin)
-    @if (in_array($pluginName, $requiredPlugins))
+    @if ($plugin['active'] && in_array($pluginName, $requiredPlugins))
         @foreach ($plugin['files'] as $file)
             @php
                 if (!empty($file['asset'])) {

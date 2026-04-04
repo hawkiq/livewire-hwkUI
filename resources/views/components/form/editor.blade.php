@@ -17,15 +17,6 @@
     @assets
         @include('hwkui::plugins', ['type' => 'css'])
         @include('hwkui::plugins', ['type' => 'js'])
-        <style>
-            .dark .ql-toolbar .ql-stroke,
-            .dark .ql-toolbar .ql-fill,
-            .dark .ql-toolbar .ql-picker {
-                stroke: #bbb !important;
-                //fill: #bbb !important;
-                color: #bbb !important;
-            }
-        </style>
     @endassets
 
 @endonce

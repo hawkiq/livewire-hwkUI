@@ -105,6 +105,22 @@ return [
                 ],
             ],
         ],
+        'TomSelect' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdn.jsdelivr.net/npm/tom-select@2.5.2/dist/css/tom-select.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'defer' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/tom-select@2.5.2/dist/js/tom-select.complete.min.js',
+                ],
+            ],
+        ],
     ],
 
     /*

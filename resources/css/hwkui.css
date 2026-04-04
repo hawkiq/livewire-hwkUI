@@ -6,3 +6,155 @@
 @source inline("text-{white,black} dark:text-white");
 
 @source inline("flex flex-col items-center justify-center justify-between w-16 h-16 p-4 px-4 py-2 m-1 mb-1 rounded rounded-full shadow-md overflow-hidden relative text-3xl");
+
+/* TomSelect Custom Styles for Tailwind CSS Integration */
+.ts-wrapper.tom-select .ts-control {
+  @apply bg-white border-gray-300 text-gray-900 rounded-md transition-colors shadow-sm;
+  padding: 0.5rem 0.9rem;
+}
+
+.ts-wrapper.tom-select .ts-dropdown {
+  @apply bg-white border-gray-200 text-gray-900 shadow-xl rounded-md mt-1;
+}
+
+.ts-wrapper.tom-select .ts-dropdown .option {
+  @apply py-2 px-3;
+}
+
+.ts-wrapper.tom-select .ts-dropdown .active {
+  @apply bg-gray-100 text-gray-900;
+}
+
+/* 2. Dark Mode Overrides */
+html.dark .ts-wrapper.tom-select .ts-control {
+  @apply bg-gray-800 border-gray-600 text-gray-100;
+}
+
+html.dark .ts-wrapper.tom-select .ts-dropdown {
+  @apply bg-gray-800 border-gray-700 text-gray-100 shadow-2xl;
+}
+
+html.dark .ts-wrapper.tom-select .ts-dropdown .active {
+  @apply bg-gray-700 text-white;
+}
+
+/* 3. Handle the "Input" inside the control (Search text) */
+.ts-wrapper.tom-select .ts-control input {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+/* 4. Multi-select "Items" (the badges) */
+.ts-wrapper.multi .ts-control > div {
+  @apply bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded px-2 py-0.5 mr-1;
+}
+
+.ts-dropdown.tom-select,
+.ts-dropdown.plugin-dropdown_input {
+  background-color: #ffffff !important; /* bg-white */
+  @apply border border-gray-200 shadow-lg rounded-md;
+}
+
+/* 2. Global Dropdown Background (Dark Mode) */
+html.dark .ts-dropdown.tom-select,
+html.dark .ts-dropdown.plugin-dropdown_input,
+html.dark .ts-dropdown {
+  background-color: #1f2937 !important; /* bg-gray-800 */
+  color: #f3f4f6 !important; /* text-gray-100 */
+  @apply border-gray-700 shadow-2xl;
+}
+
+/* 3. Search Input Background inside the Dropdown */
+html.dark .ts-dropdown .dropdown-input-wrap input {
+  background-color: #111827 !important; /* bg-gray-900 */
+  color: #ffffff !important;
+  @apply border-gray-600;
+}
+
+/* 4. Active/Hover state in Dark Mode */
+html.dark .ts-dropdown .option.active {
+  background-color: #374151 !important; /* bg-gray-700 */
+  color: #ffffff !important;
+}
+
+/* Global Select2 Overrides */
+.select2-container--default .select2-selection--single {
+  height: 2.5rem !important;
+  padding: 0.33rem 1.2rem 0 1.2rem;
+  border-radius: 0.375rem;
+  border: 1px solid #9ca3af;
+  background-color: #ffffff;
+  color: #111827;
+}
+
+html.dark .select2-container--default .select2-selection--single {
+  background-color: oklch(37.3% 0.034 259.733);
+  color: #f9fafb;
+  border-color: #4b5563;
+}
+
+.select2-dropdown {
+  background-color: #f9fafb;
+  color: #111827;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  overflow: hidden;
+}
+
+html.dark .select2-dropdown {
+  background-color: #1f2937;
+  color: #f9fafb;
+  border-color: #4b5563;
+}
+
+.select2-results__option {
+  padding: 0.5rem 1rem;
+}
+
+.select2-results__option--highlighted {
+  background-color: #3b82f6;
+  color: white;
+}
+
+html.dark
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  color: #fff;
+  line-height: 28px;
+}
+
+html.dark
+  .select2-container--default
+  .select2-results__option[aria-selected="true"] {
+  background-color: #3b82f6;
+}
+
+html.dark
+  .select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice {
+  background-color: #1f2937;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  cursor: default;
+  float: left;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 0 5px;
+}
+
+html.dark .select2-container--default .select2-selection--multiple {
+  background-color: #364153;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  cursor: text;
+}
+
+/* Quill Editor Toolbar Customization for Dark Mode */
+.dark .ql-toolbar .ql-stroke,
+.dark .ql-toolbar .ql-fill,
+.dark .ql-toolbar .ql-picker {
+  stroke: #bbb !important;
+  fill: #bbb !important;
+  color: #bbb !important;
+}

@@ -1,0 +1,25 @@
+{
+    "name": "hawkiq/hwkui",
+    "description": "Widgets library for Laravel Livewire 3",
+    "license": "MIT",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Hawkiq\\Hwkui\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hawkiq\\Hwkui\\HwkuiServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "hawkiq",
+            "email": "info@osama.app"
+        }
+    ],
+    "minimum-stability": "stable"
+}

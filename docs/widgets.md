@@ -1,13 +1,13 @@
 # 🧩 Widgets
 
-# 📦 Card Widget
+## 📦 Card Widget
 A reusable friendly Card component built with Tailwind CSS v4, part of the hawkiq/hwkui widget library. It supports theme colors, outline and solid styles, optional icons, header tools, footer, and dark mode.
 
 ![Card Widget](assets/card-widget.PNG)
 
-## ✅ Basic Usage
+###  Basic Usage
 
-```blade
+```html
     <x-hwkui-card title="Users" icon="fas fa-users" theme="primary">
         Basic Card Usage
 
@@ -39,13 +39,13 @@ A reusable friendly Card component built with Tailwind CSS v4, part of the hawki
 
 ```
 
-# 📦 Info Box Widget
+## 📦 Info Box Widget
 For display small infos with icons or progress bar
 
 ![Info Box Widget](assets/info-box-widget.PNG)
-## ✅ Basic Usage
+###  Basic Usage
 
-```blade
+```html
     <x-hwkui-info-box title="Users" text="251" icon="fas fa-users" iconTheme="primary"
         description="251 Users Registered" url="https://osama.app" urlTarget="_blank" />
 
@@ -62,13 +62,13 @@ For display small infos with icons or progress bar
 
 ```
 
-# 📦 Small Box Widget
+## 📦 Small Box Widget
 For display one info with beautiful UI
 
 ![Info Box Widget](assets/small-box-widget.PNG)
-## ✅ Basic Usage
+### Basic Usage
 
-```blade
+```html
 
 <x-hwkui-small-box title="251" text="Users" icon="fas fa-users" theme="primary" url="https://osama.app"
             urlText="View all users" urlIcon="fas fa-link" />

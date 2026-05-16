@@ -16,10 +16,10 @@
     @endif
 
     <div class="relative">
-        <input id="hwkflat-{{ uniqid() }}" type="text"
+        <input id="{{ $attributes->get('id') }}" type="text"
             placeholder="{{ $hasPlaceholder ? $placeholder : 'Select Date and Time' }}"
             data-options='@json($options)'
-            {{ $attributes->merge(['class' => 'hwkflatpicker block w-full px-2 py-2 border rounded-2xl text-sm']) }}
+            {{ $attributes->merge(['class' => 'hwkflatpicker block w-full px-2 py-2 border rounded-md text-sm']) }}
             style="{{ $attributes->get('style') ?? '' }};" autocomplete="off" />
     </div>
 </div>
@@ -68,10 +68,7 @@
                         }
 
                         // Fix for modals / dialogs
-                        const modal = el.closest('dialog');
-                        if (modal) {
-                            options.appendTo = modal;
-                        }
+                        options.static = true;
 
                         const existingValue = el.value;
 

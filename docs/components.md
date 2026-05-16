@@ -253,7 +253,7 @@ Enable in Configuration
 <?php 
 
 'FlatPicker' => [
-    'active' => false,
+    'active' => true,
     'files' => [
         [
             'type' => 'css',
@@ -272,12 +272,12 @@ Enable in Configuration
 or use it via npm
 
 install
-```
+```bash
 npm install flatpickr
 ```
 edit `app.js`
 
-```
+```js  title="app.js" linenums="1"
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
@@ -291,7 +291,7 @@ in your blade use it like this
 
 ```html
 
- <x-hwkui-flat-picker  label="Flatpicker" placeholder="Select Date" wire:model="setDatetime" />
+<x-hwkui-flat-picker id="datetimePicker" label="Flatpicker" placeholder="Select Date" wire:model="setDatetime" />
 
 
 ```
@@ -324,7 +324,7 @@ to Override settings for individual instances using the `:options`  attribute:
 
 ```html
 
- <x-hwkui-flat-picker label="Select Date" placeholder="Select Date" wire:model="month"
+ <x-hwkui-flat-picker id="datetimePicker" label="Select Date" placeholder="Select Date" wire:model="month"
             :options="[
                 'enableTime' => false,
                 'dateFormat' => 'Y-m',
@@ -337,7 +337,7 @@ if you want to select only months you must
 
 edit app.js
 
-```
+```js  title="app.js" linenums="1"
 import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
 import "flatpickr/dist/plugins/monthSelect/style.css";
 
@@ -347,7 +347,9 @@ window.monthSelectPlugin = monthSelectPlugin;
 
 then pass it as `:options` argument
 
-```
+```php title="hwkui.php" linenums="1"
+<?php
+
 'plugins' => [
     [
         'type' => 'monthSelect',

@@ -14,7 +14,7 @@
         <link rel="prev" href="../installation/">
       
       
-        <link rel="next" href="../usage/">
+        <link rel="next" href="../components/">
       
       
         
@@ -460,14 +460,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../usage/" class="md-nav__link">
+      <a href="../components/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Usage
+    Components
   
 
     
@@ -806,46 +806,61 @@ https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js
 <p>Laravel will generate the full asset URL using <code>asset('vendor/hwkui/select2.min.css')</code>.</p>
 <hr />
 <h2 id="using-npm-assets-optional">🗂️ Using NPM Assets (Optional)</h2>
-<p>If you prefer using npm packages, you can disable the plugins in the config file (set to false) and install the required packages: 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>@popperjs/core<span class="w"> </span>@eonasdan/tempus-dominus
+<p>If you prefer using npm packages, you can disable the plugins in the config file (set to false) and install the required packages: </p>
+<div class="admonition note">
+<p class="admonition-title">install only the plugin you want to use </p>
+</div>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>@popperjs/core<span class="w"> </span>@eonasdan/tempus-dominus
 </span></code></pre></div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>jquery<span class="w"> </span>select2
 </span></code></pre></div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>tom-select
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>npm<span class="w"> </span>install<span class="w"> </span>flatpickr
 </span></code></pre></div></p>
 <p>These packages will be used for Datetime pickers, Select2, or TomSelect.</p>
 <p>Then, in your <code>app.js</code>, import the packages:</p>
-<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span>
-<span class="normal"><a href="#__codelineno-6-13">13</a></span>
-<span class="normal"><a href="#__codelineno-6-14">14</a></span>
-<span class="normal"><a href="#__codelineno-6-15">15</a></span>
-<span class="normal"><a href="#__codelineno-6-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">$</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;jquery&quot;</span><span class="p">;</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Popper</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@popperjs/core&quot;</span><span class="p">;</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TempusDominus</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@eonasdan/tempus-dominus&quot;</span><span class="p">;</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css&quot;</span><span class="p">;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;select2/dist/js/select2.full.min.js&quot;</span><span class="p">;</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;select2/dist/css/select2.min.css&quot;</span><span class="p">;</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;tom-select/dist/css/tom-select.css&#39;</span><span class="p">;</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="k">import</span><span class="w"> </span><span class="nx">TomSelect</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;tom-select&#39;</span><span class="p">;</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="nb">window</span><span class="p">.</span><span class="nx">Popper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Popper</span><span class="p">;</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="nb">window</span><span class="p">.</span><span class="nx">TempusDominus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TempusDominus</span><span class="p">;</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="nb">window</span><span class="p">.</span><span class="nx">$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">;</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">;</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="nb">window</span><span class="p">.</span><span class="nx">Select2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">select2</span><span class="p">;</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="nb">window</span><span class="p">.</span><span class="nx">TomSelect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TomSelect</span><span class="p">;</span>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">$</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;jquery&quot;</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Popper</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@popperjs/core&quot;</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TempusDominus</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@eonasdan/tempus-dominus&quot;</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css&quot;</span><span class="p">;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;select2/dist/js/select2.full.min.js&quot;</span><span class="p">;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;select2/dist/css/select2.min.css&quot;</span><span class="p">;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;tom-select/dist/css/tom-select.css&#39;</span><span class="p">;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="k">import</span><span class="w"> </span><span class="nx">TomSelect</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;tom-select&#39;</span><span class="p">;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="k">import</span><span class="w"> </span><span class="nx">flatpickr</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;flatpickr&quot;</span><span class="p">;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;flatpickr/dist/flatpickr.min.css&quot;</span><span class="p">;</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14"></a>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="nb">window</span><span class="p">.</span><span class="nx">Popper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Popper</span><span class="p">;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="nb">window</span><span class="p">.</span><span class="nx">TempusDominus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TempusDominus</span><span class="p">;</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="nb">window</span><span class="p">.</span><span class="nx">$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">;</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">;</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="nb">window</span><span class="p">.</span><span class="nx">Select2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">select2</span><span class="p">;</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="nb">window</span><span class="p">.</span><span class="nx">TomSelect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TomSelect</span><span class="p">;</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="nb">window</span><span class="p">.</span><span class="nx">flatpickr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">flatpickr</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 
 
@@ -893,13 +908,13 @@ https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js
         
         
           
-          <a href="../usage/" class="md-footer__link md-footer__link--next" aria-label="Next: Usage">
+          <a href="../components/" class="md-footer__link md-footer__link--next" aria-label="Next: Components">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Usage
+                Components
               </div>
             </div>
             <div class="md-footer__button md-icon">

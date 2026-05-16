@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://hawkiq.github.io/hwkui-docs/usage/">
+        <link rel="canonical" href="https://hawkiq.github.io/hwkui-docs/components/">
       
       
         <link rel="prev" href="../configuration/">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Usage - Livewire-hwkUI</title>
+        <title>Components - Livewire-hwkUI</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Usage
+              Components
             
           </span>
         </div>
@@ -357,7 +357,7 @@
   <span class="md-ellipsis">
     
   
-    Usage
+    Components
   
 
     
@@ -375,7 +375,7 @@
   <span class="md-ellipsis">
     
   
-    Usage
+    Components
   
 
     
@@ -506,6 +506,45 @@
     <span class="md-ellipsis">
       
         Toolbar Customization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flatpicker-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 FlatPicker Component
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 FlatPicker Component">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#override-options-per-component_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Override Options Per Component
       
     </span>
   </a>
@@ -765,6 +804,45 @@
     <span class="md-ellipsis">
       
         Toolbar Customization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flatpicker-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 FlatPicker Component
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 FlatPicker Component">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#override-options-per-component_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Override Options Per Component
       
     </span>
   </a>
@@ -1044,6 +1122,114 @@ In your <code>config/hwkui.php</code>, activate the editor plugin:</p>
 </span></code></pre></div>
 🔹 You can customize the toolbar using Quill toolbar options separated by |.</p>
 <hr />
+<h2 id="flatpicker-component">🧩 FlatPicker Component</h2>
+<p>This component provides an elegant datetime picker powered by FlatPickr, ready to use in your Laravel Livewire app with a clean, customizable Blade syntax.</p>
+<p>Enable in Configuration</p>
+<p><div class="language-php highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hwkui.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span>
+<span class="normal"><a href="#__codelineno-12-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">&lt;?php</span> 
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="s1">&#39;FlatPicker&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a>    <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a>    <span class="s1">&#39;files&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6"></a>        <span class="p">[</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7"></a>            <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;css&#39;</span><span class="p">,</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8"></a>            <span class="s1">&#39;asset&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9"></a>            <span class="s1">&#39;location&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;//cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css&#39;</span><span class="p">,</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10"></a>        <span class="p">],</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11"></a>        <span class="p">[</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12"></a>            <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;js&#39;</span><span class="p">,</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13"></a>            <span class="s1">&#39;asset&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14"></a>            <span class="s1">&#39;defer&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15"></a>            <span class="s1">&#39;location&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;//cdn.jsdelivr.net/npm/flatpickr&#39;</span><span class="p">,</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16"></a>        <span class="p">],</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17"></a>    <span class="p">],</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18"></a><span class="p">],</span>
+</span></code></pre></div></td></tr></table></div>
+or use it via npm</p>
+<p>install
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>npm install flatpickr
+</span></code></pre></div>
+edit <code>app.js</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>import flatpickr from &quot;flatpickr&quot;;
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>import &quot;flatpickr/dist/flatpickr.min.css&quot;;
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>window.flatpickr = flatpickr;
+</span></code></pre></div>
+<p>in your blade use it like this</p>
+<h3 id="basic-usage_2">Basic Usage</h3>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a> <span class="p">&lt;</span><span class="nt">x-hwkui-flat-picker</span>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Flatpicker&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;setDatetime&quot;</span> <span class="p">/&gt;</span>
+</span></code></pre></div>
+<p>You can configure default picker options globally in  <code>config/hwkui.php</code></p>
+<div class="language-php highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hwkui.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">&lt;?php</span> 
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="s1">&#39;flat-picker&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a>    <span class="s1">&#39;defaultOptions&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5"></a>        <span class="s1">&#39;enableTime&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6"></a>        <span class="s1">&#39;dateFormat&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Y-m-d H:i&#39;</span><span class="p">,</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7"></a>        <span class="s1">&#39;time_24hr&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8"></a>        <span class="s1">&#39;allowInput&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9"></a>        <span class="s1">&#39;altInput&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10"></a>        <span class="s1">&#39;altFormat&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Y-m-d H:i&#39;</span><span class="p">,</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11"></a>        <span class="s1">&#39;minuteIncrement&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12"></a>    <span class="p">]</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="p">],</span>
+</span></code></pre></div></td></tr></table></div>
+<p>You can explore all available options on the  <a href="https://flatpickr.js.org/options/">Options page</a> and see what you can add.</p>
+<h3 id="override-options-per-component_1">Override Options Per Component</h3>
+<p>to Override settings for individual instances using the <code>:options</code>  attribute:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a> <span class="p">&lt;</span><span class="nt">x-hwkui-flat-picker</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;month&quot;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>            <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="s">                &#39;enableTime&#39; =&gt; false,</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="s">                &#39;dateFormat&#39; =&gt; &#39;Y-m&#39;,</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="s">                &#39;altFormat&#39; =&gt; &#39;Y-m&#39;,</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="s">            ]&quot;</span> <span class="p">/&gt;</span>
+</span></code></pre></div>
+<p>if you want to select only months you must</p>
+<p>edit app.js</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>import monthSelectPlugin from &quot;flatpickr/dist/plugins/monthSelect&quot;;
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>import &quot;flatpickr/dist/plugins/monthSelect/style.css&quot;;
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>window.monthSelectPlugin = monthSelectPlugin;
+</span></code></pre></div>
+<p>then pass it as <code>:options</code> argument</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>&#39;plugins&#39; =&gt; [
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    [
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>        &#39;type&#39; =&gt; &#39;monthSelect&#39;,
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>        &#39;config&#39; =&gt; [
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>            &#39;shorthand&#39; =&gt; true,
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>            &#39;theme&#39; =&gt; &#39;dark&#39;,
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>        ],
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    ],
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>],
+</span></code></pre></div>
 
 
 

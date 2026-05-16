@@ -37,7 +37,7 @@ class SmallBox extends Component
 
     public function boxClasses(): string
     {
-        $base = 'relative rounded shadow-md p-4 overflow-hidden flex flex-col justify-between m-1';
+        $base = 'relative rounded-3xl shadow-md p-4 overflow-hidden flex flex-col justify-between m-1';
         $theme = $this->theme ? $this->bgColor() : 'bg-white dark:bg-zinc-700';
 
         return "$base $theme";

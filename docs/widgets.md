@@ -82,3 +82,20 @@ For display one info with beautiful UI
         <x-hwkui-small-box title="Downloads" text="1205" icon="fas fa-download" />
 
 ```
+
+## 📦 Glass Box Widget
+For display small infos with icons with Glass look 
+
+![Glass Box Widget](assets/glass-box-widget.PNG)
+###  Basic Usage
+
+```html
+     <x-hwkui-glass-box title="Downloads" value="251" icon="fa-download" href="/admin"
+            color="blue" />
+
+        <x-hwkui-glass-box title="Products" :value="700" icon="fa-cog" href="/admin" color="emerald" />
+
+        <x-hwkui-glass-box title="Categories" :value="30" icon="fa-list" href="/admin" color="amber" />
+
+```
+Supported colors names same as tailwind `(blue-amber-emerald-red-cyan-violet)`

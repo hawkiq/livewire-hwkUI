@@ -22,6 +22,7 @@ class HwkuiServiceProvider extends ServiceProvider
         'card' => Widget\Card::class,
         'info-box' => Widget\InfoBox::class,
         'small-box' => Widget\SmallBox::class,
+        'glass-box' => Widget\GlassBox::class,
     ];
 
     public function boot()

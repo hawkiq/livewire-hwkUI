@@ -88,6 +88,9 @@ Laravel will generate the full asset URL using `asset('vendor/hwkui/select2.min.
 ## 🗂️ Using NPM Assets (Optional)
 
 If you prefer using npm packages, you can disable the plugins in the config file (set to false) and install the required packages: 
+
+!!! note "install only the plugin you want to use "
+
 ```bash
  npm install @popperjs/core @eonasdan/tempus-dominus
 ```
@@ -96,6 +99,9 @@ If you prefer using npm packages, you can disable the plugins in the config file
 ```
 ```bash
  npm install tom-select
+```
+```bash
+npm install flatpickr
 ```
 
 These packages will be used for Datetime pickers, Select2, or TomSelect.
@@ -114,11 +120,16 @@ import "select2/dist/css/select2.min.css";
 import 'tom-select/dist/css/tom-select.css';
 import TomSelect from 'tom-select';
 
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+
+
 window.Popper = Popper;
 window.TempusDominus = TempusDominus;
 window.$ = $;
 window.jQuery = $;
 window.Select2 = $.fn.select2;
 window.TomSelect = TomSelect;
+window.flatpickr = flatpickr;
 
 ```

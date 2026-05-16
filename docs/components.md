@@ -241,3 +241,121 @@ Use the toolbar attribute to define your desired tools.
 🔹 You can customize the toolbar using Quill toolbar options separated by |.
 
 ---
+
+## 🧩 FlatPicker Component
+
+
+This component provides an elegant datetime picker powered by FlatPickr, ready to use in your Laravel Livewire app with a clean, customizable Blade syntax.
+
+Enable in Configuration
+
+```php  title="hwkui.php" linenums="1"
+<?php 
+
+'FlatPicker' => [
+    'active' => false,
+    'files' => [
+        [
+            'type' => 'css',
+            'asset' => false,
+            'location' => '//cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css',
+        ],
+        [
+            'type' => 'js',
+            'asset' => false,
+            'defer' => true,
+            'location' => '//cdn.jsdelivr.net/npm/flatpickr',
+        ],
+    ],
+],
+```
+or use it via npm
+
+install
+```
+npm install flatpickr
+```
+edit `app.js`
+
+```
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+
+window.flatpickr = flatpickr;
+
+```
+
+in your blade use it like this
+
+### Basic Usage
+
+```html
+
+ <x-hwkui-flat-picker  label="Flatpicker" placeholder="Select Date" wire:model="setDatetime" />
+
+
+```
+
+ You can configure default picker options globally in  `config/hwkui.php`
+
+```php  title="hwkui.php" linenums="1"
+<?php 
+
+'flat-picker' => [
+    'defaultOptions' => [
+        'enableTime' => true,
+        'dateFormat' => 'Y-m-d H:i',
+        'time_24hr' => true,
+        'allowInput' => false,
+        'altInput' => true,
+        'altFormat' => 'Y-m-d H:i',
+        'minuteIncrement' => 5,
+    ]
+],
+
+
+```
+
+You can explore all available options on the  [Options page](https://flatpickr.js.org/options/) and see what you can add.
+
+### Override Options Per Component
+
+to Override settings for individual instances using the `:options`  attribute:
+
+```html
+
+ <x-hwkui-flat-picker label="Select Date" placeholder="Select Date" wire:model="month"
+            :options="[
+                'enableTime' => false,
+                'dateFormat' => 'Y-m',
+                'altFormat' => 'Y-m',
+            ]" />
+
+```
+
+if you want to select only months you must
+
+edit app.js
+
+```
+import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
+import "flatpickr/dist/plugins/monthSelect/style.css";
+
+window.monthSelectPlugin = monthSelectPlugin;
+
+```
+
+then pass it as `:options` argument
+
+```
+'plugins' => [
+    [
+        'type' => 'monthSelect',
+        'config' => [
+            'shorthand' => true,
+            'theme' => 'dark',
+        ],
+    ],
+],
+
+```

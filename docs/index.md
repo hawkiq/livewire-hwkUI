@@ -10,7 +10,7 @@
 
 - [Installation](installation.md)
 - [Configuration](configuration.md)
-- [Usage](usage.md)
+- [Components](components.md)
 - [Widgets](widgets.md)
 - [Customization](customization.md)
 - [License](license.md)

@@ -121,6 +121,22 @@ return [
                 ],
             ],
         ],
+        'FlatPicker' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'defer' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/flatpickr',
+                ],
+            ],
+        ],
     ],
 
     /*
@@ -189,5 +205,25 @@ return [
             ['clean'],
         ],
         'defaultTheme' => 'snow',
+    ],
+    /*
+    |--------------------------------------------------------------------------
+    | Flat Picker Date Time Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here we can modify the flat picker configuration defaults.
+    | You can see full List of options can be used here: https://flatpickr.js.org/options/
+    |
+    */
+    'flat-picker' => [
+        'defaultOptions' => [
+            'enableTime' => true,
+            'dateFormat' => 'Y-m-d H:i',
+            'time_24hr' => true,
+            'allowInput' => false,
+            'altInput' => true,
+            'altFormat' => 'Y-m-d H:i',
+            'minuteIncrement' => 5,
+        ]
     ],
 ];

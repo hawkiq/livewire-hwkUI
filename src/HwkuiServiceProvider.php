@@ -16,6 +16,7 @@ class HwkuiServiceProvider extends ServiceProvider
         'datetime' => Form\Datetime::class,
         'editor' => Form\Editor::class,
         'tom-select' => Form\TomSelect::class,
+        'flat-picker' => Form\FlatPicker::class,
     ];
 
     protected $widgetComponents = [

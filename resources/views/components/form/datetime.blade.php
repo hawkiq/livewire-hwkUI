@@ -42,13 +42,25 @@
                 }
 
                 let options = el.dataset.options ? JSON.parse(el.dataset.options) : {};
-                // console.log("Initializing picker with:", options);
+
+                // To support FluxUI Modal
+                const modal = el.closest('dialog');
+
+                if (modal) {
+                    options.container = modal;
+                }else{
+                    options.container = el.parentElement;
+                }
                 el._td = new tempusDominus.TempusDominus(el, options);
                 el.addEventListener("change.td", e => {
-                    let modelName = el.getAttribute("wire:model");
-                    if (modelName && window.Livewire) {
-                        $wire.set(modelName, el.value);
-                    }
+                    const componentEl = el.closest('[wire\\:id]');
+                    if (!componentEl) return;
+                    const component = Livewire.find(componentEl.getAttribute('wire:id'));
+                    if (!component) return;
+                    const modelName = el.getAttribute("wire:model") || el.getAttribute(
+                        "wire:model.live");
+                    if (!modelName) return;
+                    component.set(modelName, el.value);
                 });
             });
         };

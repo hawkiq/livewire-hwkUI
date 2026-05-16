@@ -158,3 +158,8 @@ html.dark .select2-container--default .select2-selection--multiple {
   fill: #bbb !important;
   color: #bbb !important;
 }
+
+.flatpickr-wrapper {
+    width: 100% !important;
+    display: block;
+}

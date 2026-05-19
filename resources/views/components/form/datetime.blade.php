@@ -16,7 +16,7 @@
     @endif
 
     <div wire:ignore class="relative">
-        <input id="{{ $attributes->get('id') }}" type="text" placeholder="{{ $hasPlaceholder ? $placeholder : 'Select Date and Time' }}"
+        <input id="hwkdt-{{ uniqid() }}" type="text" placeholder="{{ $hasPlaceholder ? $placeholder : 'Select Date and Time' }}"
             data-options='@json($options)'
             {{ $attributes->merge(['class' => 'hwkdtpicker block w-full px-2 py-2 border rounded text-sm']) }}
             style="{{ $attributes->get('style') ?? '' }};" autocomplete="off" />
@@ -63,7 +63,7 @@
                 el._td = new tempusDominus.TempusDominus(el, options);
 
                 if (el._tdChangeHandler) {
-                    el.removeEventListener("change.td", el._tdChangeHandler);
+                    el.removeEventListener("hide.td", el._tdChangeHandler);
                 }
 
                 el._tdChangeHandler = function() {
@@ -87,7 +87,7 @@
                     component.set(modelName, el.value);
                 };
 
-                el.addEventListener("change.td", el._tdChangeHandler);
+                el.addEventListener("hide.td", el._tdChangeHandler);
             });
         };
 

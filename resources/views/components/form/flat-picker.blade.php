@@ -70,7 +70,7 @@
                         options.static = true;
                         options.disableMobile = true;
 
-                        options.onChange = function(selectedDates, dateStr) {
+                        options.onClose = function(selectedDates, dateStr) {
                             const componentEl = el.closest('[wire\\:id]');
                             if (!componentEl) return;
 

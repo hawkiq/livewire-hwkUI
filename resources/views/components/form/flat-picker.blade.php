@@ -15,7 +15,7 @@
         </label>
     @endif
 
-    <div class="relative">
+    <div wire:ignore class="relative">
         <input id="{{ $attributes->get('id') }}" type="text"
             placeholder="{{ $hasPlaceholder ? $placeholder : 'Select Date and Time' }}"
             data-options='@json($options)'
@@ -38,13 +38,12 @@
 
             window.HwkFlatPickerBooted = true;
             window.HwkFlatPicker = {
-                instances: new WeakMap(),
 
                 init(root = document) {
                     root.querySelectorAll('.hwkflatpicker').forEach((el) => {
 
-                        if (this.instances.has(el)) {
-                            return;
+                        if (el._flatpickr) {
+                            el._flatpickr.destroy();
                         }
 
                         let options = {};
@@ -69,19 +68,9 @@
 
                         // Fix for modals / dialogs
                         options.static = true;
+                        options.disableMobile = true;
 
-                        const existingValue = el.value;
-
-                        const fp = flatpickr(el, options);
-
-                        this.instances.set(el, fp);
-
-                        if (existingValue) {
-                            fp.setDate(existingValue, true);
-                        }
-
-                        // Livewire sync
-                        el.addEventListener("change", () => {
+                        options.onChange = function(selectedDates, dateStr) {
                             const componentEl = el.closest('[wire\\:id]');
                             if (!componentEl) return;
 
@@ -94,19 +83,21 @@
 
                             if (!model) return;
 
-                            component.set(model, el.value);
-                        });
-                    });
-                },
+                            component.set(model, dateStr);
+                        };
+                        const existingValue = el.value;
 
-                destroy(root = document) {
-                    root.querySelectorAll('.hwkflatpicker').forEach((el) => {
-                        if (this.instances.has(el)) {
-                            this.instances.get(el).destroy();
-                            this.instances.delete(el);
+                        const fp = flatpickr(el, options);
+
+                        if (existingValue) {
+                            try {
+                                fp.setDate(existingValue, false);
+                            } catch (e) {
+                                console.warn('Invalid flatpickr date:', existingValue);
+                            }
                         }
                     });
-                }
+                },
             };
 
             document.addEventListener("livewire:init", () => {
@@ -121,12 +112,8 @@
                 HwkFlatPicker.init();
             });
 
-            Livewire.hook("morphed", () => {
-                HwkFlatPicker.init();
-            });
-
-            Livewire.hook("message.processed", () => {
-                HwkFlatPicker.init();
+            Livewire.hook('morphed', ({el}) => {
+                HwkFlatPicker.init(el);
             });
         }
     </script>

@@ -15,8 +15,8 @@
         </label>
     @endif
 
-    <div class="relative">
-        <input id="hwkdt-{{ uniqid() }}" type="text" placeholder="{{ $hasPlaceholder ? $placeholder : 'Select Date and Time' }}"
+    <div wire:ignore class="relative">
+        <input id="{{ $attributes->get('id') }}" type="text" placeholder="{{ $hasPlaceholder ? $placeholder : 'Select Date and Time' }}"
             data-options='@json($options)'
             {{ $attributes->merge(['class' => 'hwkdtpicker block w-full px-2 py-2 border rounded text-sm']) }}
             style="{{ $attributes->get('style') ?? '' }};" autocomplete="off" />
@@ -33,42 +33,63 @@
 
 @script
     <script>
-        window.initPickers = function() {
-            document.querySelectorAll('.hwkdtpicker').forEach(el => {
-
+    if (!window.HwkDatetimeBooted) {
+        window.HwkDatetimeBooted = true;
+        window.initPickers = function(root = document) {
+            root.querySelectorAll('.hwkdtpicker').forEach(el => {
                 if (el._td) {
                     el._td.dispose();
                     el._td = null;
                 }
 
-                let options = el.dataset.options ? JSON.parse(el.dataset.options) : {};
+                let options = {};
+                try {
+                    options = el.dataset.options
+                        ? JSON.parse(el.dataset.options)
+                        : {};
+                } catch (e) {
+                    console.warn('TempusDominus options invalid JSON:', e);
+                }
 
-                // To support FluxUI Modal
+                // Modal support
                 const modal = el.closest('dialog');
 
                 if (modal) {
                     options.container = modal;
-                }else{
+                } else {
                     options.container = el.parentElement;
                 }
+
                 el._td = new tempusDominus.TempusDominus(el, options);
-                el.addEventListener("change.td", e => {
+
+                if (el._tdChangeHandler) {
+                    el.removeEventListener("change.td", el._tdChangeHandler);
+                }
+
+                el._tdChangeHandler = function() {
+
                     const componentEl = el.closest('[wire\\:id]');
                     if (!componentEl) return;
-                    const component = Livewire.find(componentEl.getAttribute('wire:id'));
+
+                    const component = Livewire.find(
+                        componentEl.getAttribute('wire:id')
+                    );
                     if (!component) return;
-                    const modelName = el.getAttribute("wire:model") || el.getAttribute(
-                        "wire:model.live");
+                    const modelName =
+                        el.getAttribute("wire:model") ||
+                        el.getAttribute("wire:model.live");
+
                     if (!modelName) return;
+
+                    if (component.get(modelName) === el.value) {
+                        return;
+                    }
                     component.set(modelName, el.value);
-                });
+                };
+
+                el.addEventListener("change.td", el._tdChangeHandler);
             });
         };
-
-
-        document.addEventListener("livewire:init", () => {
-            initPickers();
-        });
 
         document.addEventListener("DOMContentLoaded", () => {
             initPickers();
@@ -78,8 +99,9 @@
             initPickers();
         });
 
-        Livewire.hook("morphed", () => {
-            initPickers();
+        Livewire.hook('morphed', ({ el }) => {
+            initPickers(el);
         });
-    </script>
+    }
+</script>
 @endscript

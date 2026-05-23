@@ -610,15 +610,18 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>composer<span class="w"> </span>require<span class="w"> </span>hawkiq/hwkui
 </span></code></pre></div>
 <h2 id="publish-assets">🚀   Publish Assets</h2>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>vendor:publish<span class="w"> </span>--tag<span class="o">=</span>hwkui-assets
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>vendor:publish<span class="w"> </span>--tag<span class="o">=</span>hwkui-assets
 </span></code></pre></div>
-this will publish file <code>hwkui.css</code> to <code>resources/css/</code> needed to correct style widgets</p>
+<p>If you updated the package you must force </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>vendor:publish<span class="w"> </span>--tag<span class="o">=</span>hwkui-assets<span class="w"> </span>--force
+</span></code></pre></div>
+<p>this will publish file <code>hwkui.css</code> to <code>resources/css/</code> needed to correct style widgets</p>
 <p>add this line to <code>app.css</code> after <code>@import "tailwindcss";</code></p>
-<div class="language-css highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s1">&#39;./hwkui.css&#39;</span><span class="p">;</span>
+<div class="language-css highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s1">&#39;./hwkui.css&#39;</span><span class="p">;</span>
 </span></code></pre></div>
 <h2 id="update">🚀 Update</h2>
 <p>if you want to update use 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>composer<span class="w"> </span>update<span class="w"> </span>hawkiq/hwkui
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>composer<span class="w"> </span>update<span class="w"> </span>hawkiq/hwkui
 </span></code></pre></div></p>
 
 

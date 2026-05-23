@@ -8,7 +8,7 @@
     $toolbarArray = !is_null($toolbar) && $customToolbar->isNotEmpty() ? [$customToolbar->toArray()] : $defaultToolbar;
 @endphp
 
-<div wire:ignore id="{{ $id }}" data-model="{{ $model }}" data-theme="{{ $theme }}"
+<div wire:ignore.self id="{{ $id }}" data-model="{{ $model }}" data-theme="{{ $theme }}"
     data-toolbar='@json($toolbarArray)' class="hwkui-quill-wrapper">
     <div class="quill-editor"></div>
 </div>
@@ -24,49 +24,81 @@
 
 @script
     <script>
-        window.initEditor = function() {
-            document.querySelectorAll('.hwkui-quill-wrapper').forEach(wrapper => {
-                if (wrapper.dataset.initialized) return;
+        if (!window.HwkEditorBooted) {
 
-                const theme = wrapper.dataset.theme || config('hwkui.editor.defaultTheme', 'snow');
-                const model = wrapper.dataset.model;
-                const toolbar = JSON.parse(wrapper.dataset.toolbar || '[]');
-                const editorEl = wrapper.querySelector('.quill-editor');
-                const quill = new Quill(editorEl, {
-                    theme: theme,
-                    modules: {
-                        toolbar: toolbar
-                    }
-                });
+            window.HwkEditorBooted = true;
 
-                wrapper.dataset.initialized = true;
+            window.HwkEditor = {
 
-                const component = Livewire.find(wrapper.closest('[wire\\:id]')?.getAttribute('wire:id'));
-                if (!component || !model) return;
+                init(scope = document) {
 
-                const value = component.$wire?.get?.(model) ?? '';
-                quill.root.innerHTML = value;
-                quill.on('text-change', () => {
-                    const html = quill.root.innerHTML;
-                    component.set(model, html);
-                });
+                    const wrappers = scope.classList?.contains('hwkui-quill-wrapper') ?
+                        [scope] :
+                        scope.querySelectorAll('.hwkui-quill-wrapper');
+
+                    wrappers.forEach(wrapper => {
+
+                        const editorEl = wrapper.querySelector('.quill-editor');
+                        if (!editorEl) return;
+
+                        const model = wrapper.dataset.model;
+                        if (!model) return;
+
+                        const componentEl = wrapper.closest('[wire\\:id]');
+                        if (!componentEl) return;
+
+                        const component = Livewire.find(
+                            componentEl.getAttribute('wire:id')
+                        );
+
+                        if (!component) return;
+                        let value = component.get(model) ?? '';
+                        if (wrapper.__quill) {
+                            wrapper.__quill.off('text-change');
+                            wrapper.__quill = null;
+                            editorEl.innerHTML = '';
+                        }
+
+                        wrapper.querySelectorAll('.ql-toolbar').forEach(el => el.remove());
+
+                        let toolbar = [];
+
+                        try {
+                            toolbar = JSON.parse(wrapper.dataset.toolbar || '[]');
+                        } catch (e) {
+                            console.warn('Invalid toolbar JSON', e);
+                        }
+
+                        const theme = wrapper.dataset.theme || 'snow';
+                        const quill = new Quill(editorEl, {
+                            theme,
+                            modules: {
+                                toolbar
+                            }
+                        });
+
+                        wrapper.__quill = quill;
+
+                        if (value) {
+                            quill.root.innerHTML = value;
+                        }
+
+                        quill.on('text-change', () => {
+                            component.set(model, quill.root.innerHTML);
+                        });
+                    });
+                }
+            };
+
+            document.addEventListener("livewire:init", () => HwkEditor.init());
+            document.addEventListener("DOMContentLoaded", () => HwkEditor.init());
+            document.addEventListener("livewire:navigated", () => HwkEditor.init());
+
+            Livewire.hook("morphed", ({
+                el
+            }) => {
+                HwkEditor.init(el);
             });
         }
-
-        document.addEventListener("livewire:init", () => {
-            initEditor();
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            initEditor();
-        });
-
-        document.addEventListener("livewire:navigated", () => {
-            initEditor();
-        });
-
-        Livewire.hook("morphed", () => {
-            initEditor();
-        });
     </script>
 @endscript

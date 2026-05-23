@@ -8,20 +8,21 @@
     \Hawkiq\Hwkui\Helpers\PluginLoader::require('TomSelect');
 @endphp
 
-<div wire:ignore {{ $attributes->except(['class', 'style'])->merge(['class' => 'w-full'])->only('style') }}>
+<div {{ $attributes->except(['class', 'style'])->merge(['class' => 'w-full'])->only('style') }}>
     @if ($hasLabel)
         <label for="{{ $attributes->get('id') }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             {{ $label }}
         </label>
     @endif
-
-    <select {{ $attributes->merge(['class' => 'tom-select block w-full']) }} data-options='@json($options)'
-        style="{{ $attributes->get('style') ?? '' }}">
-        @if ($placeholder)
-            <option value="">{{ $placeholder }}</option>
-        @endif
-        {{ $slot }}
-    </select>
+    <div wire:ignore class="relative">
+        <select {{ $attributes->merge(['class' => 'tom-select block w-full']) }}
+            data-options='@json($options)' style="{{ $attributes->get('style') ?? '' }}">
+            @if ($placeholder)
+                <option value="">{{ $placeholder }}</option>
+            @endif
+            {{ $slot }}
+        </select>
+    </div>
 </div>
 
 @once
@@ -33,61 +34,108 @@
 
 @script
     <script>
-        window.initTomSelect = function(scope = document) {
-            const targets = scope.classList?.contains('tom-select') ?
-                [scope] :
-                scope.querySelectorAll('.tom-select');
+        if (!window.HwkTomSelectBooted) {
 
-            targets.forEach(el => {
-                if (el.tomselect) {
-                    return;
-                }
+            window.HwkTomSelectBooted = true;
 
-                try {
-                    const userOptions = el.dataset.options ? JSON.parse(el.dataset.options) : {};
+            window.HwkTomSelect = {
 
-                    const config = {
-                        allowEmptyOption: true,
-                        create: false,
-                        plugins: ['dropdown_input'],
-                        dropdownParent: 'body',
-                        ...userOptions,
-                        render: {
-                            option: function(data, escape) {
-                                if (data.value === undefined || data.value === null)
-                                return '<div></div>';
-                                return `<div>${escape(data.text)}</div>`;
-                            },
-                            item: function(data, escape) {
-                                if (data.value === undefined || data.value === null)
-                                return '<div></div>';
-                                return `<div>${escape(data.text)}</div>`;
-                            }
+                init(scope = document) {
+
+                    const targets = scope.classList?.contains('tom-select') ? [scope] :
+                        scope.querySelectorAll('.tom-select');
+
+                    targets.forEach(el => {
+
+                        let currentValue = null;
+
+                        if (el.tomselect) {
+                            currentValue = el.tomselect.getValue();
+                            el.tomselect.destroy();
                         }
-                    };
 
-                    el.tomselect = new TomSelect(el, config);
-                } catch (e) {
-                    console.error("TomSelect init failed:", e);
+                        try {
+
+                            const userOptions = el.dataset.options ?
+                                JSON.parse(el.dataset.options) : {};
+
+                            const config = {
+                                allowEmptyOption: true,
+                                create: false,
+                                plugins: ['dropdown_input'],
+                                dropdownParent: 'body',
+                                ...userOptions,
+
+                                render: {
+                                    option: function(data, escape) {
+                                        if (data.value === undefined || data.value === null)
+                                            return '<div></div>';
+
+                                        return `<div>${escape(data.text)}</div>`;
+                                    },
+
+                                    item: function(data, escape) {
+                                        if (data.value === undefined || data.value === null)
+                                            return '<div></div>';
+
+                                        return `<div>${escape(data.text)}</div>`;
+                                    }
+                                }
+                            };
+
+                            const ts = new TomSelect(el, config);
+                            if (currentValue !== null) {
+                                ts.setValue(currentValue, true);
+                            }
+                            const modelName =
+                                el.getAttribute('wire:model') ||
+                                el.getAttribute('wire:model.live');
+
+                            if (modelName) {
+
+                                ts.on('change', value => {
+
+                                    if (typeof value === 'undefined') {
+                                        return;
+                                    }
+
+                                    const componentEl = el.closest('[wire\\:id]');
+                                    if (!componentEl) return;
+
+                                    const component = Livewire.find(
+                                        componentEl.getAttribute('wire:id')
+                                    );
+
+                                    if (!component) return;
+
+                                    component.set(modelName, value);
+                                });
+                            }
+
+                        } catch (e) {
+                            console.error('TomSelect init failed:', e);
+                        }
+                    });
                 }
+            };
 
-                const modelName = el.getAttribute('wire:model') || el.getAttribute('wire:model.live');
-                if (!modelName) return;
-
-                el.tomselect.on('change', value => {
-                    if (typeof value === 'undefined') return;
-                    $wire.$set(modelName, value);
-                });
+            document.addEventListener('livewire:init', () => {
+                HwkTomSelect.init();
             });
-        };
 
-        document.addEventListener('livewire:initialized', () => {
-            window.initTomSelect();
-            Livewire.hook('morph.updated', ({
+            document.addEventListener('DOMContentLoaded', () => {
+                HwkTomSelect.init();
+            });
+
+            document.addEventListener('livewire:navigated', () => {
+                HwkTomSelect.init();
+            });
+
+            Livewire.hook('morphed', ({
                 el
             }) => {
-                window.initTomSelect(el);
+                HwkTomSelect.init(el);
             });
-        });
+        }
     </script>
 @endscript

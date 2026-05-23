@@ -48,6 +48,10 @@
 
                         let options = {};
 
+                        // Fix for modals / dialogs
+                        options.static = true;
+                        options.disableMobile = true;
+
                         try {
                             options = el.dataset.options ?
                                 JSON.parse(el.dataset.options) : {};
@@ -66,9 +70,6 @@
                             });
                         }
 
-                        // Fix for modals / dialogs
-                        options.static = true;
-                        options.disableMobile = true;
 
                         options.onClose = function(selectedDates, dateStr) {
                             const componentEl = el.closest('[wire\\:id]');

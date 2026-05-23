@@ -9,6 +9,13 @@ composer require hawkiq/hwkui
 ```bash
 php artisan vendor:publish --tag=hwkui-assets
 ```
+
+If you updated the package you must force 
+
+```bash
+php artisan vendor:publish --tag=hwkui-assets --force
+```
+
 this will publish file `hwkui.css` to `resources/css/` needed to correct style widgets
 
 add this line to `app.css` after `@import "tailwindcss";`

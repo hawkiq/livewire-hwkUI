@@ -14,7 +14,7 @@ return [
 
     'plugins' => [
         'Jquery' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
@@ -24,7 +24,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'css',
@@ -40,7 +40,7 @@ return [
             ],
         ],
         'Datetime' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'css',
@@ -90,7 +90,7 @@ return [
             ],
         ],
         'Editor' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'css',
@@ -106,7 +106,7 @@ return [
             ],
         ],
         'TomSelect' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'css',

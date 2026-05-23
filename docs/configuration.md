@@ -1,5 +1,5 @@
 # ⚙️ Configuration
-The config file `config/hwkui.php` defines which JS/CSS plugins to load and whether to use CDN or local assets.
+The config file `config/hwkui.php` defines which JS/CSS plugins to load and whether to use CDN or local assets or change default components options.
 
 ### 1. Publish the Config File
 
@@ -7,17 +7,89 @@ The config file `config/hwkui.php` defines which JS/CSS plugins to load and whet
 php artisan vendor:publish --tag=hwkui-config
 ```
 
-This will create `config/hwkui.php`.
+If you published configs before and you updated the package you can force 
 
-## 🗂️ Using CDN (Default)
-By default, hwkUI uses CDN links for plugins like jQuery, Select2, and DataTables.
+```bash
+php artisan vendor:publish --tag=hwkui-config --force
+```
+
+This will create or update `config/hwkui.php`.
+
+---
+
+!!! warning "Important before use "
+
+    Components packages must be installed or imported in order to make them works, and you have 3 ways to use them, and you are free to choose whatever suits you ( Choose one only )
+
+## 🗂️ Using NPM Assets
+
+If you prefer using npm packages, you can disable the plugins in the config file (set to false) and install the required packages: 
+
+!!! note "install only the plugin you want to use "
+
+```bash
+npm install tom-select
+```
+```bash
+npm install flatpickr
+```
+
+```bash
+npm install @popperjs/core @eonasdan/tempus-dominus
+```
+```bash
+npm install jquery select2
+```
+
+
+Then, in your `app.js`, import the packages:
+
+```js title="app.js" linenums="1"
+
+// For select and jquery component
+import $ from "jquery";
+import "select2/dist/js/select2.full.min.js";
+import "select2/dist/css/select2.min.css";
+window.$ = $;
+window.jQuery = $;
+window.Select2 = $.fn.select2;
+
+// For datetime picker from tempus-dominus ( this is abandond now no new releases)
+import * as Popper from "@popperjs/core";
+import { TempusDominus } from "@eonasdan/tempus-dominus";
+import "@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css";
+window.Popper = Popper;
+//use this if you used cdn assets
+window.tempusDominus = TempusDominus;
+// or use this if you used npm
+window.tempusDominus = {
+    TempusDominus,
+};
+
+// For Tom select picker which is doesn't require jquery
+import 'tom-select/dist/css/tom-select.css';
+import TomSelect from 'tom-select';
+window.TomSelect = TomSelect;
+
+// For FlatPickr datetime picker ( replacment for tempus-dominus) 
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
+import "flatpickr/dist/plugins/monthSelect/style.css";
+window.flatpickr = flatpickr;
+window.monthSelectPlugin = monthSelectPlugin;
+
+```
+
+## 🗂️ Using CDN
+hwkUI uses CDN links for plugins like jQuery, Select2, and DataTables etc...
 
 Example from `config/hwkui.php`:
 
 ```php title="hwkui.php" linenums="1"
 <?php
 'Select2' => [
-    'active' => true,
+    'active' => true, // set active to true to use CDN
     'files' => [
         [
             'type' => 'css',
@@ -66,12 +138,12 @@ Change asset => true and point to your local file path:
     'files' => [
         [
             'type' => 'css',
-            'asset' => true,
+            'asset' => true, // Set to true to use self hosted
             'location' => 'vendor/hwkui/select2.min.css',
         ],
         [
             'type' => 'js',
-            'asset' => true,
+            'asset' => true, // Set to true to use self hosted
             'location' => 'vendor/hwkui/select2.min.js',
         ],
     ],
@@ -85,51 +157,3 @@ Laravel will generate the full asset URL using `asset('vendor/hwkui/select2.min.
 
 ---
 
-## 🗂️ Using NPM Assets (Optional)
-
-If you prefer using npm packages, you can disable the plugins in the config file (set to false) and install the required packages: 
-
-!!! note "install only the plugin you want to use "
-
-```bash
- npm install @popperjs/core @eonasdan/tempus-dominus
-```
-```bash
- npm install jquery select2
-```
-```bash
- npm install tom-select
-```
-```bash
-npm install flatpickr
-```
-
-These packages will be used for Datetime pickers, Select2, or TomSelect.
-
-Then, in your `app.js`, import the packages:
-
-```js title="app.js" linenums="1"
-
-import $ from "jquery";
-import * as Popper from "@popperjs/core";
-import { TempusDominus } from "@eonasdan/tempus-dominus";
-import "@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css";
-import "select2/dist/js/select2.full.min.js";
-import "select2/dist/css/select2.min.css";
-
-import 'tom-select/dist/css/tom-select.css';
-import TomSelect from 'tom-select';
-
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
-
-
-window.Popper = Popper;
-window.TempusDominus = TempusDominus;
-window.$ = $;
-window.jQuery = $;
-window.Select2 = $.fn.select2;
-window.TomSelect = TomSelect;
-window.flatpickr = flatpickr;
-
-```

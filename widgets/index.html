@@ -539,6 +539,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#timeline-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Timeline Widget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Timeline Widget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component API Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-color-themes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Color Themes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -766,6 +816,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#timeline-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Timeline Widget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Timeline Widget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component API Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-color-themes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Color Themes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -865,6 +965,152 @@
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="p">&lt;</span><span class="nt">x-hwkui-glass-box</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;Categories&quot;</span> <span class="na">:value</span><span class="o">=</span><span class="s">&quot;30&quot;</span> <span class="na">icon</span><span class="o">=</span><span class="s">&quot;fa-list&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/admin&quot;</span> <span class="na">color</span><span class="o">=</span><span class="s">&quot;amber&quot;</span> <span class="p">/&gt;</span>
 </span></code></pre></div>
 Supported colors names same as tailwind <code>(blue-amber-emerald-red-cyan-violet)</code></p>
+<hr />
+<h2 id="timeline-widget">📦 Timeline Widget</h2>
+<p>A versatile, highly configurable, dynamic timeline component for Laravel Blade applications built with Tailwind CSS. It supports vertical/horizontal flows, automated collection mapping, and complete granular slot overrides.</p>
+<p><img alt="Timeline Widget" src="../assets/timeline-widget.PNG" /></p>
+<hr />
+<h3 id="component-api-reference">Component API Reference</h3>
+<p><code>&lt;x-hwkui-timeline.timeline&gt;</code>
+The main layout wrapper that handles orientation and sets the global design context.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribute</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>items</code></td>
+<td style="text-align: left;"><code>Collection\|array\|null</code></td>
+<td style="text-align: left;"><code>null</code></td>
+<td style="text-align: left;">Passing data into this unlocks automated loop mapping.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>title-column</code></td>
+<td style="text-align: left;"><code>string\|null</code></td>
+<td style="text-align: left;"><code>null</code></td>
+<td style="text-align: left;">Key name to fetch the title from items.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>body-column</code></td>
+<td style="text-align: left;"><code>string\|null</code></td>
+<td style="text-align: left;"><code>null</code></td>
+<td style="text-align: left;">Key name to fetch description body from items.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>direction</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"><code>'vertical'</code></td>
+<td style="text-align: left;"><code>'vertical'</code> or <code>'horizontal'</code> structural rendering.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"><code>'primary'</code></td>
+<td style="text-align: left;">Sets global theme color for indicators and lines.</td>
+</tr>
+</tbody>
+</table>
+<p><code>&lt;x-hwkui-timeline.indicator&gt;</code>
+The timeline hub point containing indicators and dynamic milestone bridge lines.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribute</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>variant</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"><code>'solid'</code></td>
+<td style="text-align: left;"><code>'solid'</code> (filled badge background) or <code>'borderless'</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>state</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"><code>'completed'</code></td>
+<td style="text-align: left;">Passing <code>'last'</code> breaks structural tracking and safely terminates lines.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>string\|null</code></td>
+<td style="text-align: left;"><code>null</code></td>
+<td style="text-align: left;">Pulls context theme; passing values explicitly overrides individual instances.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="supported-color-themes">Supported Color Themes</h3>
+<p>Your system comes with modern built-in palettes. Customizing colors sets consistent backgrounds, boundaries, and texts:</p>
+<ul>
+<li><code>primary</code> (🔵)</li>
+<li><code>success</code> (🟢)</li>
+<li><code>danger</code> (🔴)</li>
+<li><code>warning</code> (🟡)</li>
+<li><code>pink</code>  (🌸)</li>
+<li><code>violet</code>  (🟣)</li>
+<li><code>gray</code>  (⚫)</li>
+<li><code>emerald</code>  (💚)</li>
+<li><code>sky</code>  (🌐)</li>
+<li><code>dark</code>  (🌗) (Automatic Light-to-Dark inversion support using standard class</li>
+</ul>
+<hr />
+<h3 id="basic-usage_4">Basic Usage</h3>
+<ul>
+<li>Simple Version (Automated Collection Rendering)
+When you pass an absolute collection data object into the <code>:items</code> array attribute, the timeline component handles all inner loops, mapping, checkmark icon injections, and terminates trailing lines flawlessly without extra layout markup.</li>
+</ul>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-timeline.timeline</span> 
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="na">:items</span><span class="o">=</span><span class="s">&quot;$users&quot;</span> 
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="na">title-column</span><span class="o">=</span><span class="s">&quot;name&quot;</span> 
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="na">body-column</span><span class="o">=</span><span class="s">&quot;email&quot;</span> 
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="na">direction</span><span class="o">=</span><span class="s">&quot;horizontal&quot;</span> 
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="na">color</span><span class="o">=</span><span class="s">&quot;success&quot;</span> 
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">/&gt;</span>
+</span></code></pre></div>
+<ul>
+<li>Customized Version</li>
+</ul>
+<p>For granular layouts, omit the <code>:items</code> attribute. You gain full creative authority to use conditional blade assertions inside, modify individual milestone theme colors, toggle distinct custom icons, or switch presentation variants.</p>
+<div class="admonition warning">
+<p class="admonition-title">Crucial Rule for Manual Loops</p>
+<p>You must provide :state="$loop-&gt;last ? 'last' : 'completed'" or state="last" to your inner indicator so that the trailing line safely clips off at the end of your tracking row!</p>
+</div>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-timeline.timeline</span> <span class="na">direction</span><span class="o">=</span><span class="s">&quot;vertical&quot;</span> <span class="na">color</span><span class="o">=</span><span class="s">&quot;primary&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    @foreach ($users as $user)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="p">&lt;</span><span class="nt">x-hwkui-timeline.item</span><span class="p">&gt;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>            <span class="p">&lt;</span><span class="nt">x-hwkui-timeline.indicator</span> 
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>                <span class="na">:state</span><span class="o">=</span><span class="s">&quot;$loop-&gt;last ? &#39;last&#39; : &#39;completed&#39;&quot;</span> 
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>                <span class="na">:color</span><span class="o">=</span><span class="s">&quot;$user-&gt;hasRole(&#39;admin&#39;) ? &#39;danger&#39; : null&quot;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>                <span class="na">variant</span><span class="o">=</span><span class="s">&quot;solid&quot;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>            <span class="p">&gt;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>                <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fas fa-{{ $user-&gt;hasRole(&#39;admin&#39;) ? &#39;shield-alt&#39; : &#39;user&#39; }}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>            <span class="p">&lt;/</span><span class="nt">x-hwkui-timeline.indicator</span><span class="p">&gt;</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>            <span class="p">&lt;</span><span class="nt">x-hwkui-timeline.content</span><span class="p">&gt;</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>                <span class="p">&lt;</span><span class="nt">x-hwkui-timeline.title</span><span class="p">&gt;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>                    {{ $user-&gt;name }} 
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>                    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-xs text-gray-400&quot;</span><span class="p">&gt;</span>({{ $user-&gt;username }})<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>                <span class="p">&lt;/</span><span class="nt">x-hwkui-timeline.title</span><span class="p">&gt;</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>                <span class="p">&lt;</span><span class="nt">x-hwkui-timeline.body</span><span class="p">&gt;</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>                    {{ $user-&gt;roles-&gt;pluck(&#39;display_name&#39;)-&gt;join(&#39;, &#39;) }}
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>                <span class="p">&lt;/</span><span class="nt">x-hwkui-timeline.body</span><span class="p">&gt;</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>            <span class="p">&lt;/</span><span class="nt">x-hwkui-timeline.content</span><span class="p">&gt;</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>        <span class="p">&lt;/</span><span class="nt">x-hwkui-timeline.item</span><span class="p">&gt;</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>    @endforeach
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-timeline.timeline</span><span class="p">&gt;</span>
+</span></code></pre></div>
 
 
 

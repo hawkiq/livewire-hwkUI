@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Hawkiq\Hwkui\View\Components\Form;
 use Illuminate\Support\ServiceProvider;
 use Hawkiq\Hwkui\View\Components\Widget;
+use Hawkiq\Hwkui\View\Components\Widget\Timeline;
 
 class HwkuiServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,15 @@ class HwkuiServiceProvider extends ServiceProvider
         'info-box' => Widget\InfoBox::class,
         'small-box' => Widget\SmallBox::class,
         'glass-box' => Widget\GlassBox::class,
+    ];
+
+    protected $timelineComponents = [
+        'timeline' => Timeline\Timeline::class,
+        'item' => Timeline\Item::class,
+        'indicator' => Timeline\Indicator::class,
+        'content' => Timeline\Content::class,
+        'title' => Timeline\Title::class,
+        'body' => Timeline\Body::class,
     ];
 
     public function boot()
@@ -87,6 +97,13 @@ class HwkuiServiceProvider extends ServiceProvider
         );
 
         $this->loadViewComponentsAs($this->packageName, $components);
+
+        foreach ($this->timelineComponents as $name => $class) {
+            Blade::component(
+                $this->packageName.'-timeline.' . $name,
+                $class
+            );
+        }
     }
 
     private function registerStyles()

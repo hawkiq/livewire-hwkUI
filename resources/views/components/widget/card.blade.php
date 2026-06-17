@@ -4,7 +4,7 @@
         <div class="{{ $headerClasses() }}">
             <div class="flex items-center gap-2">
                 @if ($icon)
-                    <i class="{{ $icon }}"></i>
+                    <x-hwkui-icon name="{{ $icon }}" />
                 @endif
                 @if ($title)
                     <span>{{ $title }}</span>
@@ -31,7 +31,7 @@
 
     @if ($disabled)
         <div class="absolute inset-0 bg-white/70 flex items-center justify-center z-10">
-            <i class="fas fa-ban text-gray-400 text-3xl"></i>
+            <x-hwkui-icon name="ban" class="text-gray-400 text-3xl" />
         </div>
     @endif
 </div>

@@ -1,7 +1,7 @@
 <div {{ $attributes->merge(['class' => $boxClasses()]) }}>
     <div class="{{ $iconClasses() }}">
         @if ($icon)
-            <i class="{{ $icon }}"></i>
+        <x-hwkui-icon name="{{ $icon }}" />
         @endif
     </div>
 

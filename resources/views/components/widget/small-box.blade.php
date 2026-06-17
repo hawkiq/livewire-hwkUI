@@ -2,13 +2,7 @@
 
     @if ($loading)
         <div class="absolute inset-0 bg-white/70 flex items-center justify-center z-10">
-            <svg class="animate-spin h-8 w-8 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor"
-                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z">
-                </path>
-            </svg>
+            <x-hwkui-icon name="circle-notch" class="fa-spin text-2xl text-gray-600" />
         </div>
     @endif
 
@@ -27,7 +21,7 @@
             <a href="{{ $url }}" class="flex items-center space-x-1" target="_blank">
                 <span>{{ $urlText }}</span>
                 @if ($urlIcon)
-                    <i class="{{ $urlIcon }}"></i>
+                <x-hwkui-icon name="{{ $urlIcon }}" />
                 @endif
             </a>
         </div>
@@ -35,7 +29,7 @@
 
     @if ($icon)
         <div class="absolute top-2 right-2 text-7xl opacity-20 z-0 pointer-events-none">
-            <i class="{{ $icon }}"></i>
+            <x-hwkui-icon name="{{ $icon }}" />
         </div>
     @endif
 </div>

@@ -1,3 +1,3 @@
-@if ($icon)
-    <i {{ $attributes->merge(['class' => "{$type} fa-{$icon}"]) }}></i>
+@if ($name)
+    <i {{ $attributes->merge(['class' => "{$type} fa-{$name}"]) }}></i>
 @endif

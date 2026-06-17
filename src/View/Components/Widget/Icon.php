@@ -6,14 +6,14 @@ use Illuminate\View\Component;
 
 class Icon extends Component
 {
-    public ?string $icon;
+    public ?string $name;
     public string $type;
 
     public function __construct(
-        ?string $icon = null,
+        ?string $name = null,
         string $type = 's',
     ) {
-        $this->icon = $icon;
+        $this->name = $name;
         $typeMap = [
             's' => 'fa-solid',
             'b' => 'fa-brands',

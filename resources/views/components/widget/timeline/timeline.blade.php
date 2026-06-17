@@ -24,7 +24,7 @@
                     :state="$loop->last ? 'last' : 'completed'"
                     :color="$color"
                 >
-            <i class="fas fa-check"></i>
+                <x-hwkui-icon type="r" icon="circle" />
             </x-hwkui-timeline.indicator>
 
                 <x-hwkui-timeline.content>

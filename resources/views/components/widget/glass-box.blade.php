@@ -32,7 +32,7 @@
         </div>
 
         <div class="{{ $iconClasses() }}">
-            <i class="fa-solid {{ $icon }} text-xl"></i>
+            <x-hwkui-icon name="{{ $icon }}" class="text-xl" />
         </div>
 
     </div>

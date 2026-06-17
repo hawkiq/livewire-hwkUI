@@ -25,6 +25,7 @@ class HwkuiServiceProvider extends ServiceProvider
         'info-box' => Widget\InfoBox::class,
         'small-box' => Widget\SmallBox::class,
         'glass-box' => Widget\GlassBox::class,
+        'icon' => Widget\Icon::class,
     ];
 
     protected $timelineComponents = [

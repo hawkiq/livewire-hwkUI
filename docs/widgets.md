@@ -8,15 +8,15 @@ A reusable friendly Card component built with Tailwind CSS v4, part of the hawki
 ###  Basic Usage
 
 ```html
-    <x-hwkui-card title="Users" icon="fas fa-users" theme="primary">
+    <x-hwkui-card title="Users" icon="users" theme="primary">
         Basic Card Usage
 
         <x-slot name="tools">
             <button class="cursor-pointer text-white hover:text-gray-200">
-                <i class="fas fa-plus"></i>
+                <x-hwkui-icon name="plus"></x-hwkui-icon>
             </button>
             <button class="cursor-pointer text-white hover:text-gray-200">
-                <i class="fas fa-cog"></i>
+                <x-hwkui-icon name="cog"></x-hwkui-icon>
             </button>
         </x-slot>
         <x-slot name="footer">
@@ -29,11 +29,11 @@ A reusable friendly Card component built with Tailwind CSS v4, part of the hawki
         A card without header has red border ...
     </x-hwkui-card>
 
-    <x-hwkui-card icon="fas fa-cog" title="No theme-mode" theme="warning" disabled>
+    <x-hwkui-card icon="cog" title="No theme-mode" theme="warning" disabled>
         A card with header using warning color but disabled...
     </x-hwkui-card>
 
-    <x-hwkui-card icon="fas fa-cog" title="Full Theme Mode" theme="success" theme-mode="full">
+    <x-hwkui-card icon="cog" title="Full Theme Mode" theme="success" theme-mode="full">
         A card with full color...
     </x-hwkui-card>
 
@@ -46,18 +46,18 @@ For display small infos with icons or progress bar
 ###  Basic Usage
 
 ```html
-    <x-hwkui-info-box title="Users" text="251" icon="fas fa-users" iconTheme="primary"
+    <x-hwkui-info-box title="Users" text="251" icon="users" iconTheme="primary"
         description="251 Users Registered" url="https://osama.app" urlTarget="_blank" />
 
-    <x-hwkui-info-box title="CPU Traffic" text="60%" icon="fas fa-cog" theme="warning" iconTheme="warning" />
+    <x-hwkui-info-box title="CPU Traffic" text="60%" icon="cog" theme="warning" iconTheme="warning" />
 
-    <x-hwkui-info-box title="Test with no colors" text="No Colors" icon="fas fa-vials" />
+    <x-hwkui-info-box title="Test with no colors" text="No Colors" icon="vials" />
 
-    <x-hwkui-info-box title="Downloads" text="3652" icon="fas fa-download" theme="primary" iconTheme="primary" />
+    <x-hwkui-info-box title="Downloads" text="3652" icon="download" theme="primary" iconTheme="primary" />
 
-    <x-hwkui-info-box title="Uploads" text="1987" icon="fas fa-upload" theme="danger" iconTheme="danger" />
+    <x-hwkui-info-box title="Uploads" text="1987" icon="upload" theme="danger" iconTheme="danger" />
 
-    <x-hwkui-info-box title="Jobs" text="65/100" description="65% of the jobs finished" icon="fas fa-tasks"
+    <x-hwkui-info-box title="Jobs" text="65/100" description="65% of the jobs finished" icon="tasks"
         theme="success" iconTheme="success" progress="65" />
 
 ```
@@ -70,16 +70,16 @@ For display one info with beautiful UI
 
 ```html
 
-<x-hwkui-small-box title="251" text="Users" icon="fas fa-users" theme="primary" url="https://osama.app"
-            urlText="View all users" urlIcon="fas fa-link" />
+<x-hwkui-small-box title="251" text="Users" icon="users" theme="primary" url="https://osama.app"
+            urlText="View all users" urlIcon="link" />
 
-        <x-hwkui-small-box title="Loading" text="Loading data..." icon="fas fa-tasks" theme="success"
-            url="https://osama.app" urlText="More info" urlIcon="fas fa-link" loading="true" />
+        <x-hwkui-small-box title="Loading" text="Loading data..." icon="tasks" theme="success"
+            url="https://osama.app" urlText="More info" urlIcon="link" loading="true" />
 
-        <x-hwkui-small-box title="424" text="Views" icon="fas fa-eye" theme="danger"
-            url="https://osama.app" urlText="View details" urlIcon="fas fa-link" />
+        <x-hwkui-small-box title="424" text="Views" icon="eye" theme="danger"
+            url="https://osama.app" urlText="View details" urlIcon="link" />
 
-        <x-hwkui-small-box title="Downloads" text="1205" icon="fas fa-download" />
+        <x-hwkui-small-box title="Downloads" text="1205" icon="download" />
 
 ```
 
@@ -90,12 +90,12 @@ For display small infos with icons with Glass look
 ###  Basic Usage
 
 ```html
-     <x-hwkui-glass-box title="Downloads" value="251" icon="fa-download" href="/admin"
+     <x-hwkui-glass-box title="Downloads" value="251" icon="download" href="/admin"
             color="blue" />
 
-        <x-hwkui-glass-box title="Products" :value="700" icon="fa-cog" href="/admin" color="emerald" />
+        <x-hwkui-glass-box title="Products" :value="700" icon="cog" href="/admin" color="emerald" />
 
-        <x-hwkui-glass-box title="Categories" :value="30" icon="fa-list" href="/admin" color="amber" />
+        <x-hwkui-glass-box title="Categories" :value="30" icon="list" href="/admin" color="amber" />
 
 ```
 Supported colors names same as tailwind `(blue-amber-emerald-red-cyan-violet)`
@@ -110,18 +110,18 @@ A versatile, highly configurable, dynamic timeline component for Laravel Blade a
 
 ---
 
-### Component API Reference
+### Component API
 
 `<x-hwkui-timeline.timeline>`
 The main layout wrapper that handles orientation and sets the global design context.
 
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `items` | `Collection\|array\|null` | `null` | Passing data into this unlocks automated loop mapping. |
-| `title-column` | `string\|null` | `null` | Key name to fetch the title from items. |
-| `body-column` | `string\|null` | `null` | Key name to fetch description body from items. |
-| `direction` | `string` | `'vertical'` | `'vertical'` or `'horizontal'` structural rendering. |
-| `color` | `string` | `'primary'` | Sets global theme color for indicators and lines. |
+| `items` | `Collection | array | null` | `null` | Passing data into this unlocks automated loop mapping. |
+| `title-column` | `string | null` | `null` | Key name to fetch the title from items. |
+| `body-column` | `string |null` | `null` | Key name to fetch description body from items. |
+| `direction` | `string` | `vertical` | `vertical` or `horizontal` structural rendering. |
+| `color` | `string` | `primary` | Sets global theme color for indicators and lines. |
 
 `<x-hwkui-timeline.indicator>`
 The timeline hub point containing indicators and dynamic milestone bridge lines.
@@ -134,7 +134,7 @@ The timeline hub point containing indicators and dynamic milestone bridge lines.
 
 ---
 
-### Supported Color Themes
+#### Supported Colors
 Your system comes with modern built-in palettes. Customizing colors sets consistent backgrounds, boundaries, and texts:
 
 - `primary` (🔵)
@@ -208,7 +208,9 @@ For granular layouts, omit the `:items` attribute. You gain full creative author
 ---
 
 ## 📦 Icon Widget
+
 The Icon component provides a clean shorthand syntax for rendering Font Awesome icons. It automatically handles structural classes, provides simple shorthand flags for icon weights, and seamlessly merges any custom Tailwind utility classes.
+
 ---
 
 ### Component API
@@ -245,7 +247,7 @@ The Icon component provides a clean shorthand syntax for rendering Font Awesome 
 
 A modern, accessible notification banner component designed for Tailwind CSS v4. It supports multiple contextual color themes, customizable embedded icons, smart defaults, and decorative entrance animations.
 
-![Alert Widget](assets/alert-widget.PNG)
+![Alert Widget](assets/alert-widget.png)
 
 ---
 
@@ -253,8 +255,8 @@ A modern, accessible notification banner component designed for Tailwind CSS v4.
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 |`color`	|`string`	|`primary`	|Component color theme. Supports: primary, secondary, success, danger, warning, info, violet, pink.|
-|`icon`	| `string\|null`	| `Auto`	|Overrides the contextual default icon. Set to "false" to hide the icon area completely.|
-|`animated`	|`boolean\|string`	| `false`	| When true, applies an active bounce physics effect to the icon element.|
+|`icon`	| `string | null`	| `Auto`	|Overrides the contextual default icon. Set to "false" to hide the icon area completely.|
+|`animated`	|`boolean | string`	| `false`	| When true, applies an active bounce physics effect to the icon element.|
 
 
 ### Basic Usage
@@ -294,9 +296,22 @@ Appending Utility Classes
 
 The Badge component is a flexible, highly customizable widget used to highlight statuses, counts, labels, or indicators. It supports multiple shape variants, built-in color themes (with full dark mode support), multiple sizing options, and automated icon prefix injection.
 
-![Badge Widget](assets/badge-light.PNG)
+![Badge Widget](assets/badge-light.png)
 
-![Badge Widget](assets/badge-dark.PNG)
+![Badge Widget](assets/badge-dark.png)
+
+---
+
+
+
+### Component API
+
+| Attribute | Type | Default | Allowed Values | Description |
+| :--- | :--- | :--- | :--- | :--- |
+|`variant`|`string`|`solid`|`solid  | ghost  | pill`|Defines the background/border style of the badge.|
+|`color`|`string`,|`primary`|`primary, secondary, success, emerald, danger, warning, info, violet, pink, dark, light`|Sets the visual theme color (supports dark mode out-of-the-box).|
+|`size`|`string`|`sm`|`sm  | md  | lg`|Modifies the font-size, padding, and internal icon scaling.|
+|`icon`|`string`|`null`|Font Awesome icon name (e.g., `bell`, `star`, `check`)|Automatically prepends the <x-hwkui-icon> component inside the badge.|
 
 ---
 
@@ -318,14 +333,4 @@ The Badge component is a flexible, highly customizable widget used to highlight 
 
 ```
 
-### Component API
-
-| Attribute | Type | Default | Allowed Values | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|`variant`|`string`|`solid`|`solid \| ghost \| pill`|Defines the background/border style of the badge.|
-|`color`|`string`,|`primary`|`primary, secondary, success, emerald, danger, warning, info, violet, pink, dark, light`|Sets the visual theme color (supports dark mode out-of-the-box).|
-|`size`|`string`|`sm`|`sm \| md \| lg`|Modifies the font-size, padding, and internal icon scaling.|
-|`icon`|`string`|`null`|Font Awesome icon name (e.g., `bell`, `star`, `check`)|Automatically prepends the <x-hwkui-icon> component inside the badge.|
-
 ---
-

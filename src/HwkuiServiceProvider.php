@@ -18,6 +18,7 @@ class HwkuiServiceProvider extends ServiceProvider
         'editor' => Form\Editor::class,
         'tom-select' => Form\TomSelect::class,
         'flat-picker' => Form\FlatPicker::class,
+        'upload'      => Form\Upload::class,
     ];
 
     protected $widgetComponents = [

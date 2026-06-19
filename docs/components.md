@@ -156,6 +156,47 @@ if you want to select only months you must then pass it as `:options` argument
 
 ---
 
+## 🧩 Drag & Drop File Upload Component
+
+
+A premium, accessible, and reactive file upload component designed for Laravel, Livewire, and Tailwind CSS. It supports drag-and-drop mechanics, real-time client-side max file limitations, progress indication bars, and inline image/document previews.
+
+---
+
+### Basic Usage
+
+```html
+<x-hwkui-upload wire:model="avatar" preview />
+```
+
+```html
+
+<!-- Multiple Files with Previews & Constraints -->
+<x-hwkui-upload 
+    wire:model="documents" 
+    multiple 
+    max="3"  
+    accept="image/*,.pdf"
+    hint="Only images or PDFs are allowed. Max 3 files."
+/>
+
+```
+
+### Component API
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`wire:model`|`string`|`Required`|The backing Livewire public property array/file handler string name.|
+|`multiple`|`boolean`|`false`|Enables selection or dragging of multiple files simultaneously.|
+|`max`|`integer`|`null`|Imposes client-side file count safety validations (works exclusively with multiple).|
+|`preview`|`boolean`|`false`|Renders dynamic thumbnail galleries for images or itemized layout lists for non-images.|
+|`hint`|`string|null`|`null`|Overrides the default helper sub-text positioned beneath upload prompts.|
+|`accept`|`string`|`*`|Valid standard file mime-type constraint filters forwarded directly to native browser dialogs.|
+
+
+
+---
+
 ## 🧩 Select2 Component
 
 In your Blade view:

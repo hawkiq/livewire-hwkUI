@@ -2,6 +2,7 @@
 
 @source "../../vendor/hawkiq/hwkui/src/View/Components/**/*.php";
 
+[x-cloak] { display: none !important; }
 /* TomSelect Custom Styles for Tailwind CSS Integration */
 .ts-wrapper.tom-select .ts-control {
   @apply bg-white border-gray-300 text-gray-900 rounded-md transition-colors shadow-sm;

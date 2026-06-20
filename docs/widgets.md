@@ -334,3 +334,99 @@ The Badge component is a flexible, highly customizable widget used to highlight 
 ```
 
 ---
+
+## 📦 Tabs Widget
+
+The Tabs Widget provides a modern, interactive, and highly customizable way to organize content.
+
+![Tabs Widget](assets/tabs-widget.PNG)
+
+### Component API
+
+#### Tab Wrapper `<x-hwkui-tabs.tabs>`
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`default`|`string`|`tab1`|The name of the tab that should be open on page load.|
+|`variant`|`string`|`classic`|"The visual style of the tabs. Options: 'classic', 'pills'."|
+|`color`|`string`|`primary`|"The active color theme. Supports all standard hwkui colors (primary, success, danger, warning, etc.)."|
+
+#### Tab Triggers `<x-hwkui-tabs.head>`
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`name`|`string`|Required|Unique identifier for the tab. Must match a name in a `<x-hwkui-tabs.content>` component.|
+|`icon`|`string`|`null`|Name of the icon to display (passed to `<x-hwkui-icon>`).|
+|`badge`|`string`|`null`|Text or number to display in a notification badge next to the title.|
+|`badgeColor`|`string`|`danger`|The color of the badge (passed to `<x-hwkui-badge>`).|
+
+
+#### Tab Container `<x-hwkui-tabs.content>`
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`name`|`string`|Required|Must match the name of the corresponding `<x-hwkui-tabs.head>` trigger.|
+
+
+### Basic Usage
+
+For a simple, clean, classic underline tab setup:
+
+```html
+<x-hwkui-tabs.tabs default="servers">
+    
+    <x-hwkui-tabs.head-wrapper>
+        <x-hwkui-tabs.head name="servers">Servers</x-hwkui-tabs.head>
+        <x-hwkui-tabs.head name="alerts">Alerts</x-hwkui-tabs.head>
+        <x-hwkui-tabs.head name="billing">Billing</x-hwkui-tabs.head>
+    </x-hwkui-tabs.head-wrapper>
+
+    <x-hwkui-tabs.content-wrapper>
+        <x-hwkui-tabs.content name="servers">
+            servers settings go here.
+        </x-hwkui-tabs.content>
+        <x-hwkui-tabs.content name="alerts">
+            alerts settings go here.
+        </x-hwkui-tabs.content>
+        <x-hwkui-tabs.content name="billing">
+            billing settings go here.
+        </x-hwkui-tabs.content>
+    </x-hwkui-tabs.content-wrapper>
+
+</x-hwkui-tabs.tabs>
+
+<!-- Advanced Usage (Pills & Badges)-->
+
+ <x-hwkui-tabs.tabs default="server" variant="pills" color="primary">
+
+    <x-hwkui-tabs.head-wrapper>
+        <x-hwkui-tabs.head name="server" icon="server">
+            Servers
+        </x-hwkui-tabs.head>
+
+        <x-hwkui-tabs.head name="alerts" icon="bell" badge="2" badgeColor="danger">
+            Alerts
+        </x-hwkui-tabs.head>
+
+        <x-hwkui-tabs.head name="billing" icon="credit-card" badge="Due" badgeColor="warning">
+            Billing
+        </x-hwkui-tabs.head>
+    </x-hwkui-tabs.head-wrapper>
+
+    <x-hwkui-tabs.content-wrapper>
+        <x-hwkui-tabs.content name="server">
+            <h3 class="text-xl font-bold">Server Management</h3>
+        </x-hwkui-tabs.content>
+
+        <x-hwkui-tabs.content name="alerts">
+            <h3 class="text-xl font-bold text-red-500">Critical Alerts</h3>
+        </x-hwkui-tabs.content>
+
+        <x-hwkui-tabs.content name="billing">
+            <h3 class="text-xl font-bold">Invoices</h3>
+        </x-hwkui-tabs.content>
+    </x-hwkui-tabs.content-wrapper>
+
+</x-hwkui-tabs.tabs>
+
+```

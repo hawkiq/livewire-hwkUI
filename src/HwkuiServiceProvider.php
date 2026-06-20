@@ -7,6 +7,7 @@ use Hawkiq\Hwkui\View\Components\Form;
 use Illuminate\Support\ServiceProvider;
 use Hawkiq\Hwkui\View\Components\Widget;
 use Hawkiq\Hwkui\View\Components\Widget\Timeline;
+use Hawkiq\Hwkui\View\Components\Widget\Tabs;
 
 class HwkuiServiceProvider extends ServiceProvider
 {
@@ -38,6 +39,14 @@ class HwkuiServiceProvider extends ServiceProvider
         'content' => Timeline\Content::class,
         'title' => Timeline\Title::class,
         'body' => Timeline\Body::class,
+    ];
+
+    protected $tabsComponents = [
+        'tabs' => Tabs\Tabs::class,
+        'head' => Tabs\Head::class,
+        'content' => Tabs\Content::class,
+        'head-wrapper' => Tabs\HeadWrapper::class,
+        'content-wrapper' => Tabs\ContentWrapper::class,
     ];
 
     public function boot()
@@ -105,6 +114,12 @@ class HwkuiServiceProvider extends ServiceProvider
         foreach ($this->timelineComponents as $name => $class) {
             Blade::component(
                 $this->packageName.'-timeline.' . $name,
+                $class
+            );
+        }
+        foreach ($this->tabsComponents as $name => $class) {
+            Blade::component(
+                $this->packageName . '-tabs.' . $name,
                 $class
             );
         }

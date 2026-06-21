@@ -1,10 +1,10 @@
 # 🧩 Components
 
-## 🧩 TomSelect Component
+## 🧩 TomSelect
 
 This component replaces Select2.js with a vanilla JS alternative, so it does not depend on jQuery.
 
-Basic Usage in Blade
+- Basic Usage
 
 ```html
 <x-hwkui-tom-select
@@ -26,7 +26,9 @@ Basic Usage in Blade
 </x-hwkui-tom-select>
 
 ```
-### Passing Additional TomSelect Options
+
+- Passing Additional TomSelect Options
+
 You can pass extra options via the `:options` attribute:
 
 ```html
@@ -44,7 +46,7 @@ You can pass extra options via the `:options` attribute:
 More information about TomSelect setup can be found at the official website [Tom Select](https://tom-select.js.org/)
 
 ---
-## 🧩 FlatPicker Component
+## 🧩 FlatPicker ( DateTime picker )
 
 
 This component provides an elegant datetime picker powered by FlatPickr, ready to use in your Laravel Livewire app with a clean, customizable Blade syntax.
@@ -91,7 +93,7 @@ window.monthSelectPlugin = monthSelectPlugin;
 
 in your blade use it like this
 
-### Basic Usage
+- Basic Usage
 
 ```html
 
@@ -122,7 +124,7 @@ in your blade use it like this
 
 You can explore all available options on the  [Options page](https://flatpickr.js.org/options/) and see what you can add.
 
-### Override Options Per Component
+- Override Options Per Component
 
 to Override settings for individual instances using the `:options`  attribute:
 
@@ -156,14 +158,14 @@ if you want to select only months you must then pass it as `:options` argument
 
 ---
 
-## 🧩 Drag & Drop File Upload Component
+## 🧩 Drag & Drop File Upload
 
 
 A premium, accessible, and reactive file upload component designed for Laravel, Livewire, and Tailwind CSS. It supports drag-and-drop mechanics, real-time client-side max file limitations, progress indication bars, and inline image/document previews.
 
 ---
 
-### Basic Usage
+- Basic Usage
 
 ```html
 <x-hwkui-upload wire:model="avatar" preview />
@@ -182,7 +184,7 @@ A premium, accessible, and reactive file upload component designed for Laravel, 
 
 ```
 
-### Component API
+- Component API
 
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -197,9 +199,9 @@ A premium, accessible, and reactive file upload component designed for Laravel, 
 
 ---
 
-## 🧩 Select2 Component
+## 🧩 Select2
 
-In your Blade view:
+- Basic usgae
 
 ```html
  <x-hwkui-select wire:model="selectedItem" label="Select User to PLay" placeholder="Select a user Babe">
@@ -241,7 +243,7 @@ or direct array
 
 ```
 
-## 🧩 DateTime Picker Component
+## 🧩 DateTime Picker
 
 This component provides an elegant datetime picker powered by Tempus Dominus v6, ready to use in your Laravel Livewire app with a clean, customizable Blade syntax.
 
@@ -280,7 +282,7 @@ Enable in Configuration
 
 in your blade use it like this
 
-### Basic Usage
+- Basic Usage
 
 ```html
 
@@ -323,9 +325,9 @@ in your blade use it like this
 
 You can explore all available options on the  [Options page](https://getdatepicker.com/6/options/) and see what you can add.
 
-### Override Options Per Component
+- Override Options Per Component
 
-yOverride settings for individual instances using the `:options`  attribute:
+Override settings for individual instances using the `:options`  attribute:
 
 ```html
 
@@ -347,7 +349,7 @@ yOverride settings for individual instances using the `:options`  attribute:
 
 ```
 
-## 🧩 Text Editor Component
+## 🧩 Text Editor
 
 A rich-text editor component powered by Quill.js, built for Laravel Livewire 3. Fully supports customization, toolbar control, themes, and Livewire model binding.
 In your `config/hwkui.php`, activate the editor plugin:
@@ -376,14 +378,14 @@ In your `config/hwkui.php`, activate the editor plugin:
 
 ```
 
-### Basic Usage
+- Basic Usage
 
 ```html
 <x-hwkui-editor id="editor" wire:model="content">
     Default content goes here...
 </x-hwkui-editor>
 ```
-###  Toolbar Customization
+- Toolbar Customization
 Use the toolbar attribute to define your desired tools.
 
 ```html

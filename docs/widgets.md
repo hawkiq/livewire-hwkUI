@@ -5,7 +5,7 @@ A reusable friendly Card component built with Tailwind CSS v4, part of the hawki
 
 ![Card Widget](assets/card-widget.PNG)
 
-###  Basic Usage
+Basic Usage
 
 ```html
     <x-hwkui-card title="Users" icon="users" theme="primary">
@@ -43,7 +43,8 @@ A reusable friendly Card component built with Tailwind CSS v4, part of the hawki
 For display small infos with icons or progress bar
 
 ![Info Box Widget](assets/info-box-widget.PNG)
-###  Basic Usage
+
+Basic Usage
 
 ```html
     <x-hwkui-info-box title="Users" text="251" icon="users" iconTheme="primary"
@@ -66,7 +67,8 @@ For display small infos with icons or progress bar
 For display one info with beautiful UI
 
 ![Info Box Widget](assets/small-box-widget.PNG)
-### Basic Usage
+
+Basic Usage
 
 ```html
 
@@ -87,7 +89,8 @@ For display one info with beautiful UI
 For display small infos with icons with Glass look 
 
 ![Glass Box Widget](assets/glass-box-widget.PNG)
-###  Basic Usage
+
+Basic Usage
 
 ```html
      <x-hwkui-glass-box title="Downloads" value="251" icon="download" href="/admin"
@@ -110,9 +113,10 @@ A versatile, highly configurable, dynamic timeline component for Laravel Blade a
 
 ---
 
-### Component API
+Component API
 
 `<x-hwkui-timeline.timeline>`
+
 The main layout wrapper that handles orientation and sets the global design context.
 
 | Attribute | Type | Default | Description |
@@ -124,6 +128,7 @@ The main layout wrapper that handles orientation and sets the global design cont
 | `color` | `string` | `primary` | Sets global theme color for indicators and lines. |
 
 `<x-hwkui-timeline.indicator>`
+
 The timeline hub point containing indicators and dynamic milestone bridge lines.
 
 | Attribute | Type | Default | Description |
@@ -134,7 +139,7 @@ The timeline hub point containing indicators and dynamic milestone bridge lines.
 
 ---
 
-#### Supported Colors
+Supported Colors:
 Your system comes with modern built-in palettes. Customizing colors sets consistent backgrounds, boundaries, and texts:
 
 - `primary` (🔵)
@@ -150,7 +155,7 @@ Your system comes with modern built-in palettes. Customizing colors sets consist
 
 ---
 
-### Basic Usage
+Basic Usage
 
 - Simple Version (Automated Collection Rendering)
 When you pass an absolute collection data object into the `:items` array attribute, the timeline component handles all inner loops, mapping, checkmark icon injections, and terminates trailing lines flawlessly without extra layout markup.
@@ -213,29 +218,30 @@ The Icon component provides a clean shorthand syntax for rendering Font Awesome 
 
 ---
 
-### Component API
+Component API
 
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `icon` | `string` | *Required* | The name of the Font Awesome icon (e.g., `"user"`, `"github"`). |
 | `type` | `string` | `"s"` | The weight/type variant. Accepts shorthands (`s`, `b`, `r`, `l`, `t`, `d`) or full names. |
 
-#### Weight Shorthand Matrix
-* `s` / `solid` → `fa-solid`
-* `b` / `brands` → `fa-brands`
-* `r` / `regular` → `fa-regular`
-* `l` / `light` → `fa-light`
-* `t` / `thin` → `fa-thin`
-* `d` / `duotone` → `fa-duotone`
+ Weight Shorthand Matrix
 
-### Basic Usage
+- `s` / `solid` → `fa-solid`
+- `b` / `brands` → `fa-brands`
+- `r` / `regular` → `fa-regular`
+- `l` / `light` → `fa-light`
+- `t` / `thin` → `fa-thin`
+- `d` / `duotone` → `fa-duotone`
 
-#### Basic Solid Icon
+Basic Usage
+
+Basic Solid Icon
 ```html
 <x-hwkui-icon icon="user" />
 ```
 
-#### Brand Icon with Color Utilities
+Brand Icon with Color Utilities
 ```html
 <x-hwkui-icon icon="github" type="b" class="text-gray-900 text-xl" />
 ```
@@ -251,7 +257,7 @@ A modern, accessible notification banner component designed for Tailwind CSS v4.
 
 ---
 
-### Component API
+Component API
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 |`color`	|`string`	|`primary`	|Component color theme. Supports: primary, secondary, success, danger, warning, info, violet, pink.|
@@ -259,7 +265,7 @@ A modern, accessible notification banner component designed for Tailwind CSS v4.
 |`animated`	|`boolean | string`	| `false`	| When true, applies an active bounce physics effect to the icon element.|
 
 
-### Basic Usage
+Basic Usage
 
 ```html
 <x-hwkui-alert color="danger">
@@ -304,7 +310,7 @@ The Badge component is a flexible, highly customizable widget used to highlight 
 
 
 
-### Component API
+Component API
 
 | Attribute | Type | Default | Allowed Values | Description |
 | :--- | :--- | :--- | :--- | :--- |
@@ -315,7 +321,7 @@ The Badge component is a flexible, highly customizable widget used to highlight 
 
 ---
 
-### Basic Usage
+Basic Usage
 
 ```html
 <x-hwkui-badge variant="solid" color="primary">Solid Badge</x-hwkui-badge>
@@ -341,9 +347,9 @@ The Tabs Widget provides a modern, interactive, and highly customizable way to o
 
 ![Tabs Widget](assets/tabs-widget.PNG)
 
-### Component API
+Component API
 
-#### Tab Wrapper `<x-hwkui-tabs.tabs>`
+`<x-hwkui-tabs.tabs>`
 
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -351,7 +357,7 @@ The Tabs Widget provides a modern, interactive, and highly customizable way to o
 |`variant`|`string`|`classic`|"The visual style of the tabs. Options: 'classic', 'pills'."|
 |`color`|`string`|`primary`|"The active color theme. Supports all standard hwkui colors (primary, success, danger, warning, etc.)."|
 
-#### Tab Triggers `<x-hwkui-tabs.head>`
+`<x-hwkui-tabs.head>`
 
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -361,14 +367,14 @@ The Tabs Widget provides a modern, interactive, and highly customizable way to o
 |`badgeColor`|`string`|`danger`|The color of the badge (passed to `<x-hwkui-badge>`).|
 
 
-#### Tab Container `<x-hwkui-tabs.content>`
+`<x-hwkui-tabs.content>`
 
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 |`name`|`string`|Required|Must match the name of the corresponding `<x-hwkui-tabs.head>` trigger.|
 
 
-### Basic Usage
+Basic Usage
 
 For a simple, clean, classic underline tab setup:
 
@@ -430,3 +436,46 @@ For a simple, clean, classic underline tab setup:
 </x-hwkui-tabs.tabs>
 
 ```
+
+## 📦 Accordion Widget
+
+Accordion is a modern, professional, and highly interactive UI component designed for Laravel. it offers seamless animations, themeable colors, and flexible configuration options.
+
+![Accordion Widget](assets/accordion-widget.png)
+
+Component API
+
+`<x-hwkui-accordion.group>`
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`color`|`string`|`primary`|Controls the color theme for all items.|
+|`animation`|`string`|`slide`|Options: `slide`, `fade`, `none`.|
+|`collapse`|`boolean`|`false`|If true, closes other items when one is opened.|
+
+`<x-hwkui-accordion.item>`
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`heading`|`string`|`-`|The title displayed in the item header.|
+|`icon`|`string`|`chevron-down`|The icon component name to display.|
+|`disabled`|`boolean`|`false`|Disables the item interaction.|
+
+Basic Usage
+
+```html
+<x-hwkui-accordion.group color="primary" animation="slide">
+
+    <x-hwkui-accordion.item heading="What is the refund policy?">
+        If you are not satisfied with your purchase, we offer a 30-day money-back guarantee.
+    </x-hwkui-accordion.item>
+
+    <x-hwkui-accordion.item heading="How do I contact support?" icon="phone">
+        Our support team is available 24/7 via email or live chat.
+    </x-hwkui-accordion.item>
+
+</x-hwkui-accordion.group>
+
+```
+
+---

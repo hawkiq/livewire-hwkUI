@@ -8,6 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use Hawkiq\Hwkui\View\Components\Widget;
 use Hawkiq\Hwkui\View\Components\Widget\Timeline;
 use Hawkiq\Hwkui\View\Components\Widget\Tabs;
+use Hawkiq\Hwkui\View\Components\Widget\Accordion;
 
 class HwkuiServiceProvider extends ServiceProvider
 {
@@ -47,6 +48,13 @@ class HwkuiServiceProvider extends ServiceProvider
         'content' => Tabs\Content::class,
         'head-wrapper' => Tabs\HeadWrapper::class,
         'content-wrapper' => Tabs\ContentWrapper::class,
+    ];
+
+    protected $accordionComponents = [
+        'group'   => Accordion\Group::class,
+        'item'    => Accordion\Item::class,
+        'heading' => Accordion\Heading::class,
+        'content' => Accordion\Content::class,
     ];
 
     public function boot()
@@ -111,18 +119,7 @@ class HwkuiServiceProvider extends ServiceProvider
 
         $this->loadViewComponentsAs($this->packageName, $components);
 
-        foreach ($this->timelineComponents as $name => $class) {
-            Blade::component(
-                $this->packageName.'-timeline.' . $name,
-                $class
-            );
-        }
-        foreach ($this->tabsComponents as $name => $class) {
-            Blade::component(
-                $this->packageName . '-tabs.' . $name,
-                $class
-            );
-        }
+        $this->generateComponents();
     }
 
     private function registerStyles()
@@ -136,5 +133,28 @@ class HwkuiServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfiguration();
+    }
+
+    protected function generateComponents()
+    {
+        foreach ($this->timelineComponents as $name => $class) {
+            Blade::component(
+                $this->packageName . '-timeline.' . $name,
+                $class
+            );
+        }
+        foreach ($this->tabsComponents as $name => $class) {
+            Blade::component(
+                $this->packageName . '-tabs.' . $name,
+                $class
+            );
+        }
+
+        foreach ($this->accordionComponents as $name => $class) {
+            Blade::component(
+                $this->packageName . '-accordion.' . $name,
+                $class
+            );
+        }
     }
 }

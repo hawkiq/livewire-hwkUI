@@ -57,6 +57,11 @@ class HwkuiServiceProvider extends ServiceProvider
         'content' => Accordion\Content::class,
     ];
 
+    protected $carouselComponents = [
+        'wrapper' => Carousel\Wrapper::class,
+        'item' => Carousel\Item::class,
+    ];
+
     public function boot()
     {
         $this->registerPublishing();
@@ -135,24 +140,19 @@ class HwkuiServiceProvider extends ServiceProvider
         $this->mergeConfiguration();
     }
 
-    protected function generateComponents()
+    protected function generateComponents(): void
     {
-        foreach ($this->timelineComponents as $name => $class) {
-            Blade::component(
-                $this->packageName . '-timeline.' . $name,
-                $class
-            );
-        }
-        foreach ($this->tabsComponents as $name => $class) {
-            Blade::component(
-                $this->packageName . '-tabs.' . $name,
-                $class
-            );
-        }
+        $this->registerComponents('timeline', $this->timelineComponents);
+        $this->registerComponents('tabs', $this->tabsComponents);
+        $this->registerComponents('accordion', $this->accordionComponents);
+        $this->registerComponents('carousel', $this->carouselComponents);
+    }
 
-        foreach ($this->accordionComponents as $name => $class) {
+    protected function registerComponents(string $prefix, array $components): void
+    {
+        foreach ($components as $name => $class) {
             Blade::component(
-                $this->packageName . '-accordion.' . $name,
+                "{$this->packageName}-{$prefix}.{$name}",
                 $class
             );
         }

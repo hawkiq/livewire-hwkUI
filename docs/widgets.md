@@ -1,6 +1,6 @@
-# 🧩 Widgets
+# 🧩 UI Widgets
 
-## 📦 Card Widget
+## 📦 Card
 A reusable friendly Card component built with Tailwind CSS v4, part of the hawkiq/hwkui widget library. It supports theme colors, outline and solid styles, optional icons, header tools, footer, and dark mode.
 
 ![Card Widget](assets/card-widget.PNG)
@@ -39,7 +39,7 @@ Basic Usage
 
 ```
 
-## 📦 Info Box Widget
+## 📦 Info Box
 For display small infos with icons or progress bar
 
 ![Info Box Widget](assets/info-box-widget.PNG)
@@ -63,7 +63,7 @@ Basic Usage
 
 ```
 
-## 📦 Small Box Widget
+## 📦 Small Box
 For display one info with beautiful UI
 
 ![Info Box Widget](assets/small-box-widget.PNG)
@@ -85,7 +85,7 @@ Basic Usage
 
 ```
 
-## 📦 Glass Box Widget
+## 📦 Glass Box
 For display small infos with icons with Glass look 
 
 ![Glass Box Widget](assets/glass-box-widget.PNG)
@@ -105,7 +105,7 @@ Supported colors names same as tailwind `(blue-amber-emerald-red-cyan-violet)`
 
 ---
 
-## 📦 Timeline Widget
+## 📦 Timeline
 
 A versatile, highly configurable, dynamic timeline component for Laravel Blade applications built with Tailwind CSS. It supports vertical/horizontal flows, automated collection mapping, and complete granular slot overrides.
 
@@ -212,7 +212,7 @@ For granular layouts, omit the `:items` attribute. You gain full creative author
 
 ---
 
-## 📦 Icon Widget
+## 📦 Icon
 
 The Icon component provides a clean shorthand syntax for rendering Font Awesome icons. It automatically handles structural classes, provides simple shorthand flags for icon weights, and seamlessly merges any custom Tailwind utility classes.
 
@@ -249,7 +249,7 @@ Brand Icon with Color Utilities
 ---
 
 
-## 📦 Alert Widget
+## 📦 Alert
 
 A modern, accessible notification banner component designed for Tailwind CSS v4. It supports multiple contextual color themes, customizable embedded icons, smart defaults, and decorative entrance animations.
 
@@ -298,7 +298,7 @@ Appending Utility Classes
 
 ```
 
-## 📦 Badge Widget
+## 📦 Badge
 
 The Badge component is a flexible, highly customizable widget used to highlight statuses, counts, labels, or indicators. It supports multiple shape variants, built-in color themes (with full dark mode support), multiple sizing options, and automated icon prefix injection.
 
@@ -341,7 +341,7 @@ Basic Usage
 
 ---
 
-## 📦 Tabs Widget
+## 📦 Tabs
 
 The Tabs Widget provides a modern, interactive, and highly customizable way to organize content.
 
@@ -437,7 +437,7 @@ For a simple, clean, classic underline tab setup:
 
 ```
 
-## 📦 Accordion Widget
+## 📦 Accordion
 
 Accordion is a modern, professional, and highly interactive UI component designed for Laravel. it offers seamless animations, themeable colors, and flexible configuration options.
 
@@ -479,3 +479,34 @@ Basic Usage
 ```
 
 ---
+
+## 📦 Carousel
+
+A lightweight, Alpine.js-powered carousel component for Laravel, designed for smooth, high-performance slide transitions without the need for heavy external JavaScript dependencies.
+
+- Basic Usage
+
+```html
+<x-hwkui-carousel.wrapper :items="$featured" interval="7000">
+    @foreach ($featured as $i => $campaign)
+        <x-hwkui-carousel.item :index="$i">
+            <h1>{{ $campaign->title }}</h1>
+        </x-hwkui-carousel.item>
+    @endforeach
+</x-hwkui-carousel.wrapper>
+```
+
+- Component API
+
+`<x-hwkui-carousel.wrapper>`
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`items`|`Collection`|`Required`|The collection of data to iterate over.|
+|`interval`|`Integer`|`5000`|Time in milliseconds between auto-slides.|
+
+`<x-hwkui-carousel.item>`
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`index`|`Integer`|`Required`|The current index of the item (usually passed from the loop `$i`).|

@@ -347,10 +347,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#publish-assets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Publish Assets
+        Publish Assets
       
     </span>
   </a>
@@ -361,7 +383,7 @@
   <a href="#update" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Update
+        Update
       
     </span>
   </a>
@@ -444,7 +466,7 @@
   <span class="md-ellipsis">
     
   
-    Widgets
+    UI Widgets
   
 
     
@@ -565,10 +587,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#publish-assets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Publish Assets
+        Publish Assets
       
     </span>
   </a>
@@ -579,7 +623,7 @@
   <a href="#update" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Update
+        Update
       
     </span>
   </a>
@@ -607,19 +651,43 @@
 
 
 <h1 id="installation">🚀 Installation</h1>
+<h2 id="requirements">Requirements</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Laravel</td>
+<td style="text-align: left;">10+</td>
+</tr>
+<tr>
+<td style="text-align: left;">Livewire</td>
+<td style="text-align: left;">3+</td>
+</tr>
+<tr>
+<td style="text-align: left;">tailwind</td>
+<td style="text-align: left;">v4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="install">Install</h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>composer<span class="w"> </span>require<span class="w"> </span>hawkiq/hwkui
 </span></code></pre></div>
-<h2 id="publish-assets">🚀   Publish Assets</h2>
+<h2 id="publish-assets">Publish Assets</h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>vendor:publish<span class="w"> </span>--tag<span class="o">=</span>hwkui-assets
 </span></code></pre></div>
-<p>If you updated the package you must force </p>
+<p>If you updated the package you must force publish.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>vendor:publish<span class="w"> </span>--tag<span class="o">=</span>hwkui-assets<span class="w"> </span>--force
 </span></code></pre></div>
 <p>this will publish file <code>hwkui.css</code> to <code>resources/css/</code> needed to correct style widgets</p>
 <p>add this line to <code>app.css</code> after <code>@import "tailwindcss";</code></p>
 <div class="language-css highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s1">&#39;./hwkui.css&#39;</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="update">🚀 Update</h2>
+<h2 id="update">Update</h2>
 <p>if you want to update use 
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>composer<span class="w"> </span>update<span class="w"> </span>hawkiq/hwkui
 </span></code></pre></div></p>

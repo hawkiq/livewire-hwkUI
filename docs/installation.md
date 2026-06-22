@@ -1,16 +1,25 @@
 # 🚀 Installation
 
+## Requirements
+| Package | version |
+| :--- | :--- |
+|Laravel| 10+ |
+|Livewire| 3+|
+|tailwind| v4 |
+
+## Install
+
 ```bash
 composer require hawkiq/hwkui
 ```
 
-## 🚀   Publish Assets
+## Publish Assets
 
 ```bash
 php artisan vendor:publish --tag=hwkui-assets
 ```
 
-If you updated the package you must force 
+If you updated the package you must force publish.
 
 ```bash
 php artisan vendor:publish --tag=hwkui-assets --force
@@ -23,7 +32,7 @@ add this line to `app.css` after `@import "tailwindcss";`
 ```css
 @import './hwkui.css';
 ```
-## 🚀 Update
+## Update
 
 if you want to update use 
 ```bash

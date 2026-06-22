@@ -4,6 +4,26 @@
 
 This component replaces Select2.js with a vanilla JS alternative, so it does not depend on jQuery.
 
+- Install
+
+!!! note "Use either CDN method or npm which described in [Configuration](configuration.md) page."
+
+I'll use modern and prefered way in this tutorial .
+
+```bash
+npm install tom-select
+```
+
+Then, in your `app.js` import the packages:
+
+```js title="app.js" linenums="1"
+import 'tom-select/dist/css/tom-select.css';
+import TomSelect from 'tom-select';
+window.TomSelect = TomSelect;
+
+```
+
+
 - Basic Usage
 
 ```html
@@ -51,31 +71,11 @@ More information about TomSelect setup can be found at the official website [Tom
 
 This component provides an elegant datetime picker powered by FlatPickr, ready to use in your Laravel Livewire app with a clean, customizable Blade syntax.
 
-Enable in Configuration
+- Install
 
-```php  title="hwkui.php" linenums="1"
-<?php 
+!!! note "Use either CDN method or npm which described in [Configuration](configuration.md) page."
+I'll use modern and prefered way in this tutorial .
 
-'FlatPicker' => [
-    'active' => true,
-    'files' => [
-        [
-            'type' => 'css',
-            'asset' => false,
-            'location' => '//cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css',
-        ],
-        [
-            'type' => 'js',
-            'asset' => false,
-            'defer' => true,
-            'location' => '//cdn.jsdelivr.net/npm/flatpickr',
-        ],
-    ],
-],
-```
-or use it via npm
-
-install
 ```bash
 npm install flatpickr
 ```
@@ -91,7 +91,6 @@ window.monthSelectPlugin = monthSelectPlugin;
 
 ```
 
-in your blade use it like this
 
 - Basic Usage
 
@@ -165,6 +164,8 @@ A premium, accessible, and reactive file upload component designed for Laravel, 
 
 ---
 
+!!! note "No setup is required since its depends on AlpineJs which comes with Livewire."
+
 - Basic Usage
 
 ```html
@@ -200,6 +201,26 @@ A premium, accessible, and reactive file upload component designed for Laravel, 
 ---
 
 ## 🧩 Select2
+
+- Install
+
+!!! note "Use either CDN method or npm which described in [Configuration](configuration.md) page."
+I'll use modern and prefered way in this tutorial .
+
+```bash
+npm install jquery select2
+```
+
+```js title="app.js" linenums="1"
+
+// For select and jquery component
+import $ from "jquery";
+import "select2/dist/js/select2.full.min.js";
+import "select2/dist/css/select2.min.css";
+window.$ = $;
+window.jQuery = $;
+window.Select2 = $.fn.select2;
+```
 
 - Basic usgae
 
@@ -251,36 +272,31 @@ This component provides an elegant datetime picker powered by Tempus Dominus v6,
     As stated in official website This project is no longer active or supported
 
 
-Enable in Configuration
+- Install
 
-```php  title="hwkui.php" linenums="1"
-<?php 
+!!! note "Use either CDN method or npm which described in [Configuration](configuration.md) page."
+I'll use modern and prefered way in this tutorial .
 
-'Datetime' => [
-            'active' => true,
-            'files' => [
-                [
-                    'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'defer' => true,
-                    'location' => '//cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'defer' => true,
-                    'location' => '//cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js',
-                ],
-            ],
-        ],
+```bash
+npm install @popperjs/core @eonasdan/tempus-dominus
 ```
 
-in your blade use it like this
+```js title="app.js" linenums="1"
+
+// For datetime picker from tempus-dominus ( this is abandond now no new releases)
+import * as Popper from "@popperjs/core";
+import { TempusDominus } from "@eonasdan/tempus-dominus";
+import "@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css";
+window.Popper = Popper;
+//use this if you used cdn assets
+window.tempusDominus = TempusDominus;
+// or use this if you used npm
+window.tempusDominus = {
+    TempusDominus,
+};
+
+```
+
 
 - Basic Usage
 
@@ -385,7 +401,9 @@ In your `config/hwkui.php`, activate the editor plugin:
     Default content goes here...
 </x-hwkui-editor>
 ```
+
 - Toolbar Customization
+
 Use the toolbar attribute to define your desired tools.
 
 ```html
@@ -398,7 +416,7 @@ Use the toolbar attribute to define your desired tools.
 
 
 ```
-🔹 You can customize the toolbar using Quill toolbar options separated by |.
+🔹 You can customize the toolbar using Quill toolbar options separated by `|`.
 
 ---
 

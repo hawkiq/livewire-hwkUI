@@ -99,7 +99,7 @@
     @if ($state !== 'last')
         <div
             class="
-            {{ $horizontal ? 'absolute left-full top-5 h-0.5 w-24 -translate-y-1/2' : 'w-0.5 h-5 mt-1' }}
+            {{ $lineClasses() }}
             {{ $palette['bg'] }}
         ">
         </div>

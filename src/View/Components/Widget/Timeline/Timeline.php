@@ -20,6 +20,7 @@ class Timeline extends Component
         public ?string $bodyColumn = null,
         public string $direction = 'vertical',
         public string $color = 'primary',
+        public string $length = 'short',
     ) {
         $this->items = $items ? collect($items) : collect();
     }
@@ -38,6 +39,7 @@ class Timeline extends Component
     {
         TimelineContext::$direction = $this->direction;
         TimelineContext::$color = $this->color;
+        TimelineContext::$length = $this->length;
         return view('hwkui::components.widget.timeline.timeline');
     }
 }

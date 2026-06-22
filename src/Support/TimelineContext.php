@@ -6,4 +6,5 @@ class TimelineContext
 {
     public static string $direction = 'vertical';
     public static string $color = 'primary';
+    public static string $length = 'short';
 }

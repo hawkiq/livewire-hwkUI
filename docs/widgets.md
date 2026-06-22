@@ -445,6 +445,7 @@ The main layout wrapper that handles orientation and sets the global design cont
 | `body-column` | `string |null` | `null` | Key name to fetch description body from items. |
 | `direction` | `string` | `vertical` | `vertical` or `horizontal` structural rendering. |
 | `color` | `string` | `primary` | Sets global theme color for indicators and lines. |
+| `length` | `string` | `short` | `short` or `long` for vertical length connector. |
 
 `<x-hwkui-timeline.indicator>`
 

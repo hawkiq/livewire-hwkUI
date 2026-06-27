@@ -1,5 +1,5 @@
 <div {{ $attributes->merge([
-    'class' => 'flex items-start gap-3 p-4 rounded-xl border-l-4 border shadow-md my-4 ' . $getColorClasses()
+    'class' => 'flex items-start gap-3 px-4 py-2 rounded-lg border-l-5 border shadow-md my-2 mx-1 ' . $getColorClasses()
 ]) }} role="alert">
     
     @if($icon !== 'false')

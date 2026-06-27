@@ -564,3 +564,35 @@ For granular layouts, omit the `:items` attribute. You gain full creative author
 ```
 
 ---
+
+## 📦 Typewriter
+
+A robust,typewriter effect component for texts.
+
+- Component API
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`words`|`array`|`[]`|Array of strings to cycle through.|
+|`type-speed`|`int`|`70`|Delay between each character typed (in ms).|
+|`delete-speed`|`int`|`35`|Delay between each character deleted (in ms).|
+|`pause-time`|`int`|`1500`|Duration to wait before deleting the completed word (in ms).|
+|`loop`|`bool`|`true`|Whether to cycle through the words indefinitely.|
+|`cursor`|`bool`|`true`|Whether to display the blinking typing caret.|
+
+
+- Basic Usage
+
+
+```html
+
+    I Love <x-hwkui-typewriter 
+    :words="['Games', 'Programming', 'Traveling','Making Packages']" 
+    type-speed="70"
+    delete-speed="10"
+    class="text-primary font-semibold" />
+
+
+```
+
+---

@@ -31,6 +31,7 @@ class HwkuiServiceProvider extends ServiceProvider
         'icon' => Widget\Icon::class,
         'alert' => Widget\Alert::class,
         'badge' => Widget\Badge::class,
+        'marquee' => Widget\Marquee::class,
     ];
 
     protected $timelineComponents = [

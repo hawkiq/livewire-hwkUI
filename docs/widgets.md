@@ -57,6 +57,7 @@ A modern, accessible notification banner component designed for Tailwind CSS v4.
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 |`color`	|`string`	|`primary`	|Component color theme. Supports: primary, secondary, success, danger, warning, info, violet, pink.|
+|`solid`	|`boolean`	|`false`	|Component color theme. Use solid color instead of tone.|
 |`icon`	| `string | null`	| `Auto`	|Overrides the contextual default icon. Set to "false" to hide the icon area completely.|
 |`animated`	|`boolean | string`	| `false`	| When true, applies an active bounce physics effect to the icon element.|
 
@@ -301,6 +302,38 @@ For display small infos with icons or progress bar
 
 ```
 
+---
+
+
+## 📦 Marquee
+
+This component provides a smooth, customizable, and accessible way to display scrolling content such as logos, badges, or text.
+
+- Compoenent API
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`direction`|`string`|`left`|Direction of the scroll (`left`, `right`, `up`, `down`).|
+|`duration`|`string`|`20s`|The time it takes for one full loop.|
+|`gap`|`string`|`1rem`|The space between items in the marquee.|
+|`pauseOnHover`|`boolean`|`false`|If set, the animation will pause when the user hovers over the component.|
+|`fade`|`boolean`|`false`|Adds a linear gradient mask to the edges to create a smooth fade-in/fade-out effect.|
+
+- Basic Usage
+
+```html
+
+<x-hwkui-marquee direction="right" pauseOnHover duration="10s" fade class="w-full max-w-xl py-1">
+
+    @foreach (['🚀 Fast', '♿ Accessible', '🎨 Themeable', '📦 Copy & own', '🌙 Dark mode'] as $f)
+        <x-hwkui-badge class="whitespace-nowrap">{{ $f }}</x-hwkui-badge>
+    @endforeach
+
+</x-hwkui-marquee>
+
+```
+
+---
 ## 📦 Small Box
 For display one info with beautiful UI
 

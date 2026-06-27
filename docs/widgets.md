@@ -216,6 +216,45 @@ A lightweight, Alpine.js-powered carousel component for Laravel, designed for sm
 
 ---
 
+## 📦 Flip Card
+
+
+This component provides a smooth 3D flip animation. It supports both click and hover triggers and allows for custom heights.
+
+
+- Component API
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`trigger`|`string`|`hover`|Defines the trigger event: `hover` or `click`.|
+|`height`|`string`|`300`|The height of the card. Accepts pixels (300px), rems (20rem), etc.|
+
+
+- Basic usage
+
+
+```html
+    <x-hwkui-flip-card trigger="click" class="max-w-xs">
+        <x-slot:front>
+            <div class="flex flex-1 flex-col items-center justify-center gap-2 text-center text-zinc-900 dark:text-zinc-200 dark:bg-zinc-900">
+                <x-hwkui-icon name="hand-pointer" class="size-10 text-xl-center" aria-hidden="true" />
+                <h3 class="text-lg font-semibold">Tap to reveal</h3>
+                <p class="text-muted-foreground text-sm">Click anywhere on the card</p>
+            </div>
+        </x-slot:front>
+
+        <x-slot:back>
+            <div class="flex flex-1 flex-col items-center justify-center gap-2 text-center text-blue-800">
+                <x-hwkui-icon name="gift" class="size-8 text-primary" aria-hidden="true" />
+                <h3 class="text-lg font-semibold">You found it!</h3>
+                <p class="text-muted-foreground text-sm">Click again to flip back</p>
+            </div>
+        </x-slot:back>
+    </x-hwkui-flip-card>
+
+```
+
+---
 
 ## 📦 Glass Box
 For display small infos with icons with Glass look 

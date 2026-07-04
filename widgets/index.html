@@ -571,6 +571,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#onboarding-tour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Onboarding Tour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typewriter" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -833,6 +844,17 @@
     <span class="md-ellipsis">
       
         📦 Timeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onboarding-tour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Onboarding Tour
       
     </span>
   </a>
@@ -1718,6 +1740,96 @@ When you pass an absolute collection data object into the <code>:items</code> ar
 </span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-timeline.timeline</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <hr />
+<h2 id="onboarding-tour">📦 Onboarding Tour</h2>
+<p>A high-performance, accessible, and lightweight Onboarding Tour component.</p>
+<ul>
+<li>Component API</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribute</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>steps</code></td>
+<td style="text-align: left;"><code>array</code></td>
+<td style="text-align: left;"><code>[]</code></td>
+<td style="text-align: left;">An array of step objects defining the tour sequence (see Step Configuration).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>open</code></td>
+<td style="text-align: left;"><code>boolean</code></td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">Determines if the tour starts immediately upon page load.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Step Configuration</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribute</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>target</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">CSS selector for the element (e.g., <code>#my-id</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>title</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">The heading of the popover card.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>body</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">The descriptive text for the step.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>placement</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">Preferred side: <code>top</code>, <code>bottom</code>, <code>left</code>, or <code>right</code>.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Basic Usage</li>
+</ul>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>@php
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    $steps = [
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>        [
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>            &#39;target&#39; =&gt; &#39;#search-bar&#39;,
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>            &#39;title&#39; =&gt; &#39;Search&#39;,
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>            &#39;body&#39; =&gt; &#39;Use this bar to find your documents quickly.&#39;,
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>            &#39;placement&#39; =&gt; &#39;bottom&#39;,
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        ],
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>        [
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>            &#39;target&#39; =&gt; &#39;#user-profile&#39;,
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>            &#39;title&#39; =&gt; &#39;Profile Settings&#39;,
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>            &#39;body&#39; =&gt; &#39;Click here to manage your account details.&#39;,
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>            &#39;placement&#39; =&gt; &#39;left&#39;,
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>        ],
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>    ];
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>@endphp
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a> <span class="p">&lt;</span><span class="nt">x-hwkui-tour</span> <span class="na">:steps</span><span class="o">=</span><span class="s">&quot;$steps&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;start()&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn-primary&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>        Take the Tour
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-tour</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<hr />
 <h2 id="typewriter">📦 Typewriter</h2>
 <p>A robust,typewriter effect component for texts.</p>
 <ul>
@@ -1774,11 +1886,11 @@ When you pass an absolute collection data object into the <code>:items</code> ar
 <ul>
 <li>Basic Usage</li>
 </ul>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>    I Love <span class="p">&lt;</span><span class="nt">x-hwkui-typewriter</span> 
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="na">:words</span><span class="o">=</span><span class="s">&quot;[&#39;Games&#39;, &#39;Programming&#39;, &#39;Traveling&#39;,&#39;Making Packages&#39;]&quot;</span> 
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="na">type-speed</span><span class="o">=</span><span class="s">&quot;70&quot;</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="na">delete-speed</span><span class="o">=</span><span class="s">&quot;10&quot;</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-primary font-semibold&quot;</span> <span class="p">/&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>    I Love <span class="p">&lt;</span><span class="nt">x-hwkui-typewriter</span> 
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="na">:words</span><span class="o">=</span><span class="s">&quot;[&#39;Games&#39;, &#39;Programming&#39;, &#39;Traveling&#39;,&#39;Making Packages&#39;]&quot;</span> 
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="na">type-speed</span><span class="o">=</span><span class="s">&quot;70&quot;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    <span class="na">delete-speed</span><span class="o">=</span><span class="s">&quot;10&quot;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-primary font-semibold&quot;</span> <span class="p">/&gt;</span>
 </span></code></pre></div>
 <hr />
 

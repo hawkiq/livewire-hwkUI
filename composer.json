@@ -35,7 +35,7 @@
         "phpstan/phpstan": "*"
     },
     "require": {
-        "livewire/livewire": "^4.3"
+        "livewire/livewire": "^3.0|^4.0"
     },
     "config": {
         "allow-plugins": {

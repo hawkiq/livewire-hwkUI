@@ -2,8 +2,8 @@
 
 namespace Hawkiq\Hwkui\View\Components\Widget\Timeline;
 
-use Illuminate\View\Component;
 use Hawkiq\Hwkui\Support\TimelineContext;
+use Illuminate\View\Component;
 
 class Item extends Component
 {
@@ -13,7 +13,7 @@ class Item extends Component
     {
         $this->direction = $direction ?? TimelineContext::$direction;
     }
-    
+
     public function render()
     {
         return view('hwkui::components.widget.timeline.item');

@@ -3,15 +3,15 @@
 namespace Hawkiq\Hwkui\View\Components\Widget\Timeline;
 
 use Closure;
+use Hawkiq\Hwkui\Support\TimelineContext;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\View\Component;
-use Hawkiq\Hwkui\Support\TimelineContext;
-
 
 class Timeline extends Component
 {
     public ?Collection $items;
+
     public $paginator = null;
 
     public function __construct(
@@ -40,6 +40,7 @@ class Timeline extends Component
         TimelineContext::$direction = $this->direction;
         TimelineContext::$color = $this->color;
         TimelineContext::$length = $this->length;
+
         return view('hwkui::components.widget.timeline.timeline');
     }
 }

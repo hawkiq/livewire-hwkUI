@@ -7,10 +7,10 @@ use Illuminate\View\Component;
 class FlatPicker extends Component
 {
     public $options = [];
+
     public $label = null;
+
     public $placeholder = null;
-
-
 
     public function __construct($options = [], $label = null, $placeholder = null)
     {
@@ -31,7 +31,6 @@ class FlatPicker extends Component
 
         $this->options = array_replace_recursive($defaultOptions, $userOptions);
     }
-
 
     public function render()
     {

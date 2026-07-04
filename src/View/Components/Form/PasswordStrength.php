@@ -7,7 +7,9 @@ use Illuminate\View\Component;
 class PasswordStrength extends Component
 {
     public string $name;
+
     public bool $checklist;
+
     public array $rules;
 
     public function __construct(string $name = 'password', bool $checklist = true, $rules = [

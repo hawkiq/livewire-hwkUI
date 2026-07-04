@@ -7,7 +7,9 @@ use Illuminate\View\Component;
 class Item extends Component
 {
     public $heading;
+
     public $icon;
+
     public $disabled;
 
     public function __construct($heading = null, $icon = 'chevron-down', $disabled = false)

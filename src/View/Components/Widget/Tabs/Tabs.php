@@ -12,12 +12,12 @@ class Tabs extends Component
         public string $variant = 'classic', // options: 'pills', 'classic'
         public string $color = 'primary'
     ) {
-        if (!in_array($this->variant, ['pills', 'classic'])) {
+        if (! in_array($this->variant, ['pills', 'classic'])) {
             $this->variant = 'classic';
         }
 
         $allowedColors = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'violet', 'pink', 'dark', 'light'];
-        if (!in_array($this->color, $allowedColors)) {
+        if (! in_array($this->color, $allowedColors)) {
             $this->color = 'primary';
         }
     }

@@ -7,14 +7,23 @@ use Illuminate\View\Component;
 class InfoBox extends Component
 {
     public $title;
+
     public $text;
+
     public $icon;
+
     public $description;
+
     public $url;
+
     public $urlTarget;
+
     public $theme;
+
     public $iconTheme;
+
     public $progress;
+
     public $progressTheme;
 
     public function __construct(
@@ -60,15 +69,15 @@ class InfoBox extends Component
     public function progressBarClasses(): string
     {
         $theme = match ($this->progressTheme) {
-            'primary'   => 'bg-blue-600',
+            'primary' => 'bg-blue-600',
             'secondary' => 'bg-gray-500',
-            'success'   => 'bg-green-600',
-            'info'      => 'bg-cyan-500',
-            'warning'   => 'bg-yellow-400',
-            'danger'    => 'bg-red-600',
-            'light'     => 'bg-gray-100',
-            'dark'      => 'bg-gray-800',
-            default     => 'bg-white',
+            'success' => 'bg-green-600',
+            'info' => 'bg-cyan-500',
+            'warning' => 'bg-yellow-400',
+            'danger' => 'bg-red-600',
+            'light' => 'bg-gray-100',
+            'dark' => 'bg-gray-800',
+            default => 'bg-white',
         };
 
         return $theme;
@@ -77,30 +86,30 @@ class InfoBox extends Component
     public function bgColor(): string
     {
         return match ($this->theme) {
-            'primary'   => 'bg-blue-600 text-white dark:bg-blue-900',
+            'primary' => 'bg-blue-600 text-white dark:bg-blue-900',
             'secondary' => 'bg-gray-500 text-white dark:bg-gray-900',
-            'success'   => 'bg-green-600 text-white dark:bg-green-900',
-            'info'      => 'bg-cyan-500 text-white dark:bg-cyan-900',
-            'warning'   => 'bg-yellow-400 text-black dark:bg-yellow-900 dark:text-white',
-            'danger'    => 'bg-red-600 text-white dark:bg-red-900',
-            'light'     => 'bg-gray-100 text-black dark:bg-gray-900',
-            'dark'      => 'bg-gray-800 text-white dark:bg-gray-900',
-            default     => 'bg-white',
+            'success' => 'bg-green-600 text-white dark:bg-green-900',
+            'info' => 'bg-cyan-500 text-white dark:bg-cyan-900',
+            'warning' => 'bg-yellow-400 text-black dark:bg-yellow-900 dark:text-white',
+            'danger' => 'bg-red-600 text-white dark:bg-red-900',
+            'light' => 'bg-gray-100 text-black dark:bg-gray-900',
+            'dark' => 'bg-gray-800 text-white dark:bg-gray-900',
+            default => 'bg-white',
         };
     }
 
     public function iconBgColor(): string
     {
         return match ($this->iconTheme) {
-            'primary'   => 'bg-blue-600',
+            'primary' => 'bg-blue-600',
             'secondary' => 'bg-gray-500',
-            'success'   => 'bg-green-600',
-            'info'      => 'bg-cyan-500',
-            'warning'   => 'bg-yellow-400 text-black',
-            'danger'    => 'bg-red-600',
-            'light'     => 'bg-gray-100 text-black',
-            'dark'      => 'bg-gray-800',
-            default     => 'bg-gray-400',
+            'success' => 'bg-green-600',
+            'info' => 'bg-cyan-500',
+            'warning' => 'bg-yellow-400 text-black',
+            'danger' => 'bg-red-600',
+            'light' => 'bg-gray-100 text-black',
+            'dark' => 'bg-gray-800',
+            default => 'bg-gray-400',
         };
     }
 

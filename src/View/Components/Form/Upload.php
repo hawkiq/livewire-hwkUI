@@ -7,8 +7,11 @@ use Illuminate\View\Component;
 class Upload extends Component
 {
     public ?string $hint;
+
     public bool $preview;
+
     public bool $multiple;
+
     public ?int $max;
 
     public function __construct(
@@ -26,6 +29,6 @@ class Upload extends Component
     public function render()
     {
         return view('hwkui::components.form.upload');
-        
+
     }
 }

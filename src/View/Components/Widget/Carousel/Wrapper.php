@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class Wrapper extends Component
 {
     public $items;
+
     public $interval;
 
     public function __construct($items, $interval = 5000)

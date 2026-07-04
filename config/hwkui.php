@@ -175,7 +175,7 @@ return [
             'useCurrent' => true,
             'stepping' => 1,
             'localization' => [
-                //'format' => 'yyyy-MM-dd hh:mm',
+                // 'format' => 'yyyy-MM-dd hh:mm',
                 'locale' => app()->getLocale(),
             ],
         ],
@@ -224,6 +224,6 @@ return [
             'altInput' => true,
             'altFormat' => 'Y-m-d H:i',
             'minuteIncrement' => 5,
-        ]
+        ],
     ],
 ];

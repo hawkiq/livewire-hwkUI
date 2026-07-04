@@ -6,8 +6,20 @@ use Illuminate\View\Component;
 
 class Card extends Component
 {
-    public $title, $icon, $theme, $themeMode;
-    public $headerClass, $bodyClass, $footerClass;
+    public $title;
+
+    public $icon;
+
+    public $theme;
+
+    public $themeMode;
+
+    public $headerClass;
+
+    public $bodyClass;
+
+    public $footerClass;
+
     public $disabled;
 
     public function __construct(
@@ -39,8 +51,8 @@ class Card extends Component
     {
         $base = 'relative rounded-2xl shadow-md overflow-hidden m-1';
         $color = match ($this->themeMode) {
-            'full' => $this->bgColor() . ' text-white',
-            'outline' => 'border border-t-7 ' . $this->borderColor() . ' bg-white dark:bg-zinc-700',
+            'full' => $this->bgColor().' text-white',
+            'outline' => 'border border-t-7 '.$this->borderColor().' bg-white dark:bg-zinc-700',
             default => 'bg-white dark:bg-zinc-700'
         };
 
@@ -53,7 +65,7 @@ class Card extends Component
         $theme = match ($this->themeMode) {
             'full' => 'text-white',
             'outline' => '',
-            default => $this->theme ? $this->bgColor() . ' text-white' : 'bg-gray-100'
+            default => $this->theme ? $this->bgColor().' text-white' : 'bg-gray-100'
         };
 
         return trim("$base $theme {$this->headerClass}");
@@ -78,8 +90,8 @@ class Card extends Component
             'warning' => 'bg-yellow-400 text-black dark:bg-yellow-900',
             'success' => 'bg-green-600 dark:bg-green-900',
             'info' => 'bg-cyan-500 dark:bg-cyan-900',
-            'light'     => 'bg-gray-100 text-black dark:bg-gray-200',
-            'dark'      => 'bg-gray-800 text-white dark:bg-black',
+            'light' => 'bg-gray-100 text-black dark:bg-gray-200',
+            'dark' => 'bg-gray-800 text-white dark:bg-black',
             default => 'bg-zinc-200 dark:bg-zinc-900',
         };
     }
@@ -93,8 +105,8 @@ class Card extends Component
             'warning' => 'border-yellow-400',
             'success' => 'border-green-600',
             'info' => 'border-cyan-500',
-            'light'     => 'border-gray-100',
-            'dark'      => 'border-gray-800',
+            'light' => 'border-gray-100',
+            'dark' => 'border-gray-800',
             default => 'border-gray-300',
         };
     }

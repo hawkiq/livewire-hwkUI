@@ -11,4 +11,3 @@ class Heading extends Component
         return view('hwkui::components.widget.accordion.heading');
     }
 }
-

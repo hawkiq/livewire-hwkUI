@@ -7,9 +7,13 @@ use Illuminate\View\Component;
 class Marquee extends Component
 {
     public $direction;
+
     public $duration;
+
     public $gap;
+
     public $pauseOnHover;
+
     public $fade;
 
     public function __construct(
@@ -30,5 +34,4 @@ class Marquee extends Component
     {
         return view('hwkui::components.widget.marquee');
     }
-
 }

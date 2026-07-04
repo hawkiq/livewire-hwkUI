@@ -7,9 +7,13 @@ use Illuminate\View\Component;
 class GlassBox extends Component
 {
     public string $title;
+
     public int|float $value;
+
     public string $icon;
+
     public string $href;
+
     public string $color;
 
     public function __construct(
@@ -44,7 +48,7 @@ class GlassBox extends Component
         shadow-lg
     ';
 
-        return $base . ' ' . match ($this->color) {
+        return $base.' '.match ($this->color) {
 
             'blue' => '
             bg-blue-100 dark:bg-blue-950/20
@@ -105,7 +109,7 @@ class GlassBox extends Component
         shadow-inner
     ';
 
-        return $base . ' ' . match ($this->color) {
+        return $base.' '.match ($this->color) {
 
             'blue' => '
             bg-blue-500/10

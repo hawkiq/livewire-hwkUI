@@ -2,14 +2,17 @@
 
 namespace Hawkiq\Hwkui\View\Components\Widget\Timeline;
 
-use Illuminate\View\Component;
 use Hawkiq\Hwkui\Support\TimelineContext;
+use Illuminate\View\Component;
 
 class Indicator extends Component
 {
     public string $direction;
+
     public string $color;
+
     public string $length;
+
     public function __construct(
         public string $variant = 'solid',
         public string $state = 'completed',

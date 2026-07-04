@@ -7,7 +7,9 @@ use Illuminate\View\Component;
 class Group extends Component
 {
     public $animation;
+
     public $collapse;
+
     public $color;
 
     public function __construct($animation = 'slide', $collapse = false, $color = 'primary')

@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class Icon extends Component
 {
     public ?string $name;
+
     public string $type;
 
     public function __construct(

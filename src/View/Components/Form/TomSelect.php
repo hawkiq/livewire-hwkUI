@@ -7,7 +7,9 @@ use Illuminate\View\Component;
 class TomSelect extends Component
 {
     public $options = [];
+
     public $label = null;
+
     public $placeholder = null;
 
     public function __construct($options = [], $label = null, $placeholder = null)
@@ -16,7 +18,6 @@ class TomSelect extends Component
         $this->placeholder = $placeholder;
         $this->options = is_array($options) ? $options : json_decode($options, true) ?? [];
     }
-
 
     public function render()
     {

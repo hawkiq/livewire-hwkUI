@@ -2,3 +2,5 @@
 /vendor
 /site
 .DS_Store
+.phpstan-cache
+.phpunit.cache

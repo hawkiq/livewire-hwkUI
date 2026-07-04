@@ -1,5 +1,6 @@
 <?php
 
+use Hawkiq\Hwkui\View\Components\Widget\Badge;
 use Hawkiq\Hwkui\View\Components\Widget\Tabs\Tabs;
 use Illuminate\Support\Facades\Blade;
 
@@ -23,7 +24,7 @@ it('renders a timeline from an items collection and a slot fallback', function (
 });
 
 it('falls back to safe values for invalid badge and tabs props', function () {
-    $badge = new \Hawkiq\Hwkui\View\Components\Widget\Badge('ghostly', 'unknown', 'xl', 'check');
+    $badge = new Badge('ghostly', 'unknown', 'xl', 'check');
     $tabs = new Tabs(default: 'tab1', variant: 'invalid', color: 'unknown');
 
     expect($badge->getShapeClasses())->toContain('rounded')

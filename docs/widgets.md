@@ -604,6 +604,61 @@ For granular layouts, omit the `:items` attribute. You gain full creative author
 
 ---
 
+## 📦 Onboarding Tour
+
+A high-performance, accessible, and lightweight Onboarding Tour component.
+
+- Component API
+
+| Attribute | Type  |  Default |Description |
+| :--- | :--- | :--- |:--- |
+|`steps`|`array`|`[]`| An array of step objects defining the tour sequence (see Step Configuration). |
+|`open`|`boolean`|`false`|Determines if the tour starts immediately upon page load.|
+
+
+- Step Configuration
+
+| Attribute | Type  | Description |
+| :--- | :--- | :--- |
+|`target`|`string`|CSS selector for the element (e.g., `#my-id`).|
+|`title`|`string`|The heading of the popover card.|
+|`body`|`string`|The descriptive text for the step.|
+|`placement`|`string`|Preferred side: `top`, `bottom`, `left`, or `right`.|
+
+
+- Basic Usage
+
+```html
+
+@php
+    $steps = [
+        [
+            'target' => '#search-bar',
+            'title' => 'Search',
+            'body' => 'Use this bar to find your documents quickly.',
+            'placement' => 'bottom',
+        ],
+        [
+            'target' => '#user-profile',
+            'title' => 'Profile Settings',
+            'body' => 'Click here to manage your account details.',
+            'placement' => 'left',
+        ],
+    ];
+@endphp
+
+ <x-hwkui-tour :steps="$steps">
+    <button @click="start()" class="btn-primary">
+        Take the Tour
+    </button>
+</x-hwkui-tour>
+
+
+```
+
+
+---
+
 ## 📦 Typewriter
 
 A robust,typewriter effect component for texts.

@@ -36,6 +36,7 @@ class HwkuiServiceProvider extends ServiceProvider
         'marquee' => Widget\Marquee::class,
         'typewriter' => Widget\Typewriter::class,
         'flip-card' => Widget\FlipCard::class,
+        'tour' => Widget\Tour::class,
     ];
 
     protected $timelineComponents = [

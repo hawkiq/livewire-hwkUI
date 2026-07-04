@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class Tour extends Component
 {
     public bool $open;
+
     public array $steps;
 
     public function __construct(bool $open = false, $steps = [])

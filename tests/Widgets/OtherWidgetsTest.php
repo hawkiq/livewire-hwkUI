@@ -6,6 +6,7 @@ use Hawkiq\Hwkui\View\Components\Widget\Icon;
 use Hawkiq\Hwkui\View\Components\Widget\InfoBox;
 use Hawkiq\Hwkui\View\Components\Widget\Marquee;
 use Hawkiq\Hwkui\View\Components\Widget\SmallBox;
+use Hawkiq\Hwkui\View\Components\Widget\Tour;
 use Hawkiq\Hwkui\View\Components\Widget\Typewriter;
 use Illuminate\Support\Facades\Blade;
 
@@ -77,4 +78,14 @@ it('renders the typewriter widget with custom props and the expected alpine mark
         ->and($component->typeSpeed)->toBe(120)
         ->and($html)->toContain('x-data')
         ->and($html)->toContain('x-text="text"');
+});
+
+it('normalizes the tour widget props for boolean and step values', function () {
+    $component = new Tour('true', [['title' => 'First', 'body' => 'Intro', 'target' => '#hero']]);
+    $html = Blade::render('<x-hwkui-tour :open="true" :steps="[\'title\' => \'First\', \'body\' => \'Intro\', \'target\' => \'#hero\']" />');
+
+    expect($component->open)->toBeTrue()
+        ->and($component->steps)->toBe([['title' => 'First', 'body' => 'Intro', 'target' => '#hero']])
+        ->and($html)->toContain('onboardingTour')
+        ->and($html)->toContain('currentStep.title');
 });

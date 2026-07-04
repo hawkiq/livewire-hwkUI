@@ -200,6 +200,57 @@ A premium, accessible, and reactive file upload component designed for Laravel, 
 
 ---
 
+## 🧩 Password Strength Indicator
+
+A lightweight, client-side password strength indicator.
+
+![Password Strength component](assets/password-strength-component.PNG)
+
+
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+|`name`|`string`|`password`|The `name` or `wire:model` of the target input.|
+|`checklist`|`boolean`|`true`|Whether to display the list of password rules.|
+|`rules`|`array`|(See below)|The specific rules to validate against.|
+
+
+- Customizing Rules
+
+By default, the component checks for Length (8), Uppercase, Lowercase, Numbers, and Symbols.
+
+You can override these rules by passing an array. Set a rule to false to disable it entirely (it will be removed from both the UI and the scoring logic). Set length to an integer to define the minimum character count.
+
+```html
+
+<!-- Example: Require only 6 characters and a number -->
+<x-hwkui-password-strength 
+    name="password" 
+    :rules="[
+        'length' => 6, 
+        'uppercase' => false, 
+        'lowercase' => false, 
+        'number' => true, 
+        'symbol' => false
+    ]" 
+/>
+
+```
+
+- Basic Usage
+
+Place the `<x-hwkui-password-strength>` component directly below your password input. Ensure the `name` prop matches either the `name` or `wire:model` attribute of the target input.
+
+```html
+<flux:field class="mb-4">
+    <flux:input wire:model="password" type="password" />
+    <!-- Connects to wire:model="password" -->
+    <x-hwkui-password-strength name="password" />
+</flux:field>
+
+```
+
+---
+
 ## 🧩 Select2
 
 - Install

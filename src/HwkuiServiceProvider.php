@@ -21,6 +21,7 @@ class HwkuiServiceProvider extends ServiceProvider
         'tom-select' => Form\TomSelect::class,
         'flat-picker' => Form\FlatPicker::class,
         'upload'      => Form\Upload::class,
+        'password-strength'      => Form\PasswordStrength::class,
     ];
 
     protected $widgetComponents = [

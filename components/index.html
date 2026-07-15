@@ -731,44 +731,44 @@
 <p>Then, in your <code>app.js</code> import the packages:</p>
 <div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="s1">&#39;tom-select/dist/css/tom-select.css&#39;</span><span class="p">;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">TomSelect</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;tom-select&#39;</span><span class="p">;</span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;tom-select/dist/css/tom-select.css&quot;</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">TomSelect</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;tom-select&quot;</span><span class="p">;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nb">window</span><span class="p">.</span><span class="nx">TomSelect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TomSelect</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>Basic Usage</li>
 </ul>
 <div class="language-html highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-tom-select</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="na">class</span><span class="o">=</span><span class="s">&quot;h-full&quot;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;customer_id&quot;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="na">label</span><span class="o">=</span><span class="s">&quot;Customer&quot;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select customer...&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="cm">&lt;!-- Default empty option --&gt;</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Select Customer...<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="na">class</span><span class="o">=</span><span class="s">&quot;h-full&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;customer_id&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Customer&quot;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select customer...&quot;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">&gt;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  <span class="cm">&lt;!-- Default empty option --&gt;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Select Customer...<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="cm">&lt;!-- Dynamic options --&gt;</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    @foreach ($customers as $c)
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ (string) $c-&gt;id }}&quot;</span> <span class="na">wire:key</span><span class="o">=</span><span class="s">&quot;{{ $c-&gt;id }}&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>            {{ $c-&gt;name }}
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    @endforeach
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-tom-select</span><span class="p">&gt;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  <span class="cm">&lt;!-- Dynamic options --&gt;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  @foreach ($customers as $c)
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ (string) $c-&gt;id }}&quot;</span> <span class="na">wire:key</span><span class="o">=</span><span class="s">&quot;{{ $c-&gt;id }}&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    {{ $c-&gt;name }}
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>  <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>  @endforeach
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-tom-select</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <ul>
 <li>Passing Additional TomSelect Options</li>
 </ul>
 <p>You can pass extra options via the <code>:options</code> attribute:</p>
 <div class="language-html highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-tom-select</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;customer_id&quot;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="na">label</span><span class="o">=</span><span class="s">&quot;Customer&quot;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;customer_id&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Customer&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s">        &#39;maxItems&#39; =&gt; 3,</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s">        &#39;create&#39; =&gt; true,</span>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s">        &#39;plugins&#39; =&gt; [&#39;remove_button&#39;]</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="s">    ]&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-tom-select</span><span class="p">&gt;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="s">    ]&quot;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">&gt;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-tom-select</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <p>More information about TomSelect setup can be found at the official website <a href="https://tom-select.js.org/">Tom Select</a></p>
 <hr />
@@ -781,9 +781,9 @@
 <p class="admonition-title">Use either CDN method or npm which described in <a href="../configuration/">Configuration</a> page.</p>
 </div>
 <p>I'll use modern and prefered way in this tutorial .</p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm<span class="w"> </span>install<span class="w"> </span>flatpickr
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm<span class="w"> </span>install<span class="w"> </span>flatpickr
 </span></code></pre></div>
-edit <code>app.js</code></p>
+<p>edit <code>app.js</code></p>
 <div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
@@ -799,9 +799,14 @@ edit <code>app.js</code></p>
 <ul>
 <li>Basic Usage</li>
 </ul>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-flat-picker</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;datetimePicker&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Flatpicker&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;setDatetime&quot;</span> <span class="p">/&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-flat-picker</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  <span class="na">id</span><span class="o">=</span><span class="s">&quot;datetimePicker&quot;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Flatpicker&quot;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;setDatetime&quot;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">/&gt;</span>
 </span></code></pre></div>
-<p>You can configure default picker options globally in  <code>config/hwkui.php</code></p>
+<p>You can configure default picker options globally in <code>config/hwkui.php</code></p>
 <div class="language-php highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hwkui.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
@@ -814,7 +819,7 @@ edit <code>app.js</code></p>
 <span class="normal"><a href="#__codelineno-7-10">10</a></span>
 <span class="normal"><a href="#__codelineno-7-11">11</a></span>
 <span class="normal"><a href="#__codelineno-7-12">12</a></span>
-<span class="normal"><a href="#__codelineno-7-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">&lt;?php</span> 
+<span class="normal"><a href="#__codelineno-7-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">&lt;?php</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="s1">&#39;flat-picker&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="s1">&#39;defaultOptions&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
@@ -828,41 +833,73 @@ edit <code>app.js</code></p>
 </span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12"></a>    <span class="p">]</span>
 </span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="p">],</span>
 </span></code></pre></div></td></tr></table></div>
-<p>You can explore all available options on the  <a href="https://flatpickr.js.org/options/">Options page</a> and see what you can add.</p>
+<p>You can explore all available options on the <a href="https://flatpickr.js.org/options/">Options page</a> and see what you can add.</p>
 <ul>
 <li>Override Options Per Component</li>
 </ul>
-<p>to Override settings for individual instances using the <code>:options</code>  attribute:</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a> <span class="p">&lt;</span><span class="nt">x-hwkui-flat-picker</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;datetimePicker&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;month&quot;</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>            <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="s">                &#39;enableTime&#39; =&gt; false,</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s">                &#39;dateFormat&#39; =&gt; &#39;Y-m&#39;,</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s">                &#39;altFormat&#39; =&gt; &#39;Y-m&#39;,</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s">            ]&quot;</span> <span class="p">/&gt;</span>
+<p>to Override settings for individual instances using the <code>:options</code> attribute:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-flat-picker</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  <span class="na">id</span><span class="o">=</span><span class="s">&quot;datetimePicker&quot;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;month&quot;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="s">                &#39;enableTime&#39; =&gt; false,</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s">                &#39;dateFormat&#39; =&gt; &#39;Y-m&#39;,</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="s">                &#39;altFormat&#39; =&gt; &#39;Y-m&#39;,</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="s">            ]&quot;</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">/&gt;</span>
 </span></code></pre></div>
 <p>if you want to select only months you must then pass it as <code>:options</code> argument</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hwkui.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-9-10">10</a></span>
-<span class="normal"><a href="#__codelineno-9-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">&lt;?php</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="s1">&#39;plugins&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="p">[</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a>        <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;monthSelect&#39;</span><span class="p">,</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a>        <span class="s1">&#39;config&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a>            <span class="s1">&#39;shorthand&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a>            <span class="s1">&#39;theme&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;dark&#39;</span><span class="p">,</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a>        <span class="p">],</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a>    <span class="p">],</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="p">],</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-flat-picker</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  <span class="na">id</span><span class="o">=</span><span class="s">&quot;datetimePicker&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Select Month&quot;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Month&quot;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;month&quot;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="s">        &#39;enableTime&#39; =&gt; false,</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="s">        &#39;dateFormat&#39; =&gt; &#39;Y-m&#39;,</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="s">        &#39;altFormat&#39; =&gt; &#39;Y-m&#39;,</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="s">        &#39;plugins&#39; =&gt; [</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="s">    [</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="s">        &#39;type&#39; =&gt; &#39;monthSelect&#39;,</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="s">        &#39;config&#39; =&gt; [</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="s">            &#39;shorthand&#39; =&gt; true,</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="s">            &#39;theme&#39; =&gt; &#39;dark&#39;,</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="s">        ],</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="s">    ],</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="s">],</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="s">    ]&quot;</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="p">/&gt;</span>
+</span></code></pre></div>
+<p>If you want to use <code>Year Select</code> plugin which FlatPicker doesnt provide it directly you must install third party plugin</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>npm<span class="w"> </span>install<span class="w"> </span>@mikesha/flatpickr-year-select-plugin
+</span></code></pre></div>
+<p>then add it</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">yearSelectPlugin</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@mikesha/flatpickr-year-select-plugin&quot;</span><span class="p">;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nb">window</span><span class="p">.</span><span class="nx">yearSelectPlugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yearSelectPlugin</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
+<div class="language-css highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.css</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">&quot;../../node_modules/@mikesha/flatpickr-year-select-plugin/build/yearPlugin.css&quot;</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>use it in blade</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-flat-picker</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  <span class="na">id</span><span class="o">=</span><span class="s">&quot;datetimePicker&quot;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Select Year&quot;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Year&quot;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;year&quot;</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="s">        &#39;enableTime&#39; =&gt; false,</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="s">        &#39;dateFormat&#39; =&gt; &#39;Y&#39;,</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="s">        &#39;altFormat&#39; =&gt; &#39;Y&#39;,</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="s">        &#39;plugins&#39; =&gt; [</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="s">            [</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="s">                &#39;type&#39; =&gt; &#39;yearSelect&#39;,</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="s">            ],</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="s">        ],</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="s">    ]&quot;</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="p">/&gt;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="drag-drop-file-upload">🧩 Drag &amp; Drop File Upload</h2>
 <p>A premium, accessible, and reactive file upload component designed for Laravel, Livewire, and Tailwind CSS. It supports drag-and-drop mechanics, real-time client-side max file limitations, progress indication bars, and inline image/document previews.</p>
@@ -873,68 +910,28 @@ edit <code>app.js</code></p>
 <ul>
 <li>Basic Usage</li>
 </ul>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-upload</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;avatar&quot;</span> <span class="na">preview</span> <span class="p">/&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-upload</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;avatar&quot;</span> <span class="na">preview</span> <span class="p">/&gt;</span>
 </span></code></pre></div>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">&lt;!-- Multiple Files with Previews &amp; Constraints --&gt;</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">&lt;</span><span class="nt">x-hwkui-upload</span> 
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;documents&quot;</span> 
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="na">multiple</span> 
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="na">max</span><span class="o">=</span><span class="s">&quot;3&quot;</span>  
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="na">accept</span><span class="o">=</span><span class="s">&quot;image/*,.pdf&quot;</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="na">hint</span><span class="o">=</span><span class="s">&quot;Only images or PDFs are allowed. Max 3 files.&quot;</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">/&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">&lt;!-- Multiple Files with Previews &amp; Constraints --&gt;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="p">&lt;</span><span class="nt">x-hwkui-upload</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;documents&quot;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  <span class="na">multiple</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>  <span class="na">max</span><span class="o">=</span><span class="s">&quot;3&quot;</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>  <span class="na">accept</span><span class="o">=</span><span class="s">&quot;image/*,.pdf&quot;</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>  <span class="na">hint</span><span class="o">=</span><span class="s">&quot;Only images or PDFs are allowed. Max 3 files.&quot;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="p">/&gt;</span>
 </span></code></pre></div>
 <ul>
 <li>Component API</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Attribute</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Default</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>wire:model</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"><code>Required</code></td>
-<td style="text-align: left;">The backing Livewire public property array/file handler string name.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>multiple</code></td>
-<td style="text-align: left;"><code>boolean</code></td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;">Enables selection or dragging of multiple files simultaneously.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>max</code></td>
-<td style="text-align: left;"><code>integer</code></td>
-<td style="text-align: left;"><code>null</code></td>
-<td style="text-align: left;">Imposes client-side file count safety validations (works exclusively with multiple).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>preview</code></td>
-<td style="text-align: left;"><code>boolean</code></td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;">Renders dynamic thumbnail galleries for images or itemized layout lists for non-images.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>hint</code></td>
-<td style="text-align: left;"><code>string|null</code></td>
-<td style="text-align: left;"><code>null</code></td>
-<td style="text-align: left;">Overrides the default helper sub-text positioned beneath upload prompts.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>accept</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"><code>*</code></td>
-<td style="text-align: left;">Valid standard file mime-type constraint filters forwarded directly to native browser dialogs.</td>
-</tr>
-</tbody>
-</table>
+<p>| Attribute    | Type      | Default    | Description                                                                                    |
+| :----------- | :-------- | :--------- | :--------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| <code>wire:model</code> | <code>string</code>  | <code>Required</code> | The backing Livewire public property array/file handler string name.                           |
+| <code>multiple</code>   | <code>boolean</code> | <code>false</code>    | Enables selection or dragging of multiple files simultaneously.                                |
+| <code>max</code>        | <code>integer</code> | <code>null</code>     | Imposes client-side file count safety validations (works exclusively with multiple).           |
+| <code>preview</code>    | <code>boolean</code> | <code>false</code>    | Renders dynamic thumbnail galleries for images or itemized layout lists for non-images.        |
+| <code>hint</code>       | <code>string   | null</code>      | <code>null</code>                                                                                         | Overrides the default helper sub-text positioned beneath upload prompts. |
+| <code>accept</code>     | <code>string</code>  | <code>*</code>        | Valid standard file mime-type constraint filters forwarded directly to native browser dialogs. |</p>
 <hr />
 <h2 id="password-strength-indicator">🧩 Password Strength Indicator</h2>
 <p>A lightweight, client-side password strength indicator.</p>
@@ -974,27 +971,27 @@ edit <code>app.js</code></p>
 </ul>
 <p>By default, the component checks for Length (8), Uppercase, Lowercase, Numbers, and Symbols.</p>
 <p>You can override these rules by passing an array. Set a rule to false to disable it entirely (it will be removed from both the UI and the scoring logic). Set length to an integer to define the minimum character count.</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">&lt;!-- Example: Require only 6 characters and a number --&gt;</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">&lt;</span><span class="nt">x-hwkui-password-strength</span> 
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> 
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="na">:rules</span><span class="o">=</span><span class="s">&quot;[</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="s">        &#39;length&#39; =&gt; 6, </span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="s">        &#39;uppercase&#39; =&gt; false, </span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="s">        &#39;lowercase&#39; =&gt; false, </span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="s">        &#39;number&#39; =&gt; true, </span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="s">        &#39;symbol&#39; =&gt; false</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="s">    ]&quot;</span> 
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="p">/&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">&lt;!-- Example: Require only 6 characters and a number --&gt;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="p">&lt;</span><span class="nt">x-hwkui-password-strength</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>  <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>  <span class="na">:rules</span><span class="o">=</span><span class="s">&quot;[</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="s">        &#39;length&#39; =&gt; 6, </span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="s">        &#39;uppercase&#39; =&gt; false, </span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="s">        &#39;lowercase&#39; =&gt; false, </span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="s">        &#39;number&#39; =&gt; true, </span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="s">        &#39;symbol&#39; =&gt; false</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="s">    ]&quot;</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="p">/&gt;</span>
 </span></code></pre></div>
 <ul>
 <li>Basic Usage</li>
 </ul>
 <p>Place the <code>&lt;x-hwkui-password-strength&gt;</code> component directly below your password input. Ensure the <code>name</code> prop matches either the <code>name</code> or <code>wire:model</code> attribute of the target input.</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">&lt;</span><span class="nt">flux:field</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-4&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="p">&lt;</span><span class="nt">flux:input</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="p">/&gt;</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="cm">&lt;!-- Connects to wire:model=&quot;password&quot; --&gt;</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="p">&lt;</span><span class="nt">x-hwkui-password-strength</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="p">/&gt;</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">&lt;/</span><span class="nt">flux:field</span><span class="p">&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">&lt;</span><span class="nt">flux:field</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-4&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  <span class="p">&lt;</span><span class="nt">flux:input</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="p">/&gt;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>  <span class="cm">&lt;!-- Connects to wire:model=&quot;password&quot; --&gt;</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  <span class="p">&lt;</span><span class="nt">x-hwkui-password-strength</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="p">/&gt;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">&lt;/</span><span class="nt">flux:field</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <hr />
 <h2 id="select2">🧩 Select2</h2>
@@ -1005,60 +1002,66 @@ edit <code>app.js</code></p>
 <p class="admonition-title">Use either CDN method or npm which described in <a href="../configuration/">Configuration</a> page.</p>
 </div>
 <p>I'll use modern and prefered way in this tutorial .</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>npm<span class="w"> </span>install<span class="w"> </span>jquery<span class="w"> </span>select2
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>npm<span class="w"> </span>install<span class="w"> </span>jquery<span class="w"> </span>select2
 </span></code></pre></div>
-<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
-<span class="normal"><a href="#__codelineno-15-2">2</a></span>
-<span class="normal"><a href="#__codelineno-15-3">3</a></span>
-<span class="normal"><a href="#__codelineno-15-4">4</a></span>
-<span class="normal"><a href="#__codelineno-15-5">5</a></span>
-<span class="normal"><a href="#__codelineno-15-6">6</a></span>
-<span class="normal"><a href="#__codelineno-15-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1">// For select and jquery component</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">$</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;jquery&quot;</span><span class="p">;</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;select2/dist/js/select2.full.min.js&quot;</span><span class="p">;</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;select2/dist/css/select2.min.css&quot;</span><span class="p">;</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="nb">window</span><span class="p">.</span><span class="nx">$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">;</span>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">;</span>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="nb">window</span><span class="p">.</span><span class="nx">Select2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">select2</span><span class="p">;</span>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span>
+<span class="normal"><a href="#__codelineno-19-6">6</a></span>
+<span class="normal"><a href="#__codelineno-19-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="c1">// For select and jquery component</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">$</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;jquery&quot;</span><span class="p">;</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;select2/dist/js/select2.full.min.js&quot;</span><span class="p">;</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;select2/dist/css/select2.min.css&quot;</span><span class="p">;</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="nb">window</span><span class="p">.</span><span class="nx">$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">;</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">;</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="nb">window</span><span class="p">.</span><span class="nx">Select2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">select2</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>Basic usgae</li>
 </ul>
-<p><div class="language-html highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a> <span class="p">&lt;</span><span class="nt">x-hwkui-select</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;selectedItem&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Select User to PLay&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select a user Babe&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>            @forelse ($users as $user)
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>                <span class="p">&lt;</span><span class="nt">option</span> <span class="na">wire:key</span><span class="o">=</span><span class="s">&quot;{{ $user-&gt;id }}&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ $user-&gt;name }}&quot;</span><span class="p">&gt;</span>{{ $user-&gt;name }}<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>            @empty
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>                <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>No options available<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>            @endforelse
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="p">&lt;/</span><span class="nt">x-hwkui-select</span><span class="p">&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-select</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;selectedItem&quot;</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Select User to PLay&quot;</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select a user Babe&quot;</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="p">&gt;</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>  @forelse ($users as $user)
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">wire:key</span><span class="o">=</span><span class="s">&quot;{{ $user-&gt;id }}&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ $user-&gt;name }}&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>    {{ $user-&gt;name }}
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>  <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>  @empty
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>No options available<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>  @endforelse
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-select</span><span class="p">&gt;</span>
 </span></code></pre></div>
-Make sure to include Livewire and the component's scripts on your page.</p>
+<p>Make sure to include Livewire and the component's scripts on your page.</p>
 <p>you can pass options for Select2 like via component</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-select</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;selectedUser&quot;</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="na">label</span><span class="o">=</span><span class="s">&quot;Choose User&quot;</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="na">:options</span><span class="o">=</span><span class="s">&quot;$options&quot;</span> 
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">&gt;</span>
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-select</span><span class="p">&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-select</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;selectedUser&quot;</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Choose User&quot;</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>  <span class="na">:options</span><span class="o">=</span><span class="s">&quot;$options&quot;</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="p">&gt;</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-select</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <p>or direct array</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-select</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;selectedUser&quot;</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="na">label</span><span class="o">=</span><span class="s">&quot;Choose User&quot;</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="s">         &#39;placeholder&#39; =&gt; &#39;Select an option&#39;,</span>
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="s">        &#39;allowClear&#39; =&gt; true,</span>
-</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="s">        &#39;multiple&#39; =&gt; true,</span>
-</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="s">    ]&quot;</span> 
-</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="p">&gt;</span>
-</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-select</span><span class="p">&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-select</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;selectedUser&quot;</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Choose User&quot;</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>  <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="s">         &#39;placeholder&#39; =&gt; &#39;Select an option&#39;,</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="s">        &#39;allowClear&#39; =&gt; true,</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="s">        &#39;multiple&#39; =&gt; true,</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="s">    ]&quot;</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="p">&gt;</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-select</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <h2 id="datetime-picker">🧩 DateTime Picker</h2>
 <p>This component provides an elegant datetime picker powered by Tempus Dominus v6, ready to use in your Laravel Livewire app with a clean, customizable Blade syntax.</p>
 <div class="admonition danger">
 <p class="admonition-title">Developer might abandoned this Project</p>
-<p>As stated in official website This project is no longer active or supported</p>
 </div>
+<p>As stated in official website This project is no longer active or supported</p>
 <ul>
 <li>Install</li>
 </ul>
@@ -1066,112 +1069,9 @@ Make sure to include Livewire and the component's scripts on your page.</p>
 <p class="admonition-title">Use either CDN method or npm which described in <a href="../configuration/">Configuration</a> page.</p>
 </div>
 <p>I'll use modern and prefered way in this tutorial .</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>npm<span class="w"> </span>install<span class="w"> </span>@popperjs/core<span class="w"> </span>@eonasdan/tempus-dominus
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>npm<span class="w"> </span>install<span class="w"> </span>@popperjs/core<span class="w"> </span>@eonasdan/tempus-dominus
 </span></code></pre></div>
-<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-20-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-20-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-20-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-20-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-20-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-20-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-20-10">10</a></span>
-<span class="normal"><a href="#__codelineno-20-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="c1">// For datetime picker from tempus-dominus ( this is abandond now no new releases)</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Popper</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@popperjs/core&quot;</span><span class="p">;</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TempusDominus</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@eonasdan/tempus-dominus&quot;</span><span class="p">;</span>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css&quot;</span><span class="p">;</span>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="nb">window</span><span class="p">.</span><span class="nx">Popper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Popper</span><span class="p">;</span>
-</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="c1">//use this if you used cdn assets</span>
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="nb">window</span><span class="p">.</span><span class="nx">tempusDominus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TempusDominus</span><span class="p">;</span>
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="c1">// or use this if you used npm</span>
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="nb">window</span><span class="p">.</span><span class="nx">tempusDominus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="w">    </span><span class="nx">TempusDominus</span><span class="p">,</span>
-</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="p">};</span>
-</span></code></pre></div></td></tr></table></div>
-<ul>
-<li>Basic Usage</li>
-</ul>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a> <span class="p">&lt;</span><span class="nt">x-hwkui-datetime</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;test-datetime&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Test DateTime&quot;</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>        <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;setDatetime&quot;</span> <span class="p">/&gt;</span>
-</span></code></pre></div>
-<p>You can configure default picker options globally in  <code>config/hwkui.php</code></p>
-<div class="language-php highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hwkui.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-22-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-22-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-22-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-22-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-22-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-22-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-22-10">10</a></span>
-<span class="normal"><a href="#__codelineno-22-11">11</a></span>
-<span class="normal"><a href="#__codelineno-22-12">12</a></span>
-<span class="normal"><a href="#__codelineno-22-13">13</a></span>
-<span class="normal"><a href="#__codelineno-22-14">14</a></span>
-<span class="normal"><a href="#__codelineno-22-15">15</a></span>
-<span class="normal"><a href="#__codelineno-22-16">16</a></span>
-<span class="normal"><a href="#__codelineno-22-17">17</a></span>
-<span class="normal"><a href="#__codelineno-22-18">18</a></span>
-<span class="normal"><a href="#__codelineno-22-19">19</a></span>
-<span class="normal"><a href="#__codelineno-22-20">20</a></span>
-<span class="normal"><a href="#__codelineno-22-21">21</a></span>
-<span class="normal"><a href="#__codelineno-22-22">22</a></span>
-<span class="normal"><a href="#__codelineno-22-23">23</a></span>
-<span class="normal"><a href="#__codelineno-22-24">24</a></span>
-<span class="normal"><a href="#__codelineno-22-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cp">&lt;?php</span> 
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3"></a>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="s1">&#39;datetime&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5"></a>        <span class="s1">&#39;defaultOptions&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6"></a>            <span class="s1">&#39;display&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7"></a>                <span class="s1">&#39;viewMode&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;calendar&#39;</span><span class="p">,</span>
-</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8"></a>                <span class="s1">&#39;components&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9"></a>                    <span class="s1">&#39;calendar&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10"></a>                    <span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11"></a>                    <span class="s1">&#39;year&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12"></a>                    <span class="s1">&#39;month&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13"></a>                    <span class="s1">&#39;clock&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14"></a>                <span class="p">],</span>
-</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15"></a>                <span class="s1">&#39;calendarWeeks&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16"></a>            <span class="p">],</span>
-</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17"></a>            <span class="s1">&#39;debug&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18"></a>            <span class="s1">&#39;useCurrent&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19"></a>            <span class="s1">&#39;stepping&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20"></a>            <span class="s1">&#39;localization&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21"></a>                <span class="s1">&#39;format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;yyyy-MM-dd hh:mm&#39;</span><span class="p">,</span>
-</span><span id="__span-22-22"><a id="__codelineno-22-22" name="__codelineno-22-22"></a>                <span class="s1">&#39;locale&#39;</span> <span class="o">=&gt;</span> <span class="nx">app</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLocale</span><span class="p">(),</span>
-</span><span id="__span-22-23"><a id="__codelineno-22-23" name="__codelineno-22-23"></a>            <span class="p">],</span>
-</span><span id="__span-22-24"><a id="__codelineno-22-24" name="__codelineno-22-24"></a>        <span class="p">],</span>
-</span><span id="__span-22-25"><a id="__codelineno-22-25" name="__codelineno-22-25"></a>    <span class="p">],</span>
-</span></code></pre></div></td></tr></table></div>
-<p>You can explore all available options on the  <a href="https://getdatepicker.com/6/options/">Options page</a> and see what you can add.</p>
-<ul>
-<li>Override Options Per Component</li>
-</ul>
-<p>Override settings for individual instances using the <code>:options</code>  attribute:</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a> <span class="p">&lt;</span><span class="nt">x-hwkui-datetime</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;test-datetime&quot;</span> <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="s">        &#39;display&#39; =&gt; [</span>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="s">            &#39;components&#39; =&gt; [</span>
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="s">                &#39;date&#39; =&gt; false,</span>
-</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="s">                &#39;year&#39; =&gt; true,</span>
-</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="s">                &#39;month&#39; =&gt; true,</span>
-</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="s">                &#39;clock&#39; =&gt; false,</span>
-</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="s">            ],</span>
-</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="s">        ],</span>
-</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="s">        &#39;localization&#39; =&gt; [</span>
-</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="s">            &#39;format&#39; =&gt; &#39;yyyy-MM h:i:s&#39;,</span>
-</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="s">            &#39;locale&#39; =&gt; app()-&gt;getLocale(),</span>
-</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="s">        ],</span>
-</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="s">    ]&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;border-amber-500&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Test DateTime&quot;</span>
-</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>        <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;setDatetime&quot;</span> <span class="p">/&gt;</span>
-</span></code></pre></div>
-<h2 id="text-editor">🧩 Text Editor</h2>
-<p>A rich-text editor component powered by Quill.js, built for Laravel Livewire 3. Fully supports customization, toolbar control, themes, and Livewire model binding.
-In your <code>config/hwkui.php</code>, activate the editor plugin:</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hwkui.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
@@ -1181,52 +1081,167 @@ In your <code>config/hwkui.php</code>, activate the editor plugin:</p>
 <span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-24-10">10</a></span>
-<span class="normal"><a href="#__codelineno-24-11">11</a></span>
-<span class="normal"><a href="#__codelineno-24-12">12</a></span>
-<span class="normal"><a href="#__codelineno-24-13">13</a></span>
-<span class="normal"><a href="#__codelineno-24-14">14</a></span>
-<span class="normal"><a href="#__codelineno-24-15">15</a></span>
-<span class="normal"><a href="#__codelineno-24-16">16</a></span>
-<span class="normal"><a href="#__codelineno-24-17">17</a></span>
-<span class="normal"><a href="#__codelineno-24-18">18</a></span>
-<span class="normal"><a href="#__codelineno-24-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cp">&lt;?php</span> 
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2"></a>
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="s1">&#39;plugins&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4"></a>    <span class="s1">&#39;Editor&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5"></a>        <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6"></a>        <span class="s1">&#39;files&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7"></a>            <span class="p">[</span>
-</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8"></a>                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;css&#39;</span><span class="p">,</span>
-</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9"></a>                <span class="s1">&#39;asset&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10"></a>                <span class="s1">&#39;location&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;//cdn.quilljs.com/1.3.6/quill.snow.css&#39;</span><span class="p">,</span>
-</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11"></a>            <span class="p">],</span>
-</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12"></a>            <span class="p">[</span>
-</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13"></a>                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;js&#39;</span><span class="p">,</span>
-</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14"></a>                <span class="s1">&#39;asset&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15"></a>                <span class="s1">&#39;location&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;//cdn.quilljs.com/1.3.6/quill.min.js&#39;</span><span class="p">,</span>
-</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16"></a>            <span class="p">],</span>
-</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17"></a>        <span class="p">],</span>
-</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18"></a>    <span class="p">],</span>
-</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19"></a><span class="p">],</span>
+<span class="normal"><a href="#__codelineno-24-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="c1">// For datetime picker from tempus-dominus ( this is abandond now no new releases)</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Popper</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@popperjs/core&quot;</span><span class="p">;</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TempusDominus</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@eonasdan/tempus-dominus&quot;</span><span class="p">;</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css&quot;</span><span class="p">;</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="nb">window</span><span class="p">.</span><span class="nx">Popper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Popper</span><span class="p">;</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="c1">//use this if you used cdn assets</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="nb">window</span><span class="p">.</span><span class="nx">tempusDominus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TempusDominus</span><span class="p">;</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="c1">// or use this if you used npm</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="nb">window</span><span class="p">.</span><span class="nx">tempusDominus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="w">  </span><span class="nx">TempusDominus</span><span class="p">,</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="p">};</span>
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>Basic Usage</li>
 </ul>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;editor&quot;</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    Default content goes here...
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-editor</span><span class="p">&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-datetime</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>  <span class="na">id</span><span class="o">=</span><span class="s">&quot;test-datetime&quot;</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Test DateTime&quot;</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;setDatetime&quot;</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="p">/&gt;</span>
+</span></code></pre></div>
+<p>You can configure default picker options globally in <code>config/hwkui.php</code></p>
+<div class="language-php highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hwkui.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span>
+<span class="normal"><a href="#__codelineno-26-12">12</a></span>
+<span class="normal"><a href="#__codelineno-26-13">13</a></span>
+<span class="normal"><a href="#__codelineno-26-14">14</a></span>
+<span class="normal"><a href="#__codelineno-26-15">15</a></span>
+<span class="normal"><a href="#__codelineno-26-16">16</a></span>
+<span class="normal"><a href="#__codelineno-26-17">17</a></span>
+<span class="normal"><a href="#__codelineno-26-18">18</a></span>
+<span class="normal"><a href="#__codelineno-26-19">19</a></span>
+<span class="normal"><a href="#__codelineno-26-20">20</a></span>
+<span class="normal"><a href="#__codelineno-26-21">21</a></span>
+<span class="normal"><a href="#__codelineno-26-22">22</a></span>
+<span class="normal"><a href="#__codelineno-26-23">23</a></span>
+<span class="normal"><a href="#__codelineno-26-24">24</a></span>
+<span class="normal"><a href="#__codelineno-26-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2"></a>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3"></a>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="s1">&#39;datetime&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5"></a>        <span class="s1">&#39;defaultOptions&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6"></a>            <span class="s1">&#39;display&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7"></a>                <span class="s1">&#39;viewMode&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;calendar&#39;</span><span class="p">,</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8"></a>                <span class="s1">&#39;components&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9"></a>                    <span class="s1">&#39;calendar&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10"></a>                    <span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11"></a>                    <span class="s1">&#39;year&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12"></a>                    <span class="s1">&#39;month&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13"></a>                    <span class="s1">&#39;clock&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14"></a>                <span class="p">],</span>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15"></a>                <span class="s1">&#39;calendarWeeks&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16"></a>            <span class="p">],</span>
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17"></a>            <span class="s1">&#39;debug&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18"></a>            <span class="s1">&#39;useCurrent&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19"></a>            <span class="s1">&#39;stepping&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20"></a>            <span class="s1">&#39;localization&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21"></a>                <span class="s1">&#39;format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;yyyy-MM-dd hh:mm&#39;</span><span class="p">,</span>
+</span><span id="__span-26-22"><a id="__codelineno-26-22" name="__codelineno-26-22"></a>                <span class="s1">&#39;locale&#39;</span> <span class="o">=&gt;</span> <span class="nx">app</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getLocale</span><span class="p">(),</span>
+</span><span id="__span-26-23"><a id="__codelineno-26-23" name="__codelineno-26-23"></a>            <span class="p">],</span>
+</span><span id="__span-26-24"><a id="__codelineno-26-24" name="__codelineno-26-24"></a>        <span class="p">],</span>
+</span><span id="__span-26-25"><a id="__codelineno-26-25" name="__codelineno-26-25"></a>    <span class="p">],</span>
+</span></code></pre></div></td></tr></table></div>
+<p>You can explore all available options on the <a href="https://getdatepicker.com/6/options/">Options page</a> and see what you can add.</p>
+<ul>
+<li>Override Options Per Component</li>
+</ul>
+<p>Override settings for individual instances using the <code>:options</code> attribute:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-datetime</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>  <span class="na">id</span><span class="o">=</span><span class="s">&quot;test-datetime&quot;</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>  <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="s">        &#39;display&#39; =&gt; [</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="s">            &#39;components&#39; =&gt; [</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="s">                &#39;date&#39; =&gt; false,</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="s">                &#39;year&#39; =&gt; true,</span>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="s">                &#39;month&#39; =&gt; true,</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="s">                &#39;clock&#39; =&gt; false,</span>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="s">            ],</span>
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="s">        ],</span>
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="s">        &#39;localization&#39; =&gt; [</span>
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a><span class="s">            &#39;format&#39; =&gt; &#39;yyyy-MM h:i:s&#39;,</span>
+</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a><span class="s">            &#39;locale&#39; =&gt; app()-&gt;getLocale(),</span>
+</span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a><span class="s">        ],</span>
+</span><span id="__span-27-16"><a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a><span class="s">    ]&quot;</span>
+</span><span id="__span-27-17"><a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>  <span class="na">class</span><span class="o">=</span><span class="s">&quot;border-amber-500&quot;</span>
+</span><span id="__span-27-18"><a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>  <span class="na">label</span><span class="o">=</span><span class="s">&quot;Test DateTime&quot;</span>
+</span><span id="__span-27-19"><a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Select Date&quot;</span>
+</span><span id="__span-27-20"><a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;setDatetime&quot;</span>
+</span><span id="__span-27-21"><a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a><span class="p">/&gt;</span>
+</span></code></pre></div>
+<h2 id="text-editor">🧩 Text Editor</h2>
+<p>A rich-text editor component powered by Quill.js, built for Laravel Livewire 3. Fully supports customization, toolbar control, themes, and Livewire model binding.
+In your <code>config/hwkui.php</code>, activate the editor plugin:</p>
+<div class="language-php highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hwkui.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-28-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-28-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-28-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-28-10">10</a></span>
+<span class="normal"><a href="#__codelineno-28-11">11</a></span>
+<span class="normal"><a href="#__codelineno-28-12">12</a></span>
+<span class="normal"><a href="#__codelineno-28-13">13</a></span>
+<span class="normal"><a href="#__codelineno-28-14">14</a></span>
+<span class="normal"><a href="#__codelineno-28-15">15</a></span>
+<span class="normal"><a href="#__codelineno-28-16">16</a></span>
+<span class="normal"><a href="#__codelineno-28-17">17</a></span>
+<span class="normal"><a href="#__codelineno-28-18">18</a></span>
+<span class="normal"><a href="#__codelineno-28-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="s1">&#39;plugins&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4"></a>    <span class="s1">&#39;Editor&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5"></a>        <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6"></a>        <span class="s1">&#39;files&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7"></a>            <span class="p">[</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8"></a>                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;css&#39;</span><span class="p">,</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9"></a>                <span class="s1">&#39;asset&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10"></a>                <span class="s1">&#39;location&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;//cdn.quilljs.com/1.3.6/quill.snow.css&#39;</span><span class="p">,</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11"></a>            <span class="p">],</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12"></a>            <span class="p">[</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13"></a>                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;js&#39;</span><span class="p">,</span>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14"></a>                <span class="s1">&#39;asset&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15"></a>                <span class="s1">&#39;location&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;//cdn.quilljs.com/1.3.6/quill.min.js&#39;</span><span class="p">,</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16"></a>            <span class="p">],</span>
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17"></a>        <span class="p">],</span>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18"></a>    <span class="p">],</span>
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19"></a><span class="p">],</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>Basic Usage</li>
+</ul>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;editor&quot;</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>  Default content goes here...
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-editor</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <ul>
 <li>Toolbar Customization</li>
 </ul>
 <p>Use the toolbar attribute to define your desired tools.</p>
-<p><div class="language-html highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;editor&quot;</span>
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    <span class="na">wire:model</span><span class="err">.</span><span class="na">live</span><span class="o">=</span><span class="s">&quot;content&quot;</span>
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>    <span class="na">theme</span><span class="o">=</span><span class="s">&quot;snow&quot;</span>
-</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>    <span class="na">toolbar</span><span class="o">=</span><span class="s">&quot;bold|italic|underline|link|image|code-block|blockquote|list|clean&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-editor</span><span class="p">&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>  <span class="na">id</span><span class="o">=</span><span class="s">&quot;editor&quot;</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>  <span class="na">wire:model</span><span class="err">.</span><span class="na">live</span><span class="o">=</span><span class="s">&quot;content&quot;</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>  <span class="na">theme</span><span class="o">=</span><span class="s">&quot;snow&quot;</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>  <span class="na">toolbar</span><span class="o">=</span><span class="s">&quot;bold|italic|underline|link|image|code-block|blockquote|list|clean&quot;</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="p">&gt;</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-editor</span><span class="p">&gt;</span>
 </span></code></pre></div>
-🔹 You can customize the toolbar using Quill toolbar options separated by <code>|</code>.</p>
+<p>🔹 You can customize the toolbar using Quill toolbar options separated by <code>|</code>.</p>
 <hr />
 
 

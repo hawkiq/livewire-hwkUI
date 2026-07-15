@@ -66,6 +66,10 @@
                                     return new monthSelectPlugin(plugin.config || {});
                                 }
 
+                                if (plugin.type === 'yearSelect') {
+                                    return new yearSelectPlugin(plugin.config || {});
+                                }
+
                                 return plugin;
                             });
                         }

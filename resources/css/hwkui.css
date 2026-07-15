@@ -5,70 +5,74 @@
 [x-cloak] { display: none !important; }
 /* TomSelect Custom Styles for Tailwind CSS Integration */
 .ts-wrapper.tom-select .ts-control {
-  @apply bg-white border-gray-300 text-gray-900 rounded-md transition-colors shadow-sm;
-  padding: 0.5rem 0.9rem;
+  @apply bg-white border-zinc-300 text-zinc-900 rounded-md transition-colors shadow-sm;
+  padding: 0.8rem 0.9rem;
 }
 
 .ts-wrapper.tom-select .ts-dropdown {
-  @apply bg-white border-gray-200 text-gray-900 shadow-xl rounded-md mt-1;
+  @apply bg-white border-zinc-200 text-zinc-900 shadow-xl rounded-md mt-1;
 }
 
 .ts-wrapper.tom-select .ts-dropdown .option {
-  @apply py-2 px-3;
+  @apply py-4 px-5;
 }
 
 .ts-wrapper.tom-select .ts-dropdown .active {
-  @apply bg-gray-100 text-gray-900;
+  @apply bg-zinc-100 text-zinc-900;
 }
 
 /* 2. Dark Mode Overrides */
 html.dark .ts-wrapper.tom-select .ts-control {
-  @apply bg-gray-800 border-gray-600 text-gray-100;
+  @apply bg-zinc-800 border-zinc-600 text-zinc-100;
 }
 
 html.dark .ts-wrapper.tom-select .ts-dropdown {
-  @apply bg-gray-800 border-gray-700 text-gray-100 shadow-2xl;
+  @apply bg-zinc-800 border-zinc-700 text-zinc-100 shadow-2xl;
 }
 
 html.dark .ts-wrapper.tom-select .ts-dropdown .active {
-  @apply bg-gray-700 text-white;
+  @apply bg-zinc-700 text-white;
 }
 
 /* 3. Handle the "Input" inside the control (Search text) */
 .ts-wrapper.tom-select .ts-control input {
-  @apply text-gray-900 dark:text-gray-100;
+  @apply text-zinc-900 dark:text-zinc-100;
 }
 
 /* 4. Multi-select "Items" (the badges) */
 .ts-wrapper.multi .ts-control > div {
-  @apply bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded px-2 py-0.5 mr-1;
+  @apply bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 rounded px-2 py-0.5 mr-1;
 }
 
 .ts-dropdown.tom-select,
 .ts-dropdown.plugin-dropdown_input {
   background-color: #ffffff !important; /* bg-white */
-  @apply border border-gray-200 shadow-lg rounded-md;
+  @apply border border-zinc-200 shadow-lg rounded-md;
+}
+
+.ts-dropdown {
+    z-index: 9999 !important;
 }
 
 /* 2. Global Dropdown Background (Dark Mode) */
 html.dark .ts-dropdown.tom-select,
 html.dark .ts-dropdown.plugin-dropdown_input,
 html.dark .ts-dropdown {
-  background-color: #1f2937 !important; /* bg-gray-800 */
-  color: #f3f4f6 !important; /* text-gray-100 */
-  @apply border-gray-700 shadow-2xl;
+  background-color: #1f2937 !important; /* bg-zinc-800 */
+  color: #f3f4f6 !important; /* text-zinc-100 */
+  @apply border-zinc-700 shadow-2xl;
 }
 
 /* 3. Search Input Background inside the Dropdown */
 html.dark .ts-dropdown .dropdown-input-wrap input {
-  background-color: #111827 !important; /* bg-gray-900 */
+  background-color: #12161f !important; /* bg-zinc-900 */
   color: #ffffff !important;
-  @apply border-gray-600;
+  @apply border-zinc-600;
 }
 
 /* 4. Active/Hover state in Dark Mode */
 html.dark .ts-dropdown .option.active {
-  background-color: #374151 !important; /* bg-gray-700 */
+  background-color: #374151 !important; /* bg-zinc-700 */
   color: #ffffff !important;
 }
 

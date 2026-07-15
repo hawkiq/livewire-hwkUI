@@ -283,11 +283,18 @@ The Icon component provides a clean shorthand syntax for rendering `Font Awesome
 
 ---
 
+install FontAwesome and import
+
+```css title="app.css" linenums="1"
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+```
+
 - Component API
 
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `icon` | `string` | *Required* | The name of the Font Awesome icon (e.g., `"user"`, `"github"`). |
+| `name` | `string` | *Required* | The name of the Font Awesome icon (e.g., `"user"`, `"github"`). |
 | `type` | `string` | `"s"` | The weight/type variant. Accepts shorthands (`s`, `b`, `r`, `l`, `t`, `d`) or full names. |
 
 - Weight Shorthand Matrix
@@ -304,13 +311,13 @@ The Icon component provides a clean shorthand syntax for rendering `Font Awesome
 
 ```html
 <!-- Basic Solid Icon-->
-<x-hwkui-icon icon="user" />
+<x-hwkui-icon name="user" />
 ```
 
 
 ```html
 <!-- Brand Icon with Color Utilities -->
-<x-hwkui-icon icon="github" type="b" class="text-gray-900 text-xl" />
+<x-hwkui-icon name="github" type="b" class="text-gray-900 text-xl" />
 ```
 
 ---

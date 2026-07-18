@@ -8,7 +8,7 @@ class GlassBox extends Component
 {
     public string $title;
 
-    public int|float $value;
+    public int|float|string $value;
 
     public string $icon;
 
@@ -18,7 +18,7 @@ class GlassBox extends Component
 
     public function __construct(
         string $title,
-        int|float $value,
+        int|float|string $value,
         string $icon,
         string $href = '#',
         string $color = 'zinc'
@@ -170,7 +170,10 @@ class GlassBox extends Component
 
     public function formattedValue(): string
     {
-        return number_format($this->value);
+        if(is_numeric($this->value)){
+            return number_format($this->value);
+        }
+        return $this->value;
     }
 
     public function render()

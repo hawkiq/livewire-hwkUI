@@ -24,6 +24,7 @@ theme:
 nav:
   - Home: index.md
   - Installation: installation.md
+  - Snippets: snippet.md
   - Configuration: configuration.md
   - Components: components.md
   - UI Widgets: widgets.md

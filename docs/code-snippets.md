@@ -1,0 +1,424 @@
+# Code Snippets
+
+```json
+
+
+{
+  "Blade Components / Alert": {
+    "prefix": "hwk-alert",
+    "body": [
+      "<x-hwkui-alert",
+      "    color=\"${1:primary}\"",
+      "    icon=\"${2:bell}\"",
+      "    animated=\"${3:false}\"",
+      "    solid=\"${4:false}\"",
+      ">",
+      "    ${5:Content}",
+      "</x-hwkui-alert>"
+    ],
+    "description": "Insert a hwkUI alert component."
+  },
+  "Blade Components / Badge": {
+    "prefix": "hwk-badge",
+    "body": [
+      "<x-hwkui-badge",
+      "    variant=\"${1:solid}\"",
+      "    color=\"${2:primary}\"",
+      "    size=\"${3:sm}\"",
+      "    icon=\"${4:star}\"",
+      ">",
+      "    ${5:Label}",
+      "</x-hwkui-badge>"
+    ],
+    "description": "Insert a hwkUI badge component."
+  },
+  "Blade Components / Card": {
+    "prefix": "hwk-card",
+    "body": [
+      "<x-hwkui-card",
+      "    title=\"${1:Title}\"",
+      "    icon=\"${2:users}\"",
+      "    theme=\"${3:primary}\"",
+      "    theme-mode=\"${4:outline}\"",
+      ">",
+      "    ${5:Content}",
+      "</x-hwkui-card>"
+    ],
+    "description": "Insert a hwkUI card component."
+  },
+  "Blade Components / Flip Card": {
+    "prefix": "hwk-flip-card",
+    "body": [
+      "<x-hwkui-flip-card",
+      "    trigger=\"${1:hover}\"",
+      "    height=\"${2:300px}\"",
+      ">",
+      "    ${3:Front/Back content}",
+      "</x-hwkui-flip-card>"
+    ],
+    "description": "Insert a hwkUI flip card component."
+  },
+  "Blade Components / Glass Box": {
+    "prefix": "hwk-glass-box",
+    "body": [
+      "<x-hwkui-glass-box",
+      "    title=\"${1:Downloads}\"",
+      "    value=\"${2:251}\"",
+      "    icon=\"${3:download}\"",
+      "    href=\"${4:/admin}\"",
+      "    color=\"${5:zinc}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI glass box statistic widget."
+  },
+  "Blade Components / Icon": {
+    "prefix": "hwk-icon",
+    "body": [
+      "<x-hwkui-icon",
+      "    name=\"${1:user}\"",
+      "    type=\"${2:s}\"",
+      "    class=\"${3:text-lg}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI icon component."
+  },
+  "Blade Components / Info Box": {
+    "prefix": "hwk-info-box",
+    "body": [
+      "<x-hwkui-info-box",
+      "    title=\"${1:Users}\"",
+      "    text=\"${2:251}\"",
+      "    icon=\"${3:users}\"",
+      "    description=\"${4:Active users}\"",
+      "    theme=\"${5:primary}\"",
+      "    icon-theme=\"${6:primary}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI info box component."
+  },
+  "Blade Components / Marquee": {
+    "prefix": "hwk-marquee",
+    "body": [
+      "<x-hwkui-marquee",
+      "    direction=\"${1:left}\"",
+      "    duration=\"${2:20s}\"",
+      "    gap=\"${3:1rem}\"",
+      "    pause-on-hover=\"${4:false}\"",
+      "    fade=\"${5:false}\"",
+      ">",
+      "    ${6:Content}",
+      "</x-hwkui-marquee>"
+    ],
+    "description": "Insert a hwkUI marquee component."
+  },
+  "Blade Components / Small Box": {
+    "prefix": "hwk-small-box",
+    "body": [
+      "<x-hwkui-small-box",
+      "    title=\"${1:251}\"",
+      "    text=\"${2:Users}\"",
+      "    icon=\"${3:users}\"",
+      "    theme=\"${4:primary}\"",
+      "    url=\"${5:https://osama.app}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI small box component."
+  },
+  "Blade Components / Tour": {
+    "prefix": "hwk-tour",
+    "body": [
+      "<x-hwkui-tour",
+      "    open=\"${1:false}\"",
+      "    :steps=\"${2:['Step 1', 'Step 2']}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI tour component."
+  },
+  "Blade Components / Typewriter": {
+    "prefix": "hwk-typewriter",
+    "body": [
+      "<x-hwkui-typewriter",
+      "    :words=\"${1:['Hello', 'World']}\"",
+      "    type-speed=\"${2:70}\"",
+      "    delete-speed=\"${3:35}\"",
+      "    loop=\"${4:true}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI typewriter component."
+  },
+  "Blade Components / Accordion Group": {
+    "prefix": "hwk-acc-group",
+    "body": [
+      "<x-hwkui-accordion.group",
+      "    animation=\"${1:slide}\"",
+      "    collapse=\"${2:false}\"",
+      "    color=\"${3:primary}\"",
+      ">",
+      "    ${4:Accordion items}",
+      "</x-hwkui-accordion.group>"
+    ],
+    "description": "Insert a hwkUI accordion group container."
+  },
+  "Blade Components / Accordion Item": {
+    "prefix": "hwk-acc-item",
+    "body": [
+      "<x-hwkui-accordion.item",
+      "    heading=\"${1:Question}\"",
+      "    icon=\"${2:chevron-down}\"",
+      "    disabled=\"${3:false}\"",
+      ">",
+      "    ${4:Content}",
+      "</x-hwkui-accordion.item>"
+    ],
+    "description": "Insert a hwkUI accordion item."
+  },
+  "Blade Components / Accordion Heading": {
+    "prefix": "hwk-acc-heading",
+    "body": [
+      "<x-hwkui-accordion.heading>",
+      "    ${1:Heading content}",
+      "</x-hwkui-accordion.heading>"
+    ],
+    "description": "Insert a hwkUI accordion heading."
+  },
+  "Blade Components / Accordion Content": {
+    "prefix": "hwk-acc-content",
+    "body": [
+      "<x-hwkui-accordion.content>",
+      "    ${1:Accordion body}",
+      "</x-hwkui-accordion.content>"
+    ],
+    "description": "Insert a hwkUI accordion content block."
+  },
+  "Blade Components / Carousel Wrapper": {
+    "prefix": "hwk-carousel",
+    "body": [
+      "<x-hwkui-carousel.wrapper",
+      "    :items=\"${1:$items}\"",
+      "    interval=\"${2:5000}\"",
+      ">",
+      "    ${3:Slides}",
+      "</x-hwkui-carousel.wrapper>"
+    ],
+    "description": "Insert a hwkUI carousel wrapper."
+  },
+  "Blade Components / Carousel Item": {
+    "prefix": "hwk-carousel-item",
+    "body": [
+      "<x-hwkui-carousel.item",
+      "    :index=\"${1:0}\"",
+      ">",
+      "    ${2:Slide content}",
+      "</x-hwkui-carousel.item>"
+    ],
+    "description": "Insert a hwkUI carousel item."
+  },
+  "Blade Components / Tabs": {
+    "prefix": "hwk-tabs",
+    "body": [
+      "<x-hwkui-tabs.tabs",
+      "    default=\"${1:tab1}\"",
+      "    variant=\"${2:classic}\"",
+      "    color=\"${3:primary}\"",
+      ">",
+      "    ${4:Tab headers and panels}",
+      "</x-hwkui-tabs.tabs>"
+    ],
+    "description": "Insert a hwkUI tabs container."
+  },
+  "Blade Components / Tabs Head Wrapper": {
+    "prefix": "hwk-tab-head-wrap",
+    "body": [
+      "<x-hwkui-tabs.head-wrapper>",
+      "    ${1:Tab heads}",
+      "</x-hwkui-tabs.head-wrapper>"
+    ],
+    "description": "Insert a hwkUI tabs head wrapper."
+  },
+  "Blade Components / Tabs Head": {
+    "prefix": "hwk-tab-head",
+    "body": [
+      "<x-hwkui-tabs.head",
+      "    name=\"${1:tab1}\"",
+      "    icon=\"${2:server}\"",
+      "    badge=\"${3:2}\"",
+      "    badge-color=\"${4:danger}\"",
+      ">",
+      "    ${5:Label}",
+      "</x-hwkui-tabs.head>"
+    ],
+    "description": "Insert a hwkUI tabs head trigger."
+  },
+  "Blade Components / Tabs Content Wrapper": {
+    "prefix": "hwk-tab-content-wrap",
+    "body": [
+      "<x-hwkui-tabs.content-wrapper>",
+      "    ${1:Tab panels}",
+      "</x-hwkui-tabs.content-wrapper>"
+    ],
+    "description": "Insert a hwkUI tabs content wrapper."
+  },
+  "Blade Components / Tabs Content": {
+    "prefix": "hwk-tab-content",
+    "body": [
+      "<x-hwkui-tabs.content",
+      "    name=\"${1:tab1}\"",
+      ">",
+      "    ${2:Panel content}",
+      "</x-hwkui-tabs.content>"
+    ],
+    "description": "Insert a hwkUI tabs content panel."
+  },
+  "Blade Components / Timeline": {
+    "prefix": "hwk-timeline",
+    "body": [
+      "<x-hwkui-timeline.timeline",
+      "    title-column=\"${1:title}\"",
+      "    body-column=\"${2:body}\"",
+      "    direction=\"${3:vertical}\"",
+      "    color=\"${4:primary}\"",
+      "    length=\"${5:short}\"",
+      ">",
+      "    ${6:Timeline items}",
+      "</x-hwkui-timeline.timeline>"
+    ],
+    "description": "Insert a hwkUI timeline container."
+  },
+  "Blade Components / Timeline Item": {
+    "prefix": "hwk-timeline-item",
+    "body": [
+      "<x-hwkui-timeline.item",
+      "    direction=\"${1:vertical}\"",
+      ">",
+      "    ${2:Item content}",
+      "</x-hwkui-timeline.item>"
+    ],
+    "description": "Insert a hwkUI timeline item."
+  },
+  "Blade Components / Timeline Indicator": {
+    "prefix": "hwk-timeline-indicator",
+    "body": [
+      "<x-hwkui-timeline.indicator",
+      "    variant=\"${1:solid}\"",
+      "    state=\"${2:completed}\"",
+      "    direction=\"${3:vertical}\"",
+      "    color=\"${4:primary}\"",
+      "    length=\"${5:short}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI timeline indicator."
+  },
+  "Blade Components / Timeline Content": {
+    "prefix": "hwk-timeline-content",
+    "body": [
+      "<x-hwkui-timeline.content>",
+      "    ${1:Content}",
+      "</x-hwkui-timeline.content>"
+    ],
+    "description": "Insert a hwkUI timeline content block."
+  },
+  "Blade Components / Timeline Title": {
+    "prefix": "hwk-timeline-title",
+    "body": [
+      "<x-hwkui-timeline.title>",
+      "    ${1:Title}",
+      "</x-hwkui-timeline.title>"
+    ],
+    "description": "Insert a hwkUI timeline title block."
+  },
+  "Blade Components / Timeline Body": {
+    "prefix": "hwk-timeline-body",
+    "body": [
+      "<x-hwkui-timeline.body>",
+      "    ${1:Body}",
+      "</x-hwkui-timeline.body>"
+    ],
+    "description": "Insert a hwkUI timeline body block."
+  },
+  "Blade Components / Select": {
+    "prefix": "hwk-select",
+    "body": [
+      "<x-hwkui-select",
+      "    :options=\"${1:$options}\"",
+      "    label=\"${2:Label}\"",
+      "    placeholder=\"${3:Choose one}\"",
+      "    wire:model=\"${4:field}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI select component."
+  },
+  "Blade Components / Datetime": {
+    "prefix": "hwk-datetime",
+    "body": [
+      "<x-hwkui-datetime",
+      "    :options=\"${1:$options}\"",
+      "    label=\"${2:Date}\"",
+      "    placeholder=\"${3:Pick a date}\"",
+      "    wire:model=\"${4:date}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI datetime picker component."
+  },
+  "Blade Components / Editor": {
+    "prefix": "hwk-editor",
+    "body": [
+      "<x-hwkui-editor",
+      "    id=\"${1:editor}\"",
+      "    theme=\"${2:snow}\"",
+      "    toolbar=\"${3:$toolbar}\"",
+      "    wire:model=\"${4:content}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI rich text editor component."
+  },
+  "Blade Components / Flat Picker": {
+    "prefix": "hwk-flat-picker",
+    "body": [
+      "<x-hwkui-flat-picker",
+      "    :options=\"${1:$options}\"",
+      "    label=\"${2:Date}\"",
+      "    placeholder=\"${3:Pick a date}\"",
+      "    wire:model=\"${4:date}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI flat picker component."
+  },
+  "Blade Components / Tom Select": {
+    "prefix": "hwk-tom-select",
+    "body": [
+      "<x-hwkui-tom-select",
+      "    :options=\"${1:$options}\"",
+      "    label=\"${2:Tag}\"",
+      "    placeholder=\"${3:Choose one}\"",
+      "    wire:model=\"${4:selected}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI Tom Select component."
+  },
+  "Blade Components / Upload": {
+    "prefix": "hwk-upload",
+    "body": [
+      "<x-hwkui-upload",
+      "    hint=\"${1:Upload a file}\"",
+      "    preview=\"${2:true}\"",
+      "    multiple=\"${3:false}\"",
+      "    max=\"${4:2048}\"",
+      "    wire:model=\"${5:avatar}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI upload component."
+  },
+  "Blade Components / Password Strength": {
+    "prefix": "hwk-password-strength",
+    "body": [
+      "<x-hwkui-password-strength",
+      "    name=\"${1:password}\"",
+      "    checklist=\"${2:true}\"",
+      "    :rules=\"${3:['length' => 8]}\"",
+      "/>"
+    ],
+    "description": "Insert a hwkUI password strength checker."
+  },
+}
+
+```

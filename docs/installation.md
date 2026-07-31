@@ -38,3 +38,7 @@ if you want to update use
 ```bash
 composer update hawkiq/hwkui
 ```
+
+## Helpers
+
+if you want to use our snippets you can follow instructions in [Snippets](snippet.md)

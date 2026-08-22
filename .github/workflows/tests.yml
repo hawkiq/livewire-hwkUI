@@ -31,7 +31,7 @@ jobs:
           coverage: xdebug
 
       - name: Cache Composer dependencies
-        uses: actions/cache@34e114876b0b11c390a56381ad16ebd13914f8d5
+        uses: actions/cache@1acc7422cbe99859504df1ae1b671e3b1c3c9f5d
         with:
           path: ~/.composer/cache/files
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}

@@ -170,9 +170,10 @@ class GlassBox extends Component
 
     public function formattedValue(): string
     {
-        if(is_numeric($this->value)){
+        if (is_numeric($this->value)) {
             return number_format($this->value);
         }
+
         return $this->value;
     }
 

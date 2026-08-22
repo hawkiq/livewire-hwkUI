@@ -4,3 +4,4 @@
 .DS_Store
 .phpstan-cache
 .phpunit.cache
+composer.lock

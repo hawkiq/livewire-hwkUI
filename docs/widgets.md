@@ -15,6 +15,7 @@ Accordion is a modern, professional, and highly interactive UI component designe
 |`color`|`string`|`primary`|Controls the color theme for all items.|
 |`animation`|`string`|`slide`|Options: `slide`, `fade`, `none`.|
 |`collapse`|`boolean`|`false`|If true, closes other items when one is opened.|
+|`expanded`|`boolean`|`false`|If true, Accordion will be expanded on load.|
 
 `<x-hwkui-accordion.item>`
 

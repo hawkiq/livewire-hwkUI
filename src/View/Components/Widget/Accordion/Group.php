@@ -12,11 +12,14 @@ class Group extends Component
 
     public $color;
 
-    public function __construct($animation = 'slide', $collapse = false, $color = 'primary')
+    public $expanded;
+
+    public function __construct($animation = 'slide', $collapse = false, $color = 'primary', $expanded = false)
     {
         $this->animation = $animation;
         $this->collapse = filter_var($collapse, FILTER_VALIDATE_BOOLEAN) || $collapse === '';
         $this->color = $color;
+        $this->expanded = filter_var($expanded, FILTER_VALIDATE_BOOLEAN) || $expanded === '';
     }
 
     public function render()

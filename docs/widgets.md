@@ -681,6 +681,7 @@ A robust,typewriter effect component for texts.
 |`pause-time`|`int`|`1500`|Duration to wait before deleting the completed word (in ms).|
 |`loop`|`bool`|`true`|Whether to cycle through the words indefinitely.|
 |`cursor`|`bool`|`true`|Whether to display the blinking typing caret.|
+|`html`|`bool`|`false`|If set `true` html content can be viewed in typewriter.|
 
 
 - Basic Usage

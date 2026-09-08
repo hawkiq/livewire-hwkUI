@@ -50,8 +50,15 @@ html.dark .ts-wrapper.tom-select .ts-dropdown .active {
   @apply border border-zinc-200 shadow-lg rounded-md;
 }
 
+dialog, flux-modal, [data-flux-modal] {
+    position: relative !important;
+}
+dialog[open], [data-flux-modal] { overflow: visible !important; }
+
 .ts-dropdown {
-    z-index: 9999 !important;
+    position: absolute !important;
+    z-index: 99999 !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* 2. Global Dropdown Background (Dark Mode) */

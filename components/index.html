@@ -494,10 +494,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#text-editor" class="md-nav__link">
+  <a href="#jodit-text-editor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧩 Text Editor
+        🧩 Jodit Text Editor
       
     </span>
   </a>
@@ -713,10 +713,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#text-editor" class="md-nav__link">
+  <a href="#jodit-text-editor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧩 Text Editor
+        🧩 Jodit Text Editor
       
     </span>
   </a>
@@ -1208,68 +1208,273 @@
 </span><span id="__span-27-20"><a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>  <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;setDatetime&quot;</span>
 </span><span id="__span-27-21"><a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a><span class="p">/&gt;</span>
 </span></code></pre></div>
-<h2 id="text-editor">🧩 Text Editor</h2>
-<p>A rich-text editor component powered by Quill.js, built for Laravel Livewire 3. Fully supports customization, toolbar control, themes, and Livewire model binding.
-In your <code>config/hwkui.php</code>, activate the editor plugin:</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">hwkui.php</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-28-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-28-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-28-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-28-10">10</a></span>
-<span class="normal"><a href="#__codelineno-28-11">11</a></span>
-<span class="normal"><a href="#__codelineno-28-12">12</a></span>
-<span class="normal"><a href="#__codelineno-28-13">13</a></span>
-<span class="normal"><a href="#__codelineno-28-14">14</a></span>
-<span class="normal"><a href="#__codelineno-28-15">15</a></span>
-<span class="normal"><a href="#__codelineno-28-16">16</a></span>
-<span class="normal"><a href="#__codelineno-28-17">17</a></span>
-<span class="normal"><a href="#__codelineno-28-18">18</a></span>
-<span class="normal"><a href="#__codelineno-28-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cp">&lt;?php</span>
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2"></a>
-</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="s1">&#39;plugins&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4"></a>    <span class="s1">&#39;Editor&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5"></a>        <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6"></a>        <span class="s1">&#39;files&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7"></a>            <span class="p">[</span>
-</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8"></a>                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;css&#39;</span><span class="p">,</span>
-</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9"></a>                <span class="s1">&#39;asset&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10"></a>                <span class="s1">&#39;location&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;//cdn.quilljs.com/1.3.6/quill.snow.css&#39;</span><span class="p">,</span>
-</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11"></a>            <span class="p">],</span>
-</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12"></a>            <span class="p">[</span>
-</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13"></a>                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;js&#39;</span><span class="p">,</span>
-</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14"></a>                <span class="s1">&#39;asset&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15"></a>                <span class="s1">&#39;location&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;//cdn.quilljs.com/1.3.6/quill.min.js&#39;</span><span class="p">,</span>
-</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16"></a>            <span class="p">],</span>
-</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17"></a>        <span class="p">],</span>
-</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18"></a>    <span class="p">],</span>
-</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19"></a><span class="p">],</span>
+<h2 id="jodit-text-editor">🧩 Jodit Text Editor</h2>
+<p>Lightweight Blade component powered by Jodit Rich Text Editor, Alpine.js, and Livewire. It features built-in support for two-way data binding, custom toolbar profiles, file/image uploading, and read-only states.</p>
+<ul>
+<li>Install</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Use either CDN method or npm which described in <a href="../configuration/">Configuration</a> page.</p>
+</div>
+<p>I'll use modern and prefered way in this tutorial .</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>npm<span class="w"> </span>install<span class="w"> </span>jodit
+</span></code></pre></div>
+<p>Then, in your <code>app.js</code> import the packages:</p>
+<div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span>
+<span class="normal"><a href="#__codelineno-29-4">4</a></span>
+<span class="normal"><a href="#__codelineno-29-5">5</a></span>
+<span class="normal"><a href="#__codelineno-29-6">6</a></span>
+<span class="normal"><a href="#__codelineno-29-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;jodit/esm/plugins/resizer/resizer&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Resizer plugin is used when inserting images</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;jodit/esm/plugins/video/video&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Video plugin is used to insert videos</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;jodit/esm/plugins/clean-html/clean-html&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Clean HTML plugin is used to clean the HTML content</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4"></a>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Jodit</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;jodit&quot;</span><span class="p">;</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6"></a>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="nb">window</span><span class="p">.</span><span class="nx">Jodit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Jodit</span><span class="p">;</span>
 </span></code></pre></div></td></tr></table></div>
+<div class="language-css highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app.css</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">&quot;jodit/es2021/jodit&quot;</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>Component API</li>
+</ul>
+<p>You can customize the editor instance using the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Auto-generated (<code>jodit-{hash}</code>)</td>
+<td>Unique HTML ID for the textarea.</td>
+</tr>
+<tr>
+<td><code>profile</code></td>
+<td><code>string</code></td>
+<td><code>'simple'</code> (or config default)</td>
+<td>Toolbar layout profile (<code>full</code>, <code>simple</code>, <code>minimal</code>).</td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td><code>integer</code></td>
+<td><code>null</code> (uses config default: <code>350</code>)</td>
+<td>Height of the editor in pixels.</td>
+</tr>
+<tr>
+<td><code>placeholder</code></td>
+<td><code>string</code></td>
+<td><code>null</code></td>
+<td>Placeholder text when the editor is empty.</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td><code>string</code></td>
+<td><code>null</code> (falls back to config)</td>
+<td>UI language code (e.g., <code>'en'</code>, <code>'ar'</code>, <code>'fr'</code>).</td>
+</tr>
+<tr>
+<td><code>file-browser</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Enables file browser and uploader integrations.</td>
+</tr>
+<tr>
+<td><code>connector-url</code></td>
+<td><code>string</code></td>
+<td><code>null</code></td>
+<td>Custom route name for asset/file uploading handlers.</td>
+</tr>
+<tr>
+<td><code>disabled</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Sets the editor to read-only mode.</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td><code>array</code></td>
+<td><code>[]</code></td>
+<td>Raw array of custom Jodit configuration options.</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <ul>
 <li>Basic Usage</li>
 </ul>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;editor&quot;</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>  Default content goes here...
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-editor</span><span class="p">&gt;</span>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;content&quot;</span> <span class="p">/&gt;</span>
+</span></code></pre></div>
+<hr />
+<ul>
+<li>
+<p>Advanced Examples</p>
+</li>
+<li>
+<ol>
+<li>Using Profiles and Custom Height</li>
+</ol>
+</li>
+</ul>
+<p>Choose from pre-defined toolbar profiles (<code>full</code>, <code>simple</code>, <code>minimal</code>) and set a fixed height:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;bio&quot;</span> <span class="na">profile</span><span class="o">=</span><span class="s">&quot;full&quot;</span> <span class="na">:height</span><span class="o">=</span><span class="s">&quot;500&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Write your biography here...&quot;</span> <span class="p">/&gt;</span>
 </span></code></pre></div>
 <ul>
-<li>Toolbar Customization</li>
+<li>
+<ol>
+<li>Read-Only / Disabled State</li>
+</ol>
+</li>
 </ul>
-<p>Use the toolbar attribute to define your desired tools.</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span>
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>  <span class="na">id</span><span class="o">=</span><span class="s">&quot;editor&quot;</span>
-</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>  <span class="na">wire:model</span><span class="err">.</span><span class="na">live</span><span class="o">=</span><span class="s">&quot;content&quot;</span>
-</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>  <span class="na">theme</span><span class="o">=</span><span class="s">&quot;snow&quot;</span>
-</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>  <span class="na">toolbar</span><span class="o">=</span><span class="s">&quot;bold|italic|underline|link|image|code-block|blockquote|list|clean&quot;</span>
-</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="p">&gt;</span>
-</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="p">&lt;/</span><span class="nt">x-hwkui-editor</span><span class="p">&gt;</span>
+<p>You can dynamically bind or statically set the disabled state:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;lockedContent&quot;</span> <span class="na">:disabled</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="p">/&gt;</span>
 </span></code></pre></div>
-<p>🔹 You can customize the toolbar using Quill toolbar options separated by <code>|</code>.</p>
+<ul>
+<li>
+<ol>
+<li>File Browser &amp; Uploader Integration</li>
+</ol>
+</li>
+</ul>
+<p>Enable file and image uploads directly within the editor interface:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;postContent&quot;</span> <span class="na">:file-browser</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="p">/&gt;</span>
+</span></code></pre></div>
+<ul>
+<li>
+<ol>
+<li>Passing Custom Jodit Options</li>
+</ol>
+</li>
+</ul>
+<p>Pass extra configuration settings straight into the underlying Jodit instance:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">:options</span><span class="o">=</span><span class="s">&quot;[&#39;toolbarAdaptive&#39; =&gt; false, &#39;showWordsCounter&#39; =&gt; false]&quot;</span> <span class="p">/&gt;</span>
+</span></code></pre></div>
 <hr />
+<ul>
+<li>JavaScript Hooks &amp; Events</li>
+</ul>
+<p>The component triggers custom Alpine / DOM events that allow you to interact with the Jodit instance programmatically:</p>
+<ul>
+<li>
+<p><strong><code>jodit:before-init</code></strong>: Dispatched right before Jodit is initialized. Useful for mutating config options or referencing the <code>Jodit</code> class.</p>
+</li>
+<li>
+<p><strong><code>jodit:ready</code></strong>: Dispatched when the editor has completely loaded. Provides access to the <code>editor</code> instance and <code>Jodit</code> class.</p>
+</li>
+</ul>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;jodit:ready&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">editor</span><span class="p">,</span><span class="w"> </span><span class="nx">Jodit</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">;</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="c1">// Do something with the editor instance</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="p">});</span>
+</span></code></pre></div>
+<ul>
+<li>Mentions &amp; Dynamic Autocomplete Feature</li>
+</ul>
+<p>This component includes an interactive autocomplete and tagging feature. Typing a designated trigger character (such as <code>@</code> for users or <code>#</code> for items) opens a floating popup menu right at the cursor position, allowing users to search and insert custom items dynamically.</p>
+<hr />
+<ul>
+<li>Configuration Props</li>
+</ul>
+<p>You can configure the autocomplete feature using the following attributes:</p>
+<table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:mentions</code></td>
+<td><code>array | Collection</code></td>
+<td><code>[]</code></td>
+<td>The list of data items (users, trophies, tags, etc.) available for completion.</td>
+</tr>
+<tr>
+<td><code>trigger</code></td>
+<td><code>string</code></td>
+<td><code>'@'</code></td>
+<td>The keyboard character that activates the dropdown popup.</td>
+</tr>
+<tr>
+<td><code>display-key</code></td>
+<td><code>string</code></td>
+<td><code>'name'</code></td>
+<td>The array/object key used for searching and matching items.</td>
+</tr>
+<tr>
+<td><code>:render-callback</code></td>
+<td><code>Closure</code></td>
+<td><code>null</code></td>
+<td>A PHP closure to control how items are visually styled inside the dropdown list.</td>
+</tr>
+<tr>
+<td><code>:insert-callback</code></td>
+<td><code>Closure</code></td>
+<td><code>null</code></td>
+<td>A PHP closure to format the final HTML snippet inserted into the editor.</td>
+</tr>
+<tr>
+<td><code>:render-view</code></td>
+<td><code>string</code></td>
+<td><code>null</code></td>
+<td>The Blade view path containing the HTML structure for items in the dropdown menu (uses <code>$item</code> as the variable).</td>
+</tr>
+<tr>
+<td><code>:insert-view</code></td>
+<td><code>string</code></td>
+<td><code>null</code></td>
+<td>The Blade view path containing the HTML structure to format the final snippet inserted into the editor (uses <code>$item</code> as the variable).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li>
+<p>Usage Examples</p>
+</li>
+<li>
+<ol>
+<li>Basic User Mentions (<code>@</code>)</li>
+</ol>
+</li>
+</ul>
+<p>Pass a collection of user records and trigger the menu using the default <code>@</code> character:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> 
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>    <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;comment&quot;</span> 
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>    <span class="na">:mentions</span><span class="o">=</span><span class="s">&quot;$users&quot;</span> 
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>    <span class="na">trigger</span><span class="o">=</span><span class="s">&quot;@&quot;</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>    <span class="na">display-key</span><span class="o">=</span><span class="s">&quot;username&quot;</span>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>    <span class="na">:render-callback</span><span class="o">=</span><span class="s">&quot;fn($u) =&gt; &#39;&lt;span&gt;@&#39; . e($u[&#39;username&#39;]) . &#39;&lt;/span&gt;&#39;&quot;</span>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>    <span class="na">:insert-callback</span><span class="o">=</span><span class="s">&quot;fn($u) =&gt; &#39;&lt;a href=\&#39;/profile/&#39; . $u[&#39;id&#39;] . &#39;\&#39;&gt;@&#39; . e($u[&#39;username&#39;]) . &#39;&lt;/a&gt;&#39;&quot;</span>
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="p">/&gt;</span>
+</span></code></pre></div>
+<ul>
+<li>
+<ol>
+<li>Custom Trophies or Items (<code>#</code>)</li>
+</ol>
+</li>
+</ul>
+<p>Change the trigger character to <code>#</code> and format the rendered and inserted layouts with icons, links, or styles:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> 
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>    <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;postBody&quot;</span> 
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>    <span class="na">:mentions</span><span class="o">=</span><span class="s">&quot;$trophies&quot;</span> 
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>    <span class="na">trigger</span><span class="o">=</span><span class="s">&quot;#&quot;</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>    <span class="na">display-key</span><span class="o">=</span><span class="s">&quot;title&quot;</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>    <span class="na">render-view</span><span class="o">=</span><span class="s">&quot;components.trophies.dropdown-item&quot;</span>
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>    <span class="na">insert-view</span><span class="o">=</span><span class="s">&quot;components.trophies.inserted-badge&quot;</span>
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="p">/&gt;</span>
+</span></code></pre></div>
 
 
 

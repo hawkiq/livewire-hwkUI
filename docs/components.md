@@ -579,3 +579,59 @@ document.addEventListener('jodit:ready', (event) => {
 });
 
 ```
+
+- Mentions & Dynamic Autocomplete Feature
+
+This component includes an interactive autocomplete and tagging feature. Typing a designated trigger character (such as `@` for users or `#` for items) opens a floating popup menu right at the cursor position, allowing users to search and insert custom items dynamically.
+
+---
+
+-  Configuration Props
+
+You can configure the autocomplete feature using the following attributes:
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `:mentions` | `array | Collection` | `[]` | The list of data items (users, trophies, tags, etc.) available for completion. |
+| `trigger` | `string` | `'@'` | The keyboard character that activates the dropdown popup. |
+| `display-key` | `string` | `'name'` | The array/object key used for searching and matching items. |
+| `:render-callback` | `Closure` | `null` | A PHP closure to control how items are visually styled inside the dropdown list. |
+| `:insert-callback` | `Closure` | `null` | A PHP closure to format the final HTML snippet inserted into the editor. |
+| `:render-view` | `string` | `null` | The Blade view path containing the HTML structure for items in the dropdown menu (uses `$item` as the variable). |
+| `:insert-view` | `string` | `null` | The Blade view path containing the HTML structure to format the final snippet inserted into the editor (uses `$item` as the variable). |
+
+---
+
+- Usage Examples
+
+- 1. Basic User Mentions (`@`)
+
+Pass a collection of user records and trigger the menu using the default `@` character:
+
+```html
+<x-hwkui-editor 
+    wire:model="comment" 
+    :mentions="$users" 
+    trigger="@"
+    display-key="username"
+    :render-callback="fn($u) => '<span>@' . e($u['username']) . '</span>'"
+    :insert-callback="fn($u) => '<a href=\'/profile/' . $u['id'] . '\'>@' . e($u['username']) . '</a>'"
+/>
+
+```
+
+- 2. Custom Trophies or Items (`#`)
+
+Change the trigger character to `#` and format the rendered and inserted layouts with icons, links, or styles:
+
+```html
+<x-hwkui-editor 
+    wire:model="postBody" 
+    :mentions="$trophies" 
+    trigger="#"
+    display-key="title"
+    render-view="components.trophies.dropdown-item"
+    insert-view="components.trophies.inserted-badge"
+/>
+
+```

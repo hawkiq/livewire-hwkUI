@@ -1,8 +1,10 @@
 # hwkUI
 
-![hwkUI Banner](assets/banner.png)
+![hwkUI](assets/new-banner.jpg)
 
 [![Packagist](https://img.shields.io/packagist/v/hawkiq/hwkui.svg)](https://packagist.org/packages/hawkiq/hwkui)
+
+[![Plumb score](https://plumbphp.dev/badges/hawkiq/hwkui/composite.svg)](https://plumbphp.dev/hawkiq/hwkui)
 
 **hwkUI** is a Laravel package providing ready-to-use UI widgets built on top of **Livewire 3+**, designed for simplicity and flexibility. It includes dynamic components with easy-to-use UI widgets.
 

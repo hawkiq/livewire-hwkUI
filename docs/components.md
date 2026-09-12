@@ -4,7 +4,7 @@
 
 This component replaces Select2.js with a vanilla JS alternative, so it does not depend on jQuery.
 
-- Install
+### Install
 
 !!! note "Use either CDN method or npm which described in [Configuration](configuration.md) page."
 
@@ -22,7 +22,7 @@ import TomSelect from "tom-select";
 window.TomSelect = TomSelect;
 ```
 
-- Basic Usage
+### Basic Usage
 
 ```html
 <x-hwkui-tom-select
@@ -43,7 +43,7 @@ window.TomSelect = TomSelect;
 </x-hwkui-tom-select>
 ```
 
-- Passing Additional TomSelect Options
+### Passing Additional TomSelect Options
 
 You can pass extra options via the `:options` attribute:
 
@@ -68,7 +68,7 @@ More information about TomSelect setup can be found at the official website [Tom
 
 This component provides an elegant datetime picker powered by FlatPickr, ready to use in your Laravel Livewire app with a clean, customizable Blade syntax.
 
-- Install
+### Install
 
 !!! note "Use either CDN method or npm which described in [Configuration](configuration.md) page."
 I'll use modern and prefered way in this tutorial .
@@ -88,7 +88,7 @@ window.flatpickr = flatpickr;
 window.monthSelectPlugin = monthSelectPlugin;
 ```
 
-- Basic Usage
+### Basic Usage
 
 ```html
 <x-hwkui-flat-picker
@@ -121,7 +121,7 @@ You can configure default picker options globally in `config/hwkui.php`
 
 You can explore all available options on the [Options page](https://flatpickr.js.org/options/) and see what you can add.
 
-- Override Options Per Component
+### Override Options Per Component
 
 to Override settings for individual instances using the `:options` attribute:
 
@@ -213,7 +213,7 @@ A premium, accessible, and reactive file upload component designed for Laravel, 
 
 !!! note "No setup is required since its depends on AlpineJs which comes with Livewire."
 
-- Basic Usage
+### Basic Usage
 
 ```html
 <x-hwkui-upload wire:model="avatar" preview />
@@ -230,15 +230,15 @@ A premium, accessible, and reactive file upload component designed for Laravel, 
 />
 ```
 
-- Component API
+### Component API
 
-| Attribute    | Type      | Default    | Description                                                                                    |
-| :----------- | :-------- | :--------- | :--------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Attribute    | Type      | Default    | Description|
+| :----------- | :-------- | :--------- | :--------------------------------------------------------------------------------------------- |
 | `wire:model` | `string`  | `Required` | The backing Livewire public property array/file handler string name.                           |
 | `multiple`   | `boolean` | `false`    | Enables selection or dragging of multiple files simultaneously.                                |
 | `max`        | `integer` | `null`     | Imposes client-side file count safety validations (works exclusively with multiple).           |
 | `preview`    | `boolean` | `false`    | Renders dynamic thumbnail galleries for images or itemized layout lists for non-images.        |
-| `hint`       | `string   | null`      | `null`                                                                                         | Overrides the default helper sub-text positioned beneath upload prompts. |
+| `hint`       | `string`   | `null`      | Overrides the default helper sub-text positioned beneath upload prompts. |
 | `accept`     | `string`  | `*`        | Valid standard file mime-type constraint filters forwarded directly to native browser dialogs. |
 
 ---
@@ -255,7 +255,7 @@ A lightweight, client-side password strength indicator.
 | `checklist` | `boolean` | `true`      | Whether to display the list of password rules.  |
 | `rules`     | `array`   | (See below) | The specific rules to validate against.         |
 
-- Customizing Rules
+### Customizing Rules
 
 By default, the component checks for Length (8), Uppercase, Lowercase, Numbers, and Symbols.
 
@@ -275,7 +275,7 @@ You can override these rules by passing an array. Set a rule to false to disable
 />
 ```
 
-- Basic Usage
+### Basic Usage
 
 Place the `<x-hwkui-password-strength>` component directly below your password input. Ensure the `name` prop matches either the `name` or `wire:model` attribute of the target input.
 
@@ -291,7 +291,7 @@ Place the `<x-hwkui-password-strength>` component directly below your password i
 
 ## 🧩 Select2
 
-- Install
+### Install
 
 !!! note "Use either CDN method or npm which described in [Configuration](configuration.md) page."
 I'll use modern and prefered way in this tutorial .
@@ -310,7 +310,7 @@ window.jQuery = $;
 window.Select2 = $.fn.select2;
 ```
 
-- Basic usgae
+### Basic usgae
 
 ```html
 <x-hwkui-select
@@ -363,7 +363,7 @@ This component provides an elegant datetime picker powered by Tempus Dominus v6,
 !!! danger "Developer might abandoned this Project"
 As stated in official website This project is no longer active or supported
 
-- Install
+### Install
 
 !!! note "Use either CDN method or npm which described in [Configuration](configuration.md) page."
 I'll use modern and prefered way in this tutorial .
@@ -386,7 +386,7 @@ window.tempusDominus = {
 };
 ```
 
-- Basic Usage
+### Basic Usage
 
 ```html
 <x-hwkui-datetime
@@ -431,7 +431,7 @@ You can configure default picker options globally in `config/hwkui.php`
 
 You can explore all available options on the [Options page](https://getdatepicker.com/6/options/) and see what you can add.
 
-- Override Options Per Component
+### Override Options Per Component
 
 Override settings for individual instances using the `:options` attribute:
 
@@ -463,7 +463,7 @@ Override settings for individual instances using the `:options` attribute:
 
 Lightweight Blade component powered by Jodit Rich Text Editor, Alpine.js, and Livewire. It features built-in support for two-way data binding, custom toolbar profiles, file/image uploading, and read-only states.
 
-- Install
+### Install
 
 !!! note "Use either CDN method or npm which described in [Configuration](configuration.md) page."
 
@@ -490,7 +490,7 @@ window.Jodit = Jodit;
 @import "jodit/es2021/jodit";
 ```
 
-- Component API
+### Component API
 
 You can customize the editor instance using the following properties:
 
@@ -509,7 +509,7 @@ You can customize the editor instance using the following properties:
 ---
 
 
-- Basic Usage
+### Basic Usage
 
 
 ```html
@@ -521,9 +521,9 @@ You can customize the editor instance using the following properties:
 
 
 
-- Advanced Examples
+### Advanced Examples
 
-- 1. Using Profiles and Custom Height
+#### Using Profiles and Custom Height
 
 Choose from pre-defined toolbar profiles (`full`, `simple`, `minimal`) and set a fixed height:
 
@@ -532,7 +532,7 @@ Choose from pre-defined toolbar profiles (`full`, `simple`, `minimal`) and set a
 
 ```
 
-- 2. Read-Only / Disabled State
+#### Read-Only / Disabled State
 
 You can dynamically bind or statically set the disabled state:
 
@@ -541,7 +541,7 @@ You can dynamically bind or statically set the disabled state:
 
 ```
 
-- 3. File Browser & Uploader Integration
+#### File Browser & Uploader Integration
 
 Enable file and image uploads directly within the editor interface:
 
@@ -550,7 +550,7 @@ Enable file and image uploads directly within the editor interface:
 
 ```
 
-- 4. Passing Custom Jodit Options
+#### Passing Custom Jodit Options
 
 Pass extra configuration settings straight into the underlying Jodit instance:
 
@@ -561,7 +561,7 @@ Pass extra configuration settings straight into the underlying Jodit instance:
 
 ---
 
-- JavaScript Hooks & Events
+#### JavaScript Hooks & Events
 
 The component triggers custom Alpine / DOM events that allow you to interact with the Jodit instance programmatically:
 
@@ -580,13 +580,13 @@ document.addEventListener('jodit:ready', (event) => {
 
 ```
 
-- Mentions & Dynamic Autocomplete Feature
+### Mentions & Dynamic Autocomplete Feature
 
 This component includes an interactive autocomplete and tagging feature. Typing a designated trigger character (such as `@` for users or `#` for items) opens a floating popup menu right at the cursor position, allowing users to search and insert custom items dynamically.
 
 ---
 
--  Configuration Props
+#### Configuration Props
 
 You can configure the autocomplete feature using the following attributes:
 
@@ -602,9 +602,9 @@ You can configure the autocomplete feature using the following attributes:
 
 ---
 
-- Usage Examples
+### Usage Examples
 
-- 1. Basic User Mentions (`@`)
+#### Basic User Mentions (`@`)
 
 Pass a collection of user records and trigger the menu using the default `@` character:
 
@@ -620,7 +620,7 @@ Pass a collection of user records and trigger the menu using the default `@` cha
 
 ```
 
-- 2. Custom Trophies or Items (`#`)
+#### Custom Trophies or Items (`#`)
 
 Change the trigger character to `#` and format the rendered and inserted layouts with icons, links, or styles:
 
@@ -635,3 +635,89 @@ Change the trigger character to `#` and format the rendered and inserted layouts
 />
 
 ```
+
+### Custom Toolbar Controls
+
+You can add custom buttons, dropdown lists, or grid popups (for emojis for examples) directly through Blade or PHP using the `:extra-buttons` prop.
+
+---
+
+#### 1. Grid Popup
+
+Use `type => 'grid'` to render a grid popup with mixed media support (PNG images, SVGs, or raw text emojis).
+
+```php
+@php
+    $baseUrl = asset('images/icons');
+
+    $extraButtons = [
+        // Grid 1: Controller Inputs & Trophies
+        [
+            'name' => 'controller_inputs',
+            'iconURL' => "{$baseUrl}/controller.png", // Main toolbar icon
+            'tooltip' => 'Insert Controller Buttons',
+            'type' => 'grid',
+            'items' => [
+                ['name' => 'Cross', 'icon' => "{$baseUrl}/ps_x.png"],
+                ['name' => 'Circle', 'icon' => "{$baseUrl}/ps_circle.png"],
+                ['name' => 'Bronze Trophy', 'icon' => "{$baseUrl}/bronze.webp"],
+                ['name' => 'Platinum Trophy', 'icon' => "{$baseUrl}/platinum.png"],
+            ]
+        ],
+
+        // Grid 2: Text Emojis
+        [
+            'name' => 'emojis',
+            'iconURL' => "{$baseUrl}/emoji_picker.png",
+            'tooltip' => 'Insert Emoji',
+            'type' => 'grid',
+            'items' => [
+                ['name' => 'Smiley', 'icon' => '😋'],
+                ['name' => 'Wink', 'icon' => '😉'],
+                ['name' => 'Cool', 'icon' => '😎'],
+                ['name' => 'Fire', 'icon' => '🔥'],
+            ]
+        ]
+    ];
+@endphp
+
+<x-hwkui-editor wire:model="content" :extra-buttons="$extraButtons" />
+
+```
+
+---
+
+
+#### 2. Single Action Button
+
+Omit `type` and `list` to make a standard single-click toolbar button.
+
+```php
+@php
+    $extraButtons = [
+        [
+            'name' => 'trophy_button',
+            'iconURL' => asset('images/icons/gold.webp'),
+            'tooltip' => 'Insert Gold Trophy',
+            'insert_html' => '<img src="/images/icons/gold.webp" title="Gold Trophy" alt="Gold Trophy" class="inline-trophy" />&nbsp;'
+        ]
+    ];
+@endphp
+
+<x-hwkui-editor wire:model="content" :extra-buttons="$extraButtons" />
+
+```
+
+---
+
+### Configuration Schema Reference
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `name` | `string` | Unique identifier for the control button. |
+| `iconURL` | `string` | Public URL to a PNG, SVG, or WEBP image for the main toolbar button. |
+| `tooltip` | `string` | Text displayed when hovering over the toolbar button. |
+| `type` | `string` | Set to `'grid'` for multi-column popups. Omit for standard menus/buttons. |
+| `items` | `array` | Used with `type => 'grid'`. List of items containing `name` and `icon` (URL or Emoji). |
+| `list` | `array` | Key-value pairs (`'inserted_html' => 'Label'`) for a vertical dropdown list. |
+| `insert_html` | `string` | HTML inserted directly into the editor for single-click buttons. |

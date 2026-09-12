@@ -53,8 +53,8 @@
                         options.disableMobile = true;
 
                         try {
-                            options = el.dataset.options ?
-                                JSON.parse(el.dataset.options) : {};
+                            const dataOpts = el.dataset.options ? JSON.parse(el.dataset.options) : {};
+                            options = {...options,...dataOpts};
                         } catch (e) {
                             console.warn('Flatpickr options invalid JSON:', e);
                         }
@@ -74,6 +74,21 @@
                             });
                         }
 
+                        const modelName = el.getAttribute("wire:model") || el.getAttribute("wire:model.live");
+                        let initialValue = el.value;
+
+                        if (modelName) {
+                            const componentEl = el.closest('[wire\\:id]');
+                            if (componentEl) {
+                                const component = Livewire.find(componentEl.getAttribute('wire:id'));
+                                if (component) {
+                                    const livewireVal = component.get(modelName);
+                                    if (livewireVal !== null && livewireVal !== undefined) {
+                                        initialValue = livewireVal;
+                                    }
+                                }
+                            }
+                        }
 
                         options.onClose = function(selectedDates, dateStr) {
                             const componentEl = el.closest('[wire\\:id]');
@@ -82,23 +97,46 @@
                             const component = Livewire.find(componentEl.getAttribute('wire:id'));
                             if (!component) return;
 
-                            const model =
-                                el.getAttribute("wire:model") ||
-                                el.getAttribute("wire:model.live");
+                            if (!modelName) return;
 
-                            if (!model) return;
-
-                            component.set(model, dateStr);
+                            component.set(modelName, dateStr);
                         };
-                        const existingValue = el.value;
 
                         const fp = flatpickr(el, options);
 
-                        if (existingValue) {
+                        if (initialValue !== null && initialValue !== undefined && initialValue !== '') {
                             try {
-                                fp.setDate(existingValue, false);
+                                fp.setDate(initialValue, false);
                             } catch (e) {
-                                console.warn('Invalid flatpickr date:', existingValue);
+                                console.warn('Invalid flatpickr date:', initialValue);
+                            }
+                        } else {
+                            fp.clear(true);
+                        }
+
+                        if (modelName) {
+                            const componentEl = el.closest('[wire\\:id]');
+                            if (componentEl) {
+                                const component = Livewire.find(componentEl.getAttribute('wire:id'));
+                                if (component && typeof component.$watch === 'function') {
+                                    component.$watch(modelName, (newValue) => {
+
+                                        if (newValue === null || newValue === undefined || newValue ===
+                                            '') {
+                                            if (fp.selectedDates.length > 0) {
+                                                fp.clear(true);
+                                            }
+                                            return;
+                                        }
+
+                                        const currentDate = fp.selectedDates.length ? fp.formatDate(fp
+                                            .selectedDates[0], options.dateFormat || "Y-m-d") : "";
+
+                                        if (newValue !== currentDate) {
+                                            fp.setDate(newValue, false);
+                                        }
+                                    });
+                                }
                             }
                         }
                     });

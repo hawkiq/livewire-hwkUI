@@ -15,6 +15,7 @@ Accordion is a modern, professional, and highly interactive UI component designe
 |`color`|`string`|`primary`|Controls the color theme for all items.|
 |`animation`|`string`|`slide`|Options: `slide`, `fade`, `none`.|
 |`collapse`|`boolean`|`false`|If true, closes other items when one is opened.|
+|`expanded`|`boolean`|`false`|If true, Accordion will be expanded on load.|
 
 `<x-hwkui-accordion.item>`
 
@@ -680,6 +681,7 @@ A robust,typewriter effect component for texts.
 |`pause-time`|`int`|`1500`|Duration to wait before deleting the completed word (in ms).|
 |`loop`|`bool`|`true`|Whether to cycle through the words indefinitely.|
 |`cursor`|`bool`|`true`|Whether to display the blinking typing caret.|
+|`html`|`bool`|`false`|If set `true` html content can be viewed in typewriter.|
 
 
 - Basic Usage

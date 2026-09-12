@@ -84,6 +84,26 @@ class HwkuiServiceProvider extends ServiceProvider
     protected function registerPublishing()
     {
 
+        foreach ($this->formComponents as $alias => $class) {
+            $this->publishes([
+                __DIR__."/../resources/views/components/form/{$alias}.blade.php" => resource_path("views/vendor/hwkui/components/form/{$alias}.blade.php"),
+            ], "hwkui-view-{$alias}");
+        }
+
+        foreach ($this->widgetComponents as $alias => $class) {
+            $this->publishes([
+                __DIR__."/../resources/views/components/widget/{$alias}.blade.php" => resource_path("views/vendor/hwkui/components/widget/{$alias}.blade.php"),
+            ], "hwkui-view-{$alias}");
+        }
+
+        $groupComponents = ['tabs', 'accordion', 'timeline', 'carousel'];
+
+        foreach ($groupComponents as $group) {
+            $this->publishes([
+                __DIR__."/../resources/views/components/widget/{$group}" => resource_path("views/vendor/hwkui/components/widget/{$group}"),
+            ], "hwkui-view-{$group}");
+        }
+
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/hwkui'),
             __DIR__.'/../resources/views/components' => resource_path('views/vendor/hwkui/components'),

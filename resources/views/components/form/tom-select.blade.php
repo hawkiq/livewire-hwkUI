@@ -47,10 +47,7 @@
 
                     targets.forEach(el => {
 
-                        let currentValue = null;
-
                         if (el.tomselect) {
-                            currentValue = el.tomselect.getValue();
                             el.tomselect.destroy();
                         }
 
@@ -58,12 +55,14 @@
 
                             const userOptions = el.dataset.options ?
                                 JSON.parse(el.dataset.options) : {};
+                            const modalContainer = el.closest('dialog') || el.closest('[data-flux-modal]') || el
+                                .closest('flux-modal');
 
                             const config = {
                                 allowEmptyOption: true,
                                 create: false,
                                 plugins: ['dropdown_input'],
-                                dropdownParent: 'body',
+                                dropdownParent: modalContainer || 'body',
                                 ...userOptions,
 
                                 render: {
@@ -84,32 +83,111 @@
                             };
 
                             const ts = new TomSelect(el, config);
-                            if (currentValue !== null) {
-                                ts.setValue(currentValue, true);
+
+                            if (modalContainer) {
+                                modalContainer.style.overflow = 'visible';
+
+                                ts.positionDropdown = function() {
+                                    const controlRect = this.control.getBoundingClientRect();
+                                    const modalRect = modalContainer.getBoundingClientRect();
+
+                                    this.dropdown.style.position = 'absolute';
+                                    this.dropdown.style.top = (controlRect.bottom - modalRect.top +
+                                        modalContainer.scrollTop) + 'px';
+                                    this.dropdown.style.left = (controlRect.left - modalRect.left +
+                                        modalContainer.scrollLeft) + 'px';
+                                    this.dropdown.style.width = controlRect.width + 'px';
+                                    this.dropdown.style.zIndex = '99999';
+                                };
                             }
-                            const modelName =
-                                el.getAttribute('wire:model') ||
-                                el.getAttribute('wire:model.live');
+
+                            const modelName = el.getAttribute('wire:model') || el.getAttribute(
+                                'wire:model.live');
+
+                            let initialComponentValue = null;
+                            if (modelName) {
+                                const componentEl = el.closest('[wire\\:id]');
+                                const component = componentEl ? Livewire.find(componentEl.getAttribute(
+                                    'wire:id')) : null;
+
+                                if (component) {
+                                    initialComponentValue = component.get(modelName);
+                                }
+                            }
+
+                            if (initialComponentValue !== null && initialComponentValue !== undefined &&
+                                initialComponentValue !== '' && !(Array.isArray(initialComponentValue) &&
+                                    initialComponentValue.length === 0)) {
+                                let values = Array.isArray(initialComponentValue) ? initialComponentValue : [
+                                    initialComponentValue
+                                ];
+                                values.forEach(val => {
+                                    if (val !== '' && !ts.options[val]) {
+                                        ts.addOption({
+                                            value: val,
+                                            text: val
+                                        });
+                                    }
+                                });
+                                ts.setValue(initialComponentValue, true);
+                            } else {
+                                ts.clear(true);
+                            }
 
                             if (modelName) {
+                                const componentEl = el.closest('[wire\\:id]');
+                                const component = componentEl ? Livewire.find(componentEl.getAttribute(
+                                    'wire:id')) : null;
 
-                                ts.on('change', value => {
+                                if (component) {
 
-                                    if (typeof value === 'undefined') {
-                                        return;
+                                    ts.on('change', value => {
+                                        if (typeof value !== 'undefined') {
+                                            component.set(modelName, value);
+                                        }
+                                    });
+
+                                    if (typeof component.$watch === 'function') {
+                                        component.$watch(modelName, (newValue) => {
+
+                                            let currentTsValue = ts.getValue();
+
+                                            let tsArray = Array.isArray(currentTsValue) ?
+                                                currentTsValue : (currentTsValue ? [currentTsValue] :
+                                                []);
+                                            let lwArray = Array.isArray(newValue) ? newValue : (
+                                                newValue ? [newValue] : []);
+
+                                            let tsString = JSON.stringify(tsArray.map(String).sort());
+                                            let lwString = JSON.stringify(lwArray.map(String).sort());
+
+                                            if (tsString === lwString) {
+                                                return;
+                                            }
+
+                                            if (newValue === null || newValue === undefined ||
+                                                newValue === '') {
+                                                ts.clear(true);
+                                                return;
+                                            }
+
+                                            let values = Array.isArray(newValue) ? newValue : [
+                                                newValue
+                                            ];
+
+                                            values.forEach(val => {
+                                                if (val !== '' && !ts.options[val]) {
+                                                    ts.addOption({
+                                                        value: val,
+                                                        text: val
+                                                    });
+                                                }
+                                            });
+
+                                            ts.setValue(newValue, true);
+                                        });
                                     }
-
-                                    const componentEl = el.closest('[wire\\:id]');
-                                    if (!componentEl) return;
-
-                                    const component = Livewire.find(
-                                        componentEl.getAttribute('wire:id')
-                                    );
-
-                                    if (!component) return;
-
-                                    component.set(modelName, value);
-                                });
+                                }
                             }
 
                         } catch (e) {

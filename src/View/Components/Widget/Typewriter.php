@@ -18,6 +18,8 @@ class Typewriter extends Component
 
     public $pauseTime;
 
+    public $html;
+
     public function __construct(
         $words = [],
         $typeSpeed = 70,
@@ -25,6 +27,7 @@ class Typewriter extends Component
         $cursor = true,
         $loop = true,
         $pauseTime = 1500,
+        $html = false,
     ) {
         $this->words = $words;
         $this->typeSpeed = (int) $typeSpeed;
@@ -32,6 +35,7 @@ class Typewriter extends Component
         $this->cursor = filter_var($cursor, FILTER_VALIDATE_BOOLEAN);
         $this->loop = filter_var($loop, FILTER_VALIDATE_BOOLEAN);
         $this->pauseTime = (int) $pauseTime;
+        $this->html = filter_var($html, FILTER_VALIDATE_BOOLEAN);
     }
 
     public function render()

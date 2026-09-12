@@ -1,4 +1,4 @@
-@aware(['color' => 'primary', 'animation' => 'slide'])
+@aware(['color' => 'primary', 'animation' => 'slide', 'expanded' => false])
 
 @php
     $activeThemeClasses = match ($color) {
@@ -28,7 +28,7 @@
 
 <div x-data="{
     id: Math.random().toString(36).substring(2, 9),
-    localExpanded: false,
+    localExpanded: {{ $expanded ? 'true' : 'false' }},
     get isExpanded() {
         return this.collapse ? this.activeItem === this.id : this.localExpanded;
     },

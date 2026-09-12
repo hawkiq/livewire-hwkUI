@@ -150,16 +150,32 @@ html.dark .select2-container--default .select2-selection--multiple {
   cursor: text;
 }
 
-/* Quill Editor Toolbar Customization for Dark Mode */
-.dark .ql-toolbar .ql-stroke,
-.dark .ql-toolbar .ql-fill,
-.dark .ql-toolbar .ql-picker {
-  stroke: #bbb !important;
-  fill: #bbb !important;
-  color: #bbb !important;
-}
 
 .flatpickr-wrapper {
     width: 100% !important;
     display: block;
+}
+
+/* Fix Jodit Editor Dialog/Popup Inputs in Dark Mode */
+.jodit_theme_dark .jodit-ui-input__input,
+.jodit_theme_dark input[type="text"],
+.jodit_theme_dark input[type="url"],
+.jodit-dialog input[type="text"],
+.jodit-popup input[type="text"],
+html.dark .jodit-ui-input__input {
+    background-color: #313233 !important;
+    color: #f8fafc !important;
+    border: 1px solid #475569 !important;
+}
+
+.jodit_theme_dark .jodit-ui-input__input:focus,
+html.dark .jodit-ui-input__input:focus {
+    border-color: #3b82f6 !important;
+    outline: none !important;
+}
+
+.jodit_theme_dark .jodit-ui-select__select,
+html.dark .jodit-ui-select__select {
+    background-color: #313233 !important;
+    color: #f8fafc !important;
 }

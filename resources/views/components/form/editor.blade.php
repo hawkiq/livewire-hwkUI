@@ -1,16 +1,18 @@
-@props(['id', 'theme' => config('hwkui.editor.defaultTheme', 'snow'), 'toolbar' => null, 'model' => null])
+@props([
+    'disabled' => false,
+])
+
 @php
     \Hawkiq\Hwkui\Helpers\PluginLoader::require('Editor');
-    $defaultToolbar = config('hwkui.editor.defaultToolbar', []);
-
-    $customToolbar = collect(explode('|', $toolbar))->filter()->map(fn($item) => trim($item));
-
-    $toolbarArray = !is_null($toolbar) && $customToolbar->isNotEmpty() ? [$customToolbar->toArray()] : $defaultToolbar;
 @endphp
 
-<div wire:ignore.self id="{{ $id }}" data-model="{{ $model }}" data-theme="{{ $theme }}"
-    data-toolbar='@json($toolbarArray)' class="hwkui-quill-wrapper">
-    <div class="quill-editor"></div>
+<div x-data="hwkuiJoditEditor({
+    value: @entangle($attributes->wire('model')),
+    config: {{ Js::from($joditConfig) }},
+    isDisabled: @js($disabled)
+})" x-id="['jodit-editor']" wire:ignore {{ $attributes->whereDoesntStartWith('wire:model') }}
+    class="hwkui-jodit-wrapper w-full">
+    <textarea x-ref="textarea" :id="$id('jodit-editor')"></textarea>
 </div>
 
 @once
@@ -24,81 +26,86 @@
 
 @script
     <script>
-        if (!window.HwkEditorBooted) {
+        // Define it directly without listening for 'alpine:init'
+        Alpine.data('hwkuiJoditEditor', ({
+            value,
+            config,
+            isDisabled
+        }) => ({
+            value: value,
+            config: config,
+            isDisabled: isDisabled,
+            editor: null,
 
-            window.HwkEditorBooted = true;
-
-            window.HwkEditor = {
-
-                init(scope = document) {
-
-                    const wrappers = scope.classList?.contains('hwkui-quill-wrapper') ?
-                        [scope] :
-                        scope.querySelectorAll('.hwkui-quill-wrapper');
-
-                    wrappers.forEach(wrapper => {
-
-                        const editorEl = wrapper.querySelector('.quill-editor');
-                        if (!editorEl) return;
-
-                        const model = wrapper.dataset.model;
-                        if (!model) return;
-
-                        const componentEl = wrapper.closest('[wire\\:id]');
-                        if (!componentEl) return;
-
-                        const component = Livewire.find(
-                            componentEl.getAttribute('wire:id')
-                        );
-
-                        if (!component) return;
-                        let value = component.get(model) ?? '';
-                        if (wrapper.__quill) {
-                            wrapper.__quill.off('text-change');
-                            wrapper.__quill = null;
-                            editorEl.innerHTML = '';
-                        }
-
-                        wrapper.querySelectorAll('.ql-toolbar').forEach(el => el.remove());
-
-                        let toolbar = [];
-
-                        try {
-                            toolbar = JSON.parse(wrapper.dataset.toolbar || '[]');
-                        } catch (e) {
-                            console.warn('Invalid toolbar JSON', e);
-                        }
-
-                        const theme = wrapper.dataset.theme || 'snow';
-                        const quill = new Quill(editorEl, {
-                            theme,
-                            modules: {
-                                toolbar
-                            }
-                        });
-
-                        wrapper.__quill = quill;
-
-                        if (value) {
-                            quill.root.innerHTML = value;
-                        }
-
-                        quill.on('text-change', () => {
-                            component.set(model, quill.root.innerHTML);
-                        });
-                    });
+            init() {
+                
+                // Allow global plugin pre-registration or config mutation
+                if (typeof window.hwkuiBeforeJoditInit === 'function') {
+                    this.config = window.hwkuiBeforeJoditInit(this.config, Jodit) || this.config;
                 }
-            };
 
-            document.addEventListener("livewire:init", () => HwkEditor.init());
-            document.addEventListener("DOMContentLoaded", () => HwkEditor.init());
-            document.addEventListener("livewire:navigated", () => HwkEditor.init());
+                // Dispatch event for inline JS plugin hook
+                this.$el.dispatchEvent(new CustomEvent('jodit:before-init', {
+                    detail: {
+                        config: this.config,
+                        Jodit
+                    },
+                    bubbles: true
+                }));
 
-            Livewire.hook("morphed", ({
-                el
-            }) => {
-                HwkEditor.init(el);
-            });
-        }
+                // Instantiate Jodit
+                this.editor = Jodit.make(this.$refs.textarea, this.config);
+
+                if (isDisabled) {
+                    this.editor.setReadOnly(true);
+                }
+
+                // Set initial value
+                if (this.value) {
+                    this.editor.value = this.value;
+                }
+
+                // Sync Jodit -> Alpine / Livewire
+                this.editor.events.on('change', (newVal) => {
+                    if (this.value !== newVal) {
+                        this.value = newVal;
+                    }
+                });
+
+                // Sync Alpine / Livewire -> Jodit
+                this.$watch('value', (newVal) => {
+                    if (this.editor && this.editor.value !== newVal) {
+                        this.editor.value = newVal || '';
+                    }
+                });
+
+                // Handle disabled state changes dynamically
+                this.$watch('isDisabled', (isReadOnly) => {
+                    if (this.editor) {
+                        this.editor.setReadOnly(isReadOnly);
+                    }
+                });
+
+                // Allow post-initialization hooks
+                if (typeof window.hwkuiAfterJoditInit === 'function') {
+                    window.hwkuiAfterJoditInit(this.editor, Jodit);
+                }
+
+                this.$el.dispatchEvent(new CustomEvent('jodit:ready', {
+                    detail: {
+                        editor: this.editor,
+                        Jodit
+                    },
+                    bubbles: true
+                }));
+            },
+
+            destroy() {
+                if (this.editor) {
+                    this.editor.destruct();
+                    this.editor = null;
+                }
+            }
+        }));
     </script>
 @endscript

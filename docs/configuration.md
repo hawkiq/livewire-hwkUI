@@ -40,7 +40,9 @@ npm install @popperjs/core @eonasdan/tempus-dominus
 ```bash
 npm install jquery select2
 ```
-
+```bash
+npm install jodit
+```
 
 Then, in your `app.js`, import the packages:
 
@@ -79,8 +81,21 @@ import "flatpickr/dist/plugins/monthSelect/style.css";
 window.flatpickr = flatpickr;
 window.monthSelectPlugin = monthSelectPlugin;
 
+// For Jodit Text Editor
+import "jodit/esm/plugins/resizer/resizer"; // Resizer plugin is used when inserting images
+import "jodit/esm/plugins/video/video"; // Video plugin is used to insert videos
+import "jodit/esm/plugins/clean-html/clean-html"; // Clean HTML plugin is used to clean the HTML content
+
+import { Jodit } from "jodit";
+
+window.Jodit = Jodit;
+
 ```
 
+```css title="app.css" linenums="1"
+/* For Jodit Text Editor */
+@import "jodit/es2021/jodit";
+```
 ## 🗂️ Using CDN
 hwkUI uses CDN links for plugins like jQuery, Select2, and DataTables etc...
 

@@ -459,57 +459,123 @@ Override settings for individual instances using the `:options` attribute:
 />
 ```
 
-## 🧩 Text Editor
+## 🧩 Jodit Text Editor
 
-A rich-text editor component powered by Quill.js, built for Laravel Livewire 3. Fully supports customization, toolbar control, themes, and Livewire model binding.
-In your `config/hwkui.php`, activate the editor plugin:
+Lightweight Blade component powered by Jodit Rich Text Editor, Alpine.js, and Livewire. It features built-in support for two-way data binding, custom toolbar profiles, file/image uploading, and read-only states.
 
-```php title="hwkui.php" linenums="1"
-<?php
+- Install
 
-'plugins' => [
-    'Editor' => [
-        'active' => true,
-        'files' => [
-            [
-                'type' => 'css',
-                'asset' => false,
-                'location' => '//cdn.quilljs.com/1.3.6/quill.snow.css',
-            ],
-            [
-                'type' => 'js',
-                'asset' => false,
-                'location' => '//cdn.quilljs.com/1.3.6/quill.min.js',
-            ],
-        ],
-    ],
-],
+!!! note "Use either CDN method or npm which described in [Configuration](configuration.md) page."
 
+I'll use modern and prefered way in this tutorial .
+
+```bash
+npm install jodit
+```
+
+Then, in your `app.js` import the packages:
+
+```js title="app.js" linenums="1"
+import "jodit/esm/plugins/resizer/resizer"; // Resizer plugin is used when inserting images
+import "jodit/esm/plugins/video/video"; // Video plugin is used to insert videos
+import "jodit/esm/plugins/clean-html/clean-html"; // Clean HTML plugin is used to clean the HTML content
+
+import { Jodit } from "jodit";
+
+window.Jodit = Jodit;
 
 ```
+
+```css title="app.css" linenums="1"
+@import "jodit/es2021/jodit";
+```
+
+- Component API
+
+You can customize the editor instance using the following properties:
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | Auto-generated (`jodit-{hash}`) | Unique HTML ID for the textarea.|
+| `profile` | `string` | `'simple'` (or config default) | Toolbar layout profile (`full`, `simple`, `minimal`).|
+| `height` | `integer` | `null` (uses config default: `350`) | Height of the editor in pixels.|
+| `placeholder` | `string` | `null` | Placeholder text when the editor is empty.|
+| `language` | `string` | `null` (falls back to config) | UI language code (e.g., `'en'`, `'ar'`, `'fr'`).|
+| `file-browser` | `boolean` | `false` | Enables file browser and uploader integrations.|
+| `connector-url` | `string` | `null` | Custom route name for asset/file uploading handlers.|
+| `disabled` | `boolean` | `false` | Sets the editor to read-only mode.|
+| `options` | `array` | `[]` | Raw array of custom Jodit configuration options.|
+
+---
+
 
 - Basic Usage
 
-```html
-<x-hwkui-editor id="editor" wire:model="content">
-  Default content goes here...
-</x-hwkui-editor>
-```
-
-- Toolbar Customization
-
-Use the toolbar attribute to define your desired tools.
 
 ```html
-<x-hwkui-editor
-  id="editor"
-  wire:model.live="content"
-  theme="snow"
-  toolbar="bold|italic|underline|link|image|code-block|blockquote|list|clean"
->
-</x-hwkui-editor>
-```
+<x-hwkui-editor wire:model="content" />
 
-🔹 You can customize the toolbar using Quill toolbar options separated by `|`.
+```
 
 ---
+
+
+
+- Advanced Examples
+
+- 1. Using Profiles and Custom Height
+
+Choose from pre-defined toolbar profiles (`full`, `simple`, `minimal`) and set a fixed height:
+
+```html
+<x-hwkui-editor wire:model="bio" profile="full" :height="500" placeholder="Write your biography here..." />
+
+```
+
+- 2. Read-Only / Disabled State
+
+You can dynamically bind or statically set the disabled state:
+
+```html
+<x-hwkui-editor wire:model="lockedContent" :disabled="true" />
+
+```
+
+- 3. File Browser & Uploader Integration
+
+Enable file and image uploads directly within the editor interface:
+
+```html
+<x-hwkui-editor wire:model="postContent" :file-browser="true" />
+
+```
+
+- 4. Passing Custom Jodit Options
+
+Pass extra configuration settings straight into the underlying Jodit instance:
+
+```html
+<x-hwkui-editor wire:model="description" :options="['toolbarAdaptive' => false, 'showWordsCounter' => false]" />
+
+```
+
+---
+
+- JavaScript Hooks & Events
+
+The component triggers custom Alpine / DOM events that allow you to interact with the Jodit instance programmatically:
+
+* **`jodit:before-init`**: Dispatched right before Jodit is initialized. Useful for mutating config options or referencing the `Jodit` class.
+
+
+* **`jodit:ready`**: Dispatched when the editor has completely loaded. Provides access to the `editor` instance and `Jodit` class.
+
+
+
+```javascript
+document.addEventListener('jodit:ready', (event) => {
+    const { editor, Jodit } = event.detail;
+    // Do something with the editor instance
+});
+
+```

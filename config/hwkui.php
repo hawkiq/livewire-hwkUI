@@ -95,13 +95,13 @@ return [
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css',
+                    'location' => '//cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.css',
                 ],
                 [
                     'type' => 'js',
                     'asset' => false,
                     'defer' => true,
-                    'location' => '//cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js',
+                    'location' => '//cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js',
                 ],
             ],
         ],
@@ -183,28 +183,164 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | quilljs rich text editor Configuration
+    | Jodit rich text editor Configuration
     |--------------------------------------------------------------------------
     |
-    | Here we can modify the quilljs rich text editor configuration defaults.
-    | You can see full List of options can be used here: https://quilljs.com/docs/configuration/
+    | Here we can modify the Jodit rich text editor configuration defaults.
+    | You can see full List of options can be used here: https://xdsoft.net/jodit/docs/options.html
     |
     */
     'editor' => [
-        'defaultToolbar' => [
-            [['font' => []]],
-            [['header' => [1, 2, 3, 4, 5, 6, false]]],
-            ['bold', 'italic', 'underline', 'strike'],
-            [['color' => []], ['background' => []]],
-            ['blockquote', 'code-block'],
-            ['link', 'image', 'video', 'formula'],
-            [['list' => 'ordered'], ['list' => 'bullet'], [['script' => 'sub'], ['script' => 'super']]],
-            [['indent' => '-1'], ['indent' => '+1']],
-            [['direction' => 'rtl']],
-            [['align' => []]],
-            ['clean'],
+        /*
+    |--------------------------------------------------------------------------
+    | Connector Route
+    |--------------------------------------------------------------------------
+    |
+    | The package can register its own connector route automatically.
+    | Set `enabled` to false and register the route yourself if
+    | you need a custom prefix or middleware stack.
+    |
+    */
+        'route' => [
+            'enabled'    => true,
+            'prefix'     => 'jodit',
+            'name'       => 'jodit.uploader',
+            'middleware' => ['web', 'auth', 'throttle:60,1'],
         ],
-        'defaultTheme' => 'snow',
+        'uploader' => [
+            'disk'           => 'public',
+            'base_path'      => 'uploads',
+            'max_file_size'       => 12833,  // kilobytes
+            'allowed_mimes'       => 'jpeg,jpg,png,gif,webp,pdf,doc,docx,xls,xlsx,zip,txt',
+            'preserve_file_names' => false,
+            'user_directory' => true,
+        ],
+        /*
+    |--------------------------------------------------------------------------
+    | Editor Language
+    |--------------------------------------------------------------------------
+    |
+    | UI language for the Jodit toolbar and dialogs. Set to null to let the
+    | browser decide (Jodit auto-detects from navigator.language).
+    | Examples: 'en', 'ar', 'fr', 'de', 'zh_cn'.
+    |
+    */
+        'language' => 'en',
+
+        /*
+    |--------------------------------------------------------------------------
+    | Default Editor Options
+    |--------------------------------------------------------------------------
+    |
+    | Any key/value pair here is merged into the Jodit config object before
+    | the editor is instantiated.  See https://xdsoft.net/jodit/docs/ for all
+    | available options.
+    |
+    */
+        'defaults' => [
+            'height'               => 350,
+            'toolbarSticky'        => true,
+            'toolbarButtonSize'    => 'middle',
+            'showCharsCounter'     => true,
+            'showWordsCounter'     => true,
+            'showXPathInStatusbar' => true,
+            'hidePoweredByJodit'   => true,
+            'defaultActionOnPaste' => 'insert_clear_html',
+        ],
+
+        /*
+    |--------------------------------------------------------------------------
+    | Toolbar Profiles
+    |--------------------------------------------------------------------------
+    |
+    | Named button sets. Select a profile per-instance with the `profile` prop:
+    |   <x-hwkui-editor name="content" profile="simple" />
+    |
+    | `default_profile` is used when no `buttons` or `profile` prop is given.
+    | Set to null to fall back to the `buttons` array defined above.
+    |
+    */
+
+        'default_profile' => 'simple',
+        'profiles' => [
+            'full' => [
+                'undo',
+                'redo',
+                '|',
+                'bold',
+                'italic',
+                'underline',
+                'strikethrough',
+                'superscript',
+                'subscript',
+                'eraser',
+                '|',
+                'paragraph',
+                'font',
+                'fontsize',
+                'brush',
+                'classSpan',
+                '|',
+                'align',
+                'ul',
+                'ol',
+                'indent',
+                'outdent',
+                '|',
+                'cut',
+                'copy',
+                'paste',
+                'selectall',
+                '|',
+                'link',
+                'image',
+                'video',
+                'file',
+                'table',
+                'hr',
+                'symbols',
+                '|',
+                'source',
+                '|',
+                'find',
+                'spellcheck',
+                'preview',
+                'fullsize',
+            ],
+            'simple' => [
+                'bold',
+                'italic',
+                'underline',
+                'strikethrough',
+                '|',
+                'eraser',
+                '|',
+                'brush',
+                'fontsize',
+                'paragraph',
+                '|',
+                'link',
+                'image',
+                'video',
+                '|',
+                'undo',
+                'redo',
+                '|',
+                'ul',
+                'ol',
+                'table',
+                '|',
+            ],
+            'minimal' => [
+                'bold',
+                'italic',
+                'eraser',
+                '|',
+                'source',
+                '|',
+                'link',
+            ],
+        ],
     ],
     /*
     |--------------------------------------------------------------------------

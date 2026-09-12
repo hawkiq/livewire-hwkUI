@@ -7,14 +7,20 @@ use Illuminate\View\Component;
 class Editor extends Component
 {
     public string $id;
-    public ?string $profile;
-    public ?int $height;
-    public readonly bool $fileBrowser;
-    public ?string $placeholder;
-    public ?string $language;
-    public array $options;
-    public readonly ?string $connectorUrl;
 
+    public ?string $profile;
+
+    public ?int $height;
+
+    public readonly bool $fileBrowser;
+
+    public ?string $placeholder;
+
+    public ?string $language;
+
+    public array $options;
+
+    public readonly ?string $connectorUrl;
 
     public function __construct(
         ?string $id = null,
@@ -26,7 +32,7 @@ class Editor extends Component
         $fileBrowser = false,
         ?string $connectorUrl = null
     ) {
-        $this->id = $id ?? 'jodit-' . md5(uniqid(rand(), true));
+        $this->id = $id ?? 'jodit-'.md5(uniqid(rand(), true));
         $this->profile = $profile ?? config('hwkui.editor.default_profile', 'simple');
         $this->height = $height;
         $this->placeholder = $placeholder;
@@ -59,14 +65,14 @@ class Editor extends Component
         ]);
 
         if ($this->height) {
-            $mergedOptions['height'] = $this->height > 0 ? $this->height : (int) config('hwkui.editor.defaults.height', 350);;
+            $mergedOptions['height'] = $this->height > 0 ? $this->height : (int) config('hwkui.editor.defaults.height', 350);
         }
 
         if ($this->placeholder) {
             $mergedOptions['placeholder'] = $this->placeholder;
         }
 
-        if (!empty($config['language']) || $this->language) {
+        if (! empty($config['language']) || $this->language) {
             $mergedOptions['language'] = $this->language ?? $config['language'];
         }
 
@@ -91,7 +97,7 @@ class Editor extends Component
                     'uploader' => [
                         'url' => $uploadActionUrl,
                         'headers' => ['X-CSRF-TOKEN' => $csrfToken],
-                    ]
+                    ],
                 ];
             }
         }
@@ -102,7 +108,7 @@ class Editor extends Component
     public function render()
     {
         return view('hwkui::components.form.editor', [
-            'joditConfig' => $this->getJoditConfig()
+            'joditConfig' => $this->getJoditConfig(),
         ]);
     }
 }

@@ -165,10 +165,10 @@ class HwkuiServiceProvider extends ServiceProvider
     private function registerRoutes()
     {
         if (config('hwkui.editor.route.enabled', true)) {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         }
     }
-    
+
     public function register()
     {
         $this->mergeConfiguration();

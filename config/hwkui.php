@@ -202,16 +202,16 @@ return [
     |
     */
         'route' => [
-            'enabled'    => true,
-            'prefix'     => 'jodit',
-            'name'       => 'jodit.uploader',
+            'enabled' => true,
+            'prefix' => 'jodit',
+            'name' => 'jodit.uploader',
             'middleware' => ['web', 'auth', 'throttle:60,1'],
         ],
         'uploader' => [
-            'disk'           => 'public',
-            'base_path'      => 'uploads',
-            'max_file_size'       => 12833,  // kilobytes
-            'allowed_mimes'       => 'jpeg,jpg,png,gif,webp,pdf,doc,docx,xls,xlsx,zip,txt',
+            'disk' => 'public',
+            'base_path' => 'uploads',
+            'max_file_size' => 12833,  // kilobytes
+            'allowed_mimes' => 'jpeg,jpg,png,gif,webp,pdf,doc,docx,xls,xlsx,zip,txt',
             'preserve_file_names' => false,
             'user_directory' => true,
         ],
@@ -238,13 +238,13 @@ return [
     |
     */
         'defaults' => [
-            'height'               => 350,
-            'toolbarSticky'        => true,
-            'toolbarButtonSize'    => 'middle',
-            'showCharsCounter'     => true,
-            'showWordsCounter'     => true,
+            'height' => 350,
+            'toolbarSticky' => true,
+            'toolbarButtonSize' => 'middle',
+            'showCharsCounter' => true,
+            'showWordsCounter' => true,
             'showXPathInStatusbar' => true,
-            'hidePoweredByJodit'   => true,
+            'hidePoweredByJodit' => true,
             'defaultActionOnPaste' => 'insert_clear_html',
         ],
 

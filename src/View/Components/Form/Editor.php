@@ -39,6 +39,8 @@ class Editor extends Component
 
     public ?string $insertView;
 
+    public array $extraButtons;
+
     public function __construct(
         ?string $id = null,
         ?string $profile = null,
@@ -55,7 +57,8 @@ class Editor extends Component
         $renderCallback = null,
         $insertCallback = null,
         ?string $renderView = null,
-        ?string $insertView = null
+        ?string $insertView = null,
+        array $extraButtons = []
     ) {
         $this->id = $id ?? 'jodit-'.md5(uniqid(rand(), true));
         $this->profile = $profile ?? config('hwkui.editor.default_profile', 'simple');
@@ -75,6 +78,7 @@ class Editor extends Component
         $this->insertView = $insertView;
 
         $this->connectorUrl = $this->resolveConnectorUrl($connectorUrl);
+        $this->extraButtons = $extraButtons;
     }
 
     public function render()
@@ -83,6 +87,7 @@ class Editor extends Component
             'joditConfig' => $this->getJoditConfig(),
             'processedMentions' => array_map([$this, 'processMentionItem'], $this->mentions),
             'triggerKey' => $this->trigger,
+            'extraButtons' => $this->extraButtons,
         ]);
     }
 

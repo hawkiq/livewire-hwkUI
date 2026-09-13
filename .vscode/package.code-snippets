@@ -359,8 +359,7 @@
     "body": [
       "<x-hwkui-editor",
       "    id=\"${1:editor}\"",
-      "    theme=\"${2:snow}\"",
-      "    toolbar=\"${3:$toolbar}\"",
+      "    placeholder=\"${2:placeholder}\"",
       "    wire:model=\"${4:content}\"",
       "/>"
     ],

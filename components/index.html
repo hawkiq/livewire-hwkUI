@@ -852,10 +852,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-user-mentions" class="md-nav__link">
+  <a href="#using-callbacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic User Mentions (@)
+        Using Callbacks
       
     </span>
   </a>
@@ -863,10 +863,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#custom-trophies-or-items" class="md-nav__link">
+  <a href="#using-custom-views" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Trophies or Items (#)
+        Using custom views
       
     </span>
   </a>
@@ -1500,10 +1500,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-user-mentions" class="md-nav__link">
+  <a href="#using-callbacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic User Mentions (@)
+        Using Callbacks
       
     </span>
   </a>
@@ -1511,10 +1511,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#custom-trophies-or-items" class="md-nav__link">
+  <a href="#using-custom-views" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Trophies or Items (#)
+        Using custom views
       
     </span>
   </a>
@@ -2269,7 +2269,7 @@
 </table>
 <hr />
 <h3 id="usage-examples">Usage Examples</h3>
-<h4 id="basic-user-mentions">Basic User Mentions (<code>@</code>)</h4>
+<h4 id="using-callbacks">Using Callbacks</h4>
 <p>Pass a collection of user records and trigger the menu using the default <code>@</code> character:</p>
 <div class="language-html highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> 
 </span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>    <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;comment&quot;</span> 
@@ -2280,15 +2280,15 @@
 </span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>    <span class="na">:insert-callback</span><span class="o">=</span><span class="s">&quot;fn($u) =&gt; &#39;&lt;a href=\&#39;/profile/&#39; . $u[&#39;id&#39;] . &#39;\&#39;&gt;@&#39; . e($u[&#39;username&#39;]) . &#39;&lt;/a&gt;&#39;&quot;</span>
 </span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="p">/&gt;</span>
 </span></code></pre></div>
-<h4 id="custom-trophies-or-items">Custom Trophies or Items (<code>#</code>)</h4>
-<p>Change the trigger character to <code>#</code> and format the rendered and inserted layouts with icons, links, or styles:</p>
+<h4 id="using-custom-views">Using custom views</h4>
+<p>format the rendered and inserted layouts with icons, links, or styles:</p>
 <div class="language-html highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> 
-</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>    <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;postBody&quot;</span> 
-</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>    <span class="na">:mentions</span><span class="o">=</span><span class="s">&quot;$trophies&quot;</span> 
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>    <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;comment&quot;</span> 
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>    <span class="na">:mentions</span><span class="o">=</span><span class="s">&quot;$issues&quot;</span> 
 </span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>    <span class="na">trigger</span><span class="o">=</span><span class="s">&quot;#&quot;</span>
 </span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>    <span class="na">display-key</span><span class="o">=</span><span class="s">&quot;title&quot;</span>
-</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>    <span class="na">render-view</span><span class="o">=</span><span class="s">&quot;components.trophies.dropdown-item&quot;</span>
-</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>    <span class="na">insert-view</span><span class="o">=</span><span class="s">&quot;components.trophies.inserted-badge&quot;</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>    <span class="na">render-view</span><span class="o">=</span><span class="s">&quot;components.issues.dropdown-item&quot;</span>
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>    <span class="na">insert-view</span><span class="o">=</span><span class="s">&quot;components.issues.inserted-badge&quot;</span>
 </span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="p">/&gt;</span>
 </span></code></pre></div>
 <h3 id="custom-toolbar-controls">Custom Toolbar Controls</h3>
@@ -2296,58 +2296,60 @@
 <hr />
 <h4 id="1-grid-popup">1. Grid Popup</h4>
 <p>Use <code>type =&gt; 'grid'</code> to render a grid popup with mixed media support (PNG images, SVGs, or raw text emojis).</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="x">@php</span>
-</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="x">    $baseUrl = asset(&#39;images/icons&#39;);</span>
-</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>
-</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="x">    $extraButtons = [</span>
-</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="x">        // Grid 1: Controller Inputs &amp; Trophies</span>
-</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="x">        [</span>
-</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="x">            &#39;name&#39; =&gt; &#39;controller_inputs&#39;,</span>
-</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a><span class="x">            &#39;iconURL&#39; =&gt; &quot;{$baseUrl}/controller.png&quot;, // Main toolbar icon</span>
-</span><span id="__span-39-9"><a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="x">            &#39;tooltip&#39; =&gt; &#39;Insert Controller Buttons&#39;,</span>
-</span><span id="__span-39-10"><a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="x">            &#39;type&#39; =&gt; &#39;grid&#39;,</span>
-</span><span id="__span-39-11"><a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a><span class="x">            &#39;items&#39; =&gt; [</span>
-</span><span id="__span-39-12"><a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a><span class="x">                [&#39;name&#39; =&gt; &#39;Cross&#39;, &#39;icon&#39; =&gt; &quot;{$baseUrl}/ps_x.png&quot;],</span>
-</span><span id="__span-39-13"><a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a><span class="x">                [&#39;name&#39; =&gt; &#39;Circle&#39;, &#39;icon&#39; =&gt; &quot;{$baseUrl}/ps_circle.png&quot;],</span>
-</span><span id="__span-39-14"><a id="__codelineno-39-14" name="__codelineno-39-14" href="#__codelineno-39-14"></a><span class="x">                [&#39;name&#39; =&gt; &#39;Bronze Trophy&#39;, &#39;icon&#39; =&gt; &quot;{$baseUrl}/bronze.webp&quot;],</span>
-</span><span id="__span-39-15"><a id="__codelineno-39-15" name="__codelineno-39-15" href="#__codelineno-39-15"></a><span class="x">                [&#39;name&#39; =&gt; &#39;Platinum Trophy&#39;, &#39;icon&#39; =&gt; &quot;{$baseUrl}/platinum.png&quot;],</span>
-</span><span id="__span-39-16"><a id="__codelineno-39-16" name="__codelineno-39-16" href="#__codelineno-39-16"></a><span class="x">            ]</span>
-</span><span id="__span-39-17"><a id="__codelineno-39-17" name="__codelineno-39-17" href="#__codelineno-39-17"></a><span class="x">        ],</span>
-</span><span id="__span-39-18"><a id="__codelineno-39-18" name="__codelineno-39-18" href="#__codelineno-39-18"></a>
-</span><span id="__span-39-19"><a id="__codelineno-39-19" name="__codelineno-39-19" href="#__codelineno-39-19"></a><span class="x">        // Grid 2: Text Emojis</span>
-</span><span id="__span-39-20"><a id="__codelineno-39-20" name="__codelineno-39-20" href="#__codelineno-39-20"></a><span class="x">        [</span>
-</span><span id="__span-39-21"><a id="__codelineno-39-21" name="__codelineno-39-21" href="#__codelineno-39-21"></a><span class="x">            &#39;name&#39; =&gt; &#39;emojis&#39;,</span>
-</span><span id="__span-39-22"><a id="__codelineno-39-22" name="__codelineno-39-22" href="#__codelineno-39-22"></a><span class="x">            &#39;iconURL&#39; =&gt; &quot;{$baseUrl}/emoji_picker.png&quot;,</span>
-</span><span id="__span-39-23"><a id="__codelineno-39-23" name="__codelineno-39-23" href="#__codelineno-39-23"></a><span class="x">            &#39;tooltip&#39; =&gt; &#39;Insert Emoji&#39;,</span>
-</span><span id="__span-39-24"><a id="__codelineno-39-24" name="__codelineno-39-24" href="#__codelineno-39-24"></a><span class="x">            &#39;type&#39; =&gt; &#39;grid&#39;,</span>
-</span><span id="__span-39-25"><a id="__codelineno-39-25" name="__codelineno-39-25" href="#__codelineno-39-25"></a><span class="x">            &#39;items&#39; =&gt; [</span>
-</span><span id="__span-39-26"><a id="__codelineno-39-26" name="__codelineno-39-26" href="#__codelineno-39-26"></a><span class="x">                [&#39;name&#39; =&gt; &#39;Smiley&#39;, &#39;icon&#39; =&gt; &#39;😋&#39;],</span>
-</span><span id="__span-39-27"><a id="__codelineno-39-27" name="__codelineno-39-27" href="#__codelineno-39-27"></a><span class="x">                [&#39;name&#39; =&gt; &#39;Wink&#39;, &#39;icon&#39; =&gt; &#39;😉&#39;],</span>
-</span><span id="__span-39-28"><a id="__codelineno-39-28" name="__codelineno-39-28" href="#__codelineno-39-28"></a><span class="x">                [&#39;name&#39; =&gt; &#39;Cool&#39;, &#39;icon&#39; =&gt; &#39;😎&#39;],</span>
-</span><span id="__span-39-29"><a id="__codelineno-39-29" name="__codelineno-39-29" href="#__codelineno-39-29"></a><span class="x">                [&#39;name&#39; =&gt; &#39;Fire&#39;, &#39;icon&#39; =&gt; &#39;🔥&#39;],</span>
-</span><span id="__span-39-30"><a id="__codelineno-39-30" name="__codelineno-39-30" href="#__codelineno-39-30"></a><span class="x">            ]</span>
-</span><span id="__span-39-31"><a id="__codelineno-39-31" name="__codelineno-39-31" href="#__codelineno-39-31"></a><span class="x">        ]</span>
-</span><span id="__span-39-32"><a id="__codelineno-39-32" name="__codelineno-39-32" href="#__codelineno-39-32"></a><span class="x">    ];</span>
-</span><span id="__span-39-33"><a id="__codelineno-39-33" name="__codelineno-39-33" href="#__codelineno-39-33"></a><span class="x">@endphp</span>
-</span><span id="__span-39-34"><a id="__codelineno-39-34" name="__codelineno-39-34" href="#__codelineno-39-34"></a>
-</span><span id="__span-39-35"><a id="__codelineno-39-35" name="__codelineno-39-35" href="#__codelineno-39-35"></a><span class="x">&lt;x-hwkui-editor wire:model=&quot;content&quot; :extra-buttons=&quot;$extraButtons&quot; /&gt;</span>
+<p><div class="language-php highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>    <span class="nv">$baseUrl</span> <span class="o">=</span> <span class="nx">asset</span><span class="p">(</span><span class="s1">&#39;images/icons&#39;</span><span class="p">);</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>    <span class="nv">$extraButtons</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>        <span class="c1">// Grid 1: Controller Inputs &amp; Trophies</span>
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>        <span class="p">[</span>
+</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;controller_inputs&#39;</span><span class="p">,</span>
+</span><span id="__span-39-9"><a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a>            <span class="s1">&#39;iconURL&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$baseUrl</span><span class="si">}</span><span class="s2">/controller.png&quot;</span><span class="p">,</span> <span class="c1">// Main toolbar icon</span>
+</span><span id="__span-39-10"><a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a>            <span class="s1">&#39;tooltip&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Insert Controller Buttons&#39;</span><span class="p">,</span>
+</span><span id="__span-39-11"><a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a>            <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;grid&#39;</span><span class="p">,</span>
+</span><span id="__span-39-12"><a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a>            <span class="s1">&#39;items&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-39-13"><a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a>                <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Cross&#39;</span><span class="p">,</span> <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$baseUrl</span><span class="si">}</span><span class="s2">/ps_x.png&quot;</span><span class="p">],</span>
+</span><span id="__span-39-14"><a id="__codelineno-39-14" name="__codelineno-39-14" href="#__codelineno-39-14"></a>                <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Circle&#39;</span><span class="p">,</span> <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$baseUrl</span><span class="si">}</span><span class="s2">/ps_circle.png&quot;</span><span class="p">],</span>
+</span><span id="__span-39-15"><a id="__codelineno-39-15" name="__codelineno-39-15" href="#__codelineno-39-15"></a>                <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Bronze Trophy&#39;</span><span class="p">,</span> <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$baseUrl</span><span class="si">}</span><span class="s2">/bronze.webp&quot;</span><span class="p">],</span>
+</span><span id="__span-39-16"><a id="__codelineno-39-16" name="__codelineno-39-16" href="#__codelineno-39-16"></a>                <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Platinum Trophy&#39;</span><span class="p">,</span> <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$baseUrl</span><span class="si">}</span><span class="s2">/platinum.png&quot;</span><span class="p">],</span>
+</span><span id="__span-39-17"><a id="__codelineno-39-17" name="__codelineno-39-17" href="#__codelineno-39-17"></a>            <span class="p">]</span>
+</span><span id="__span-39-18"><a id="__codelineno-39-18" name="__codelineno-39-18" href="#__codelineno-39-18"></a>        <span class="p">],</span>
+</span><span id="__span-39-19"><a id="__codelineno-39-19" name="__codelineno-39-19" href="#__codelineno-39-19"></a>
+</span><span id="__span-39-20"><a id="__codelineno-39-20" name="__codelineno-39-20" href="#__codelineno-39-20"></a>        <span class="c1">// Grid 2: Text Emojis</span>
+</span><span id="__span-39-21"><a id="__codelineno-39-21" name="__codelineno-39-21" href="#__codelineno-39-21"></a>        <span class="p">[</span>
+</span><span id="__span-39-22"><a id="__codelineno-39-22" name="__codelineno-39-22" href="#__codelineno-39-22"></a>            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;emojis&#39;</span><span class="p">,</span>
+</span><span id="__span-39-23"><a id="__codelineno-39-23" name="__codelineno-39-23" href="#__codelineno-39-23"></a>            <span class="s1">&#39;iconURL&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$baseUrl</span><span class="si">}</span><span class="s2">/emoji_picker.png&quot;</span><span class="p">,</span>
+</span><span id="__span-39-24"><a id="__codelineno-39-24" name="__codelineno-39-24" href="#__codelineno-39-24"></a>            <span class="s1">&#39;tooltip&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Insert Emoji&#39;</span><span class="p">,</span>
+</span><span id="__span-39-25"><a id="__codelineno-39-25" name="__codelineno-39-25" href="#__codelineno-39-25"></a>            <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;grid&#39;</span><span class="p">,</span>
+</span><span id="__span-39-26"><a id="__codelineno-39-26" name="__codelineno-39-26" href="#__codelineno-39-26"></a>            <span class="s1">&#39;items&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span id="__span-39-27"><a id="__codelineno-39-27" name="__codelineno-39-27" href="#__codelineno-39-27"></a>                <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Smiley&#39;</span><span class="p">,</span> <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;😋&#39;</span><span class="p">],</span>
+</span><span id="__span-39-28"><a id="__codelineno-39-28" name="__codelineno-39-28" href="#__codelineno-39-28"></a>                <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Wink&#39;</span><span class="p">,</span> <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;😉&#39;</span><span class="p">],</span>
+</span><span id="__span-39-29"><a id="__codelineno-39-29" name="__codelineno-39-29" href="#__codelineno-39-29"></a>                <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Cool&#39;</span><span class="p">,</span> <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;😎&#39;</span><span class="p">],</span>
+</span><span id="__span-39-30"><a id="__codelineno-39-30" name="__codelineno-39-30" href="#__codelineno-39-30"></a>                <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Fire&#39;</span><span class="p">,</span> <span class="s1">&#39;icon&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;🔥&#39;</span><span class="p">],</span>
+</span><span id="__span-39-31"><a id="__codelineno-39-31" name="__codelineno-39-31" href="#__codelineno-39-31"></a>            <span class="p">]</span>
+</span><span id="__span-39-32"><a id="__codelineno-39-32" name="__codelineno-39-32" href="#__codelineno-39-32"></a>        <span class="p">]</span>
+</span><span id="__span-39-33"><a id="__codelineno-39-33" name="__codelineno-39-33" href="#__codelineno-39-33"></a>    <span class="p">];</span>
+</span></code></pre></div>
+blade view</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;content&quot;</span> <span class="na">:extra-buttons</span><span class="o">=</span><span class="s">&quot;$extraButtons&quot;</span> <span class="p">/&gt;</span>
 </span></code></pre></div>
 <hr />
 <h4 id="2-single-action-button">2. Single Action Button</h4>
-<p>Omit <code>type</code> and <code>list</code> to make a standard single-click toolbar button.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="x">@php</span>
-</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="x">    $extraButtons = [</span>
-</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="x">        [</span>
-</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="x">            &#39;name&#39; =&gt; &#39;trophy_button&#39;,</span>
-</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="x">            &#39;iconURL&#39; =&gt; asset(&#39;images/icons/gold.webp&#39;),</span>
-</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="x">            &#39;tooltip&#39; =&gt; &#39;Insert Gold Trophy&#39;,</span>
-</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="x">            &#39;insert_html&#39; =&gt; &#39;&lt;img src=&quot;/images/icons/gold.webp&quot; title=&quot;Gold Trophy&quot; alt=&quot;Gold Trophy&quot; class=&quot;inline-trophy&quot; /&gt;&amp;nbsp;&#39;</span>
-</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="x">        ]</span>
-</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="x">    ];</span>
-</span><span id="__span-40-10"><a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a><span class="x">@endphp</span>
-</span><span id="__span-40-11"><a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>
-</span><span id="__span-40-12"><a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a><span class="x">&lt;x-hwkui-editor wire:model=&quot;content&quot; :extra-buttons=&quot;$extraButtons&quot; /&gt;</span>
+<p>Omit <code>type</code> and <code>items</code> to make a standard single-click toolbar button.</p>
+<p><div class="language-php highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>    <span class="nv">$extraButtons</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>        <span class="p">[</span>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;trophy_button&#39;</span><span class="p">,</span>
+</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>            <span class="s1">&#39;iconURL&#39;</span> <span class="o">=&gt;</span> <span class="nx">asset</span><span class="p">(</span><span class="s1">&#39;images/icons/gold.webp&#39;</span><span class="p">),</span>
+</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>            <span class="s1">&#39;tooltip&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Insert Gold Trophy&#39;</span><span class="p">,</span>
+</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a>            <span class="s1">&#39;insert_html&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;img src=&quot;/images/icons/gold.webp&quot; title=&quot;Gold Trophy&quot; alt=&quot;Gold Trophy&quot; class=&quot;inline-trophy&quot; /&gt;&amp;nbsp;&#39;</span>
+</span><span id="__span-41-9"><a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a>        <span class="p">]</span>
+</span><span id="__span-41-10"><a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a>    <span class="p">];</span>
 </span></code></pre></div>
+blade view
+<div class="language-html highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="p">&lt;</span><span class="nt">x-hwkui-editor</span> <span class="na">wire:model</span><span class="o">=</span><span class="s">&quot;content&quot;</span> <span class="na">:extra-buttons</span><span class="o">=</span><span class="s">&quot;$extraButtons&quot;</span> <span class="p">/&gt;</span>
+</span></code></pre></div></p>
 <hr />
 <h3 id="configuration-schema-reference">Configuration Schema Reference</h3>
 <table>
@@ -2383,11 +2385,6 @@
 <td><code>items</code></td>
 <td><code>array</code></td>
 <td>Used with <code>type =&gt; 'grid'</code>. List of items containing <code>name</code> and <code>icon</code> (URL or Emoji).</td>
-</tr>
-<tr>
-<td><code>list</code></td>
-<td><code>array</code></td>
-<td>Key-value pairs (<code>'inserted_html' =&gt; 'Label'</code>) for a vertical dropdown list.</td>
 </tr>
 <tr>
 <td><code>insert_html</code></td>

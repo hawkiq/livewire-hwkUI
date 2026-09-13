@@ -166,8 +166,8 @@
                             };
                         }
 
-                        else if (btn.list) {
-                            control.list = btn.list;
+                        else if (btn.items && btn.items.length > 0) {
+                            control.list = btn.items;
 
                             control.childTemplate = function(editor, key, value) {
                                 return `<div class="text-center text-xl p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">${key}</div>`;

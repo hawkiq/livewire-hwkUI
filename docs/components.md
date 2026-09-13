@@ -604,7 +604,7 @@ You can configure the autocomplete feature using the following attributes:
 
 ### Usage Examples
 
-#### Basic User Mentions (`@`)
+#### Using Callbacks
 
 Pass a collection of user records and trigger the menu using the default `@` character:
 
@@ -620,18 +620,18 @@ Pass a collection of user records and trigger the menu using the default `@` cha
 
 ```
 
-#### Custom Trophies or Items (`#`)
+#### Using custom views
 
-Change the trigger character to `#` and format the rendered and inserted layouts with icons, links, or styles:
+format the rendered and inserted layouts with icons, links, or styles:
 
 ```html
 <x-hwkui-editor 
-    wire:model="postBody" 
-    :mentions="$trophies" 
+    wire:model="comment" 
+    :mentions="$issues" 
     trigger="#"
     display-key="title"
-    render-view="components.trophies.dropdown-item"
-    insert-view="components.trophies.inserted-badge"
+    render-view="components.issues.dropdown-item"
+    insert-view="components.issues.inserted-badge"
 />
 
 ```
@@ -647,7 +647,8 @@ You can add custom buttons, dropdown lists, or grid popups (for emojis for examp
 Use `type => 'grid'` to render a grid popup with mixed media support (PNG images, SVGs, or raw text emojis).
 
 ```php
-@php
+<?php
+
     $baseUrl = asset('images/icons');
 
     $extraButtons = [
@@ -679,8 +680,10 @@ Use `type => 'grid'` to render a grid popup with mixed media support (PNG images
             ]
         ]
     ];
-@endphp
+```
+blade view
 
+```html
 <x-hwkui-editor wire:model="content" :extra-buttons="$extraButtons" />
 
 ```
@@ -690,10 +693,11 @@ Use `type => 'grid'` to render a grid popup with mixed media support (PNG images
 
 #### 2. Single Action Button
 
-Omit `type` and `list` to make a standard single-click toolbar button.
+Omit `type` and `items` to make a standard single-click toolbar button.
 
 ```php
-@php
+<?php
+
     $extraButtons = [
         [
             'name' => 'trophy_button',
@@ -702,8 +706,9 @@ Omit `type` and `list` to make a standard single-click toolbar button.
             'insert_html' => '<img src="/images/icons/gold.webp" title="Gold Trophy" alt="Gold Trophy" class="inline-trophy" />&nbsp;'
         ]
     ];
-@endphp
-
+```
+blade view
+```html
 <x-hwkui-editor wire:model="content" :extra-buttons="$extraButtons" />
 
 ```
@@ -719,5 +724,4 @@ Omit `type` and `list` to make a standard single-click toolbar button.
 | `tooltip` | `string` | Text displayed when hovering over the toolbar button. |
 | `type` | `string` | Set to `'grid'` for multi-column popups. Omit for standard menus/buttons. |
 | `items` | `array` | Used with `type => 'grid'`. List of items containing `name` and `icon` (URL or Emoji). |
-| `list` | `array` | Key-value pairs (`'inserted_html' => 'Label'`) for a vertical dropdown list. |
 | `insert_html` | `string` | HTML inserted directly into the editor for single-click buttons. |

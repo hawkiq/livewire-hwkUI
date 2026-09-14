@@ -50,3 +50,6 @@ jobs:
       - name: Run Pint
         run: composer format -- --test
 
+      - name: Run PHPStan
+        run: composer analyse
+

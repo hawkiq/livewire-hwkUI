@@ -2,9 +2,11 @@
 
 namespace Hawkiq\Hwkui\Http\Controllers;
 
+use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
@@ -85,8 +87,8 @@ class JoditUploaderController extends Controller
         }
 
         // Per-user directory scoping
-        if (config('hwkui.editor.uploader.user_directory', false) && auth()->check()) {
-            $this->basePath = trim($this->basePath.'/users/'.auth()->id(), '/');
+        if (config('hwkui.editor.uploader.user_directory', false) && Auth::guard()->check()) {
+            $this->basePath = trim($this->basePath.'/users/'.Auth::guard()->id(), '/');
         }
     }
 
@@ -104,12 +106,12 @@ class JoditUploaderController extends Controller
 
         $this->ensureDirectory($path);
 
-        $files = collect(Storage::disk($this->disk)->files($path))
+        $files = collect($this->storageDisk()->files($path))
             ->map(function (string $file): array {
                 $name = basename($file);
                 $isImage = $this->isImage($name);
-                $bytes = Storage::disk($this->disk)->size($file);
-                $modified = Storage::disk($this->disk)->lastModified($file);
+                $bytes = $this->storageDisk()->size($file);
+                $modified = $this->storageDisk()->lastModified($file);
 
                 return [
                     'file' => $name,
@@ -154,7 +156,7 @@ class JoditUploaderController extends Controller
         $path = $this->resolvedPath($request);
         $this->ensureDirectory($path);
 
-        $folders = collect(Storage::disk($this->disk)->directories($path))
+        $folders = collect($this->storageDisk()->directories($path))
             ->map(fn (string $dir): string => basename($dir))
             ->values()
             ->all();
@@ -191,7 +193,7 @@ class JoditUploaderController extends Controller
                 $base = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
                 $name = Str::slug($base).'.'.$ext;
                 $counter = 0;
-                while (Storage::disk($this->disk)->exists($path.'/'.$name)) {
+                while ($this->storageDisk()->exists($path.'/'.$name)) {
                     $counter++;
                     $name = Str::slug($base).'-'.$counter.'.'.$ext;
                 }
@@ -210,7 +212,7 @@ class JoditUploaderController extends Controller
                 $this->sanitizeImage($storedPath);
             }
 
-            $uploaded[] = Storage::disk($this->disk)->url($storedPath);
+            $uploaded[] = $this->storageDisk()->url($storedPath);
             $isImages[] = $this->isImage($name);
         }
 
@@ -236,16 +238,16 @@ class JoditUploaderController extends Controller
 
         $target = $path.'/'.$name;
 
-        if (Storage::disk($this->disk)->directoryExists($target)) {
-            if (! Storage::disk($this->disk)->deleteDirectory($target)) {
+        if ($this->storageDisk()->directoryExists($target)) {
+            if (! $this->storageDisk()->deleteDirectory($target)) {
                 return $this->error('Could not delete the folder.');
             }
 
             return response()->json(['success' => true, 'data' => []]);
         }
 
-        if (Storage::disk($this->disk)->exists($target)) {
-            if (! Storage::disk($this->disk)->delete($target)) {
+        if ($this->storageDisk()->exists($target)) {
+            if (! $this->storageDisk()->delete($target)) {
                 return $this->error('Could not delete the file.');
             }
 
@@ -268,11 +270,11 @@ class JoditUploaderController extends Controller
         $oldPath = $path.'/'.$name;
         $newPath = $path.'/'.$newName;
 
-        if (! Storage::disk($this->disk)->exists($oldPath) && ! Storage::disk($this->disk)->directoryExists($oldPath)) {
+        if (! $this->storageDisk()->exists($oldPath) && ! $this->storageDisk()->directoryExists($oldPath)) {
             return $this->error('File not found.');
         }
 
-        if (! Storage::disk($this->disk)->move($oldPath, $newPath)) {
+        if (! $this->storageDisk()->move($oldPath, $newPath)) {
             return $this->error('Could not rename the file or folder.');
         }
 
@@ -288,7 +290,7 @@ class JoditUploaderController extends Controller
             return $this->error('Folder name is required.');
         }
 
-        if (! Storage::disk($this->disk)->makeDirectory($path.'/'.$name)) {
+        if (! $this->storageDisk()->makeDirectory($path.'/'.$name)) {
             return $this->error('Could not create the folder.');
         }
 
@@ -311,13 +313,13 @@ class JoditUploaderController extends Controller
         $oldPath = $path.'/'.$name;
         $newPath = $newBasePath.'/'.$name;
 
-        if (! Storage::disk($this->disk)->exists($oldPath) && ! Storage::disk($this->disk)->directoryExists($oldPath)) {
+        if (! $this->storageDisk()->exists($oldPath) && ! $this->storageDisk()->directoryExists($oldPath)) {
             return $this->error('File not found.');
         }
 
         $this->ensureDirectory($newBasePath);
 
-        if (! Storage::disk($this->disk)->move($oldPath, $newPath)) {
+        if (! $this->storageDisk()->move($oldPath, $newPath)) {
             return $this->error('Could not move the file or folder.');
         }
 
@@ -343,7 +345,7 @@ class JoditUploaderController extends Controller
         $oldFilePath = $path.'/'.$name;
         $newFilePath = $path.'/'.$newName;
 
-        if (! Storage::disk($this->disk)->exists($oldFilePath)) {
+        if (! $this->storageDisk()->exists($oldFilePath)) {
             return $this->error('File not found.');
         }
 
@@ -354,7 +356,7 @@ class JoditUploaderController extends Controller
         $extension = pathinfo($oldFilePath, PATHINFO_EXTENSION) ?: 'tmp';
         $tempPath = sys_get_temp_dir().DIRECTORY_SEPARATOR.'jodit_'.uniqid().'.'.$extension;
 
-        file_put_contents($tempPath, Storage::disk($this->disk)->get($oldFilePath));
+        file_put_contents($tempPath, $this->storageDisk()->get($oldFilePath));
 
         try {
             $image = Image::decode($tempPath);
@@ -373,7 +375,7 @@ class JoditUploaderController extends Controller
         }
 
         $image->save($tempPath);
-        Storage::disk($this->disk)->put($newFilePath, file_get_contents($tempPath));
+        $this->storageDisk()->put($newFilePath, file_get_contents($tempPath));
         unlink($tempPath);
 
         return response()->json(['success' => true, 'data' => []]);
@@ -400,7 +402,7 @@ class JoditUploaderController extends Controller
         $oldFilePath = $path.'/'.$name;
         $newFilePath = $path.'/'.$newName;
 
-        if (! Storage::disk($this->disk)->exists($oldFilePath)) {
+        if (! $this->storageDisk()->exists($oldFilePath)) {
             return $this->error('File not found.');
         }
 
@@ -411,7 +413,7 @@ class JoditUploaderController extends Controller
         $extension = pathinfo($oldFilePath, PATHINFO_EXTENSION) ?: 'tmp';
         $tempPath = sys_get_temp_dir().DIRECTORY_SEPARATOR.'jodit_'.uniqid().'.'.$extension;
 
-        file_put_contents($tempPath, Storage::disk($this->disk)->get($oldFilePath));
+        file_put_contents($tempPath, $this->storageDisk()->get($oldFilePath));
 
         try {
             $image = Image::decode($tempPath);
@@ -423,7 +425,7 @@ class JoditUploaderController extends Controller
 
         $image->crop($width, $height, $x, $y);
         $image->save($tempPath);
-        Storage::disk($this->disk)->put($newFilePath, file_get_contents($tempPath));
+        $this->storageDisk()->put($newFilePath, file_get_contents($tempPath));
         unlink($tempPath);
 
         return response()->json(['success' => true, 'data' => []]);
@@ -432,6 +434,14 @@ class JoditUploaderController extends Controller
     // ---------------------------------------------------------------
     // Helpers
     // ---------------------------------------------------------------
+
+    protected function storageDisk(): FilesystemAdapter
+    {
+        /** @var FilesystemAdapter $disk */
+        $disk = Storage::disk($this->disk);
+
+        return $disk;
+    }
 
     /**
      * Resolve the storage path for the current request.
@@ -447,8 +457,8 @@ class JoditUploaderController extends Controller
 
     protected function ensureDirectory(string $path): void
     {
-        if (! Storage::disk($this->disk)->directoryExists($path)) {
-            Storage::disk($this->disk)->makeDirectory($path);
+        if (! $this->storageDisk()->directoryExists($path)) {
+            $this->storageDisk()->makeDirectory($path);
         }
     }
 
@@ -458,7 +468,7 @@ class JoditUploaderController extends Controller
     protected function sourceResponse(string $storagePath, array $files, array $folders): JsonResponse
     {
         $displayPath = ltrim(Str::after($storagePath, $this->basePath), '/') ?: '/';
-        $baseUrl = rtrim(Storage::disk($this->disk)->url($storagePath), '/').'/';
+        $baseUrl = rtrim($this->storageDisk()->url($storagePath), '/').'/';
         $folderObjects = array_map(fn (string $name): array => ['name' => $name], $folders);
 
         return response()->json([
@@ -541,13 +551,13 @@ class JoditUploaderController extends Controller
             $extension = pathinfo($storagePath, PATHINFO_EXTENSION) ?: 'tmp';
             $tempPath = sys_get_temp_dir().DIRECTORY_SEPARATOR.'jodit_'.uniqid().'.'.$extension;
 
-            file_put_contents($tempPath, Storage::disk($this->disk)->get($storagePath));
+            file_put_contents($tempPath, $this->storageDisk()->get($storagePath));
 
             $image = Image::read($tempPath);
             $image->orient();
             $image->save($tempPath);
 
-            Storage::disk($this->disk)->put($storagePath, file_get_contents($tempPath));
+            $this->storageDisk()->put($storagePath, file_get_contents($tempPath));
         } catch (\Throwable) {
             // Non-fatal — leave the original file intact if sanitization fails.
         } finally {

@@ -60,7 +60,7 @@ class Editor extends Component
         ?string $insertView = null,
         array $extraButtons = []
     ) {
-        $this->id = $id ?? 'jodit-'.md5(uniqid(rand(), true));
+        $this->id = $id ?? 'jodit-'.md5(uniqid((string) rand(), true));
         $this->profile = $profile ?? config('hwkui.editor.default_profile', 'simple');
         $this->height = $height;
         $this->placeholder = $placeholder;
@@ -164,11 +164,7 @@ class Editor extends Component
         $routeName = config('hwkui.editor.route.name', 'jodit.uploader');
 
         if ($this->fileBrowser) {
-            try {
-                return $routeName;
-            } catch (\InvalidArgumentException) {
-                return null;
-            }
+            return $routeName;
         }
 
         return $routeName;

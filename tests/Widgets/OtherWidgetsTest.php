@@ -46,7 +46,7 @@ it('renders the info box widget and clamps progress values', function () {
 
     expect($component->progress)->toBe(100)
         ->and($component->boxClasses())->toContain('bg-blue-600')
-        ->and($component->progressBarClasses())->toBe('bg-rose-600 dark:bg-rose-500')
+        ->and($component->progressBarClasses())->toBe('bg-red-600 dark:bg-red-500')
         ->and($html)->toContain('Sales')
         ->and($html)->toContain('Updated');
 });

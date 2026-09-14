@@ -28,5 +28,5 @@ it('normalizes alert color classes and booleans', function (string $color, bool 
         ->and($component->solid)->toBe($solid);
 })->with([
     ['primary', false, false, 'bg-blue-50'],
-    ['danger', true, true, 'bg-rose-600'],
+    ['danger', true, true, 'bg-red-600'],
 ]);

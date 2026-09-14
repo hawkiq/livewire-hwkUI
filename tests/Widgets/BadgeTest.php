@@ -7,5 +7,5 @@ it('renders the badge component with shape, color, and icon helpers', function (
 
     expect($component->getShapeClasses())->toContain('rounded-full')
         ->and($component->getIconSizeClass())->toBe('w-5 h-5')
-        ->and($component->getColorClasses())->toContain('bg-emerald-600');
+        ->and($component->getColorClasses())->toContain('bg-green-600');
 });

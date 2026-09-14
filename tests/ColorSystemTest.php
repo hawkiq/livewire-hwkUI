@@ -60,8 +60,8 @@ it('preserves badge variants, case normalization, external classes, and fallback
         ->and($pill->getColorClasses())->toContain(Color::classes('danger', 'solid'))
         ->and($fallback->getColorClasses())->toContain(Color::classes('primary', 'solid'))
         ->and($html)->toContain('custom-class')
-        ->and($html)->toContain('bg-emerald-50')
-        ->and($html)->toContain('dark:bg-emerald-950/40');
+        ->and($html)->toContain('bg-green-50')
+        ->and($html)->toContain('dark:bg-green-950/40');
 });
 
 it('retains component-specific fallbacks while using shared known colors', function () {

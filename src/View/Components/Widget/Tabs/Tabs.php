@@ -2,6 +2,7 @@
 
 namespace Hawkiq\Hwkui\View\Components\Widget\Tabs;
 
+use Hawkiq\Hwkui\Support\Color;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -16,7 +17,7 @@ class Tabs extends Component
             $this->variant = 'classic';
         }
 
-        $allowedColors = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'violet', 'pink', 'dark', 'light'];
+        $allowedColors = Color::names();
         if (! in_array($this->color, $allowedColors)) {
             $this->color = 'primary';
         }

@@ -2,6 +2,7 @@
 
 namespace Hawkiq\Hwkui\View\Components\Widget;
 
+use Hawkiq\Hwkui\Support\Color;
 use Illuminate\View\Component;
 
 class Card extends Component
@@ -83,31 +84,19 @@ class Card extends Component
 
     public function bgColor(): string
     {
-        return match ($this->theme) {
-            'primary' => 'bg-blue-600 dark:bg-blue-900',
-            'secondary' => 'bg-gray-500 dark:bg-gray-700',
-            'danger' => 'bg-red-600 dark:bg-red-900',
-            'warning' => 'bg-yellow-400 text-black dark:bg-yellow-900',
-            'success' => 'bg-green-600 dark:bg-green-900',
-            'info' => 'bg-cyan-500 dark:bg-cyan-900',
-            'light' => 'bg-gray-100 text-black dark:bg-gray-200',
-            'dark' => 'bg-gray-800 text-white dark:bg-black',
-            default => 'bg-zinc-200 dark:bg-zinc-900',
-        };
+        if (! Color::supports($this->theme)) {
+            return 'bg-zinc-200 dark:bg-zinc-900';
+        }
+
+        return Color::classes($this->theme, 'solid');
     }
 
     public function borderColor(): string
     {
-        return match ($this->theme) {
-            'primary' => 'border-blue-600',
-            'secondary' => 'border-gray-500',
-            'danger' => 'border-red-600',
-            'warning' => 'border-yellow-400',
-            'success' => 'border-green-600',
-            'info' => 'border-cyan-500',
-            'light' => 'border-gray-100',
-            'dark' => 'border-gray-800',
-            default => 'border-gray-300',
-        };
+        if (! Color::supports($this->theme)) {
+            return 'border-gray-300';
+        }
+
+        return Color::classes($this->theme, 'border');
     }
 }

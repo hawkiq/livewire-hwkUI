@@ -2,6 +2,7 @@
 
 namespace Hawkiq\Hwkui\View\Components\Widget;
 
+use Hawkiq\Hwkui\Support\Color;
 use Illuminate\View\Component;
 
 class InfoBox extends Component
@@ -68,49 +69,29 @@ class InfoBox extends Component
 
     public function progressBarClasses(): string
     {
-        $theme = match ($this->progressTheme) {
-            'primary' => 'bg-blue-600',
-            'secondary' => 'bg-gray-500',
-            'success' => 'bg-green-600',
-            'info' => 'bg-cyan-500',
-            'warning' => 'bg-yellow-400',
-            'danger' => 'bg-red-600',
-            'light' => 'bg-gray-100',
-            'dark' => 'bg-gray-800',
-            default => 'bg-white',
-        };
+        if (! Color::supports($this->progressTheme)) {
+            return 'bg-white';
+        }
 
-        return $theme;
+        return Color::classes($this->progressTheme, 'progress');
     }
 
     public function bgColor(): string
     {
-        return match ($this->theme) {
-            'primary' => 'bg-blue-600 text-white dark:bg-blue-900',
-            'secondary' => 'bg-gray-500 text-white dark:bg-gray-900',
-            'success' => 'bg-green-600 text-white dark:bg-green-900',
-            'info' => 'bg-cyan-500 text-white dark:bg-cyan-900',
-            'warning' => 'bg-yellow-400 text-black dark:bg-yellow-900 dark:text-white',
-            'danger' => 'bg-red-600 text-white dark:bg-red-900',
-            'light' => 'bg-gray-100 text-black dark:bg-gray-900',
-            'dark' => 'bg-gray-800 text-white dark:bg-gray-900',
-            default => 'bg-white',
-        };
+        if (! Color::supports($this->theme)) {
+            return 'bg-white';
+        }
+
+        return Color::classes($this->theme, 'solid');
     }
 
     public function iconBgColor(): string
     {
-        return match ($this->iconTheme) {
-            'primary' => 'bg-blue-600',
-            'secondary' => 'bg-gray-500',
-            'success' => 'bg-green-600',
-            'info' => 'bg-cyan-500',
-            'warning' => 'bg-yellow-400 text-black',
-            'danger' => 'bg-red-600',
-            'light' => 'bg-gray-100 text-black',
-            'dark' => 'bg-gray-800',
-            default => 'bg-gray-400',
-        };
+        if (! Color::supports($this->iconTheme)) {
+            return 'bg-gray-400';
+        }
+
+        return Color::classes($this->iconTheme, 'icon');
     }
 
     public function render()

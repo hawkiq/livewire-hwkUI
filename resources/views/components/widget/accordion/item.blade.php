@@ -1,29 +1,8 @@
 @aware(['color' => 'primary', 'animation' => 'slide', 'expanded' => false])
 
 @php
-    $activeThemeClasses = match ($color) {
-        'success' => 'bg-green-500 text-white dark:bg-green-600',
-        'warning' => 'bg-yellow-400 text-yellow-900 dark:bg-yellow-500',
-        'danger' => 'bg-red-500 text-white dark:bg-red-600',
-        'info' => 'bg-cyan-500 text-white dark:bg-cyan-600',
-        'pink' => 'bg-pink-500 text-white dark:bg-pink-600',
-        'violet' => 'bg-violet-500 text-white dark:bg-violet-600',
-        'dark' => 'bg-gray-800 text-white dark:bg-gray-900',
-        'secondary' => 'bg-gray-500 text-white dark:bg-gray-600',
-        default => 'bg-blue-500 text-white dark:bg-blue-600', // primary
-    };
-
-    $borderThemeClasses = match ($color) {
-        'success' => 'border-green-500 dark:border-green-600',
-        'warning' => 'border-yellow-400 dark:border-yellow-500',
-        'danger' => 'border-red-500 dark:border-red-600',
-        'info' => 'border-cyan-500 dark:border-cyan-600',
-        'pink' => 'border-pink-500 dark:border-pink-600',
-        'violet' => 'border-violet-500 dark:border-violet-600',
-        'dark' => 'border-gray-800 dark:border-gray-900',
-        'secondary' => 'border-gray-500 dark:border-gray-600',
-        default => 'border-blue-500 dark:border-blue-600',
-    };
+    $activeThemeClasses = \Hawkiq\Hwkui\Support\Color::classes($color, 'solid');
+    $borderThemeClasses = \Hawkiq\Hwkui\Support\Color::classes($color, 'border');
 @endphp
 
 <div x-data="{

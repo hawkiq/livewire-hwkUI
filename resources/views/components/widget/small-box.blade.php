@@ -28,7 +28,7 @@
     @endif
 
     @if ($icon)
-        <div class="absolute top-2 right-2 text-7xl opacity-20 z-0 pointer-events-none">
+        <div class="absolute top-2 inset-e-2 text-7xl opacity-20 z-0 pointer-events-none">
             <x-hwkui-icon name="{{ $icon }}" />
         </div>
     @endif

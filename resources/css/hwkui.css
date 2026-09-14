@@ -1,6 +1,7 @@
 @source '../../vendor/hawkiq/hwkui/resources/views/components/**/*.blade.php';
 
 @source "../../vendor/hawkiq/hwkui/src/View/Components/**/*.php";
+@source "../../vendor/hawkiq/hwkui/src/Support/*.php";
 
 [x-cloak] { display: none !important; }
 /* TomSelect Custom Styles for Tailwind CSS Integration */

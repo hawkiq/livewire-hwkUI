@@ -85,6 +85,9 @@ final class Color
             'border' => 'border-slate-900 dark:border-slate-200',
             'text' => 'text-slate-900 dark:text-slate-200',
             'progress' => 'bg-slate-900 dark:bg-slate-700',
+            'glass' => 'bg-slate-100 dark:bg-slate-900/30 border-white/30 dark:border-slate-700/30 shadow-black/5',
+            'glass-icon' => 'bg-slate-500/10 border-slate-200/30 dark:border-slate-700/30 text-slate-700 dark:text-slate-200',
+            'glass-badge' => 'bg-slate-300/70 dark:bg-slate-700',
         ],
         'light' => [
             'solid' => 'bg-slate-100 text-slate-800 border-slate-200 dark:bg-slate-700 dark:text-slate-100 dark:border-slate-600',
@@ -94,6 +97,9 @@ final class Color
             'border' => 'border-slate-200 dark:border-slate-600',
             'text' => 'text-slate-800 dark:text-slate-200',
             'progress' => 'bg-slate-200 dark:bg-slate-600',
+            'glass' => 'bg-white dark:bg-slate-900/20 border-white/30 dark:border-slate-700/30 shadow-black/5',
+            'glass-icon' => 'bg-slate-500/10 border-slate-200/30 dark:border-slate-700/30 text-slate-700 dark:text-slate-200',
+            'glass-badge' => 'bg-slate-200/70 dark:bg-slate-700',
         ],
         'violet' => [
             'solid' => 'bg-violet-600 text-white border-violet-700 dark:bg-violet-500 dark:border-violet-400',

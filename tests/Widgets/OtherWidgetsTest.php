@@ -26,7 +26,7 @@ it('renders the glass box widget with calculated classes and formatted value', f
     $html = Blade::render('<x-hwkui-glass-box title="Revenue" :value="1234.5" icon="chart-line" href="#" color="blue" />');
 
     expect($component->formattedValue())->toBe('1,235')
-        ->and($component->cardClasses())->toContain('bg-blue-100')
+        ->and($component->cardClasses())->toContain('bg-blue-50')
         ->and($html)->toContain('Revenue')
         ->and($html)->toContain('1,235');
 });
@@ -46,7 +46,7 @@ it('renders the info box widget and clamps progress values', function () {
 
     expect($component->progress)->toBe(100)
         ->and($component->boxClasses())->toContain('bg-blue-600')
-        ->and($component->progressBarClasses())->toBe('bg-red-600')
+        ->and($component->progressBarClasses())->toBe('bg-rose-600 dark:bg-rose-500')
         ->and($html)->toContain('Sales')
         ->and($html)->toContain('Updated');
 });

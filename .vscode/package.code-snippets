@@ -185,12 +185,16 @@
     ],
     "description": "Insert a hwkUI accordion content block."
   },
-  "Blade Components / Carousel Wrapper": {
+  "Blade Components / Carousel": {
     "prefix": "hwk-carousel",
     "body": [
       "<x-hwkui-carousel.wrapper",
       "    :items=\"${1:$items}\"",
       "    interval=\"${2:5000}\"",
+      "    :breakpoints=\"${2:['default' => 1, 'sm' => 2, 'lg' => 4]}\"",
+      "    :show-controls=\"${2:true}\"",
+      "    :show-indicators=\"${2:true}\"",
+      "    :show-count=\"${2:false}\"",
       ">",
       "    ${3:Slides}",
       "</x-hwkui-carousel.wrapper>"
@@ -200,9 +204,7 @@
   "Blade Components / Carousel Item": {
     "prefix": "hwk-carousel-item",
     "body": [
-      "<x-hwkui-carousel.item",
-      "    :index=\"${1:0}\"",
-      ">",
+      "<x-hwkui-carousel.item>",
       "    ${2:Slide content}",
       "</x-hwkui-carousel.item>"
     ],
@@ -365,6 +367,22 @@
     ],
     "description": "Insert a hwkUI rich text editor component."
   },
+    "Blade Components / Editor Advance": {
+      "prefix": "hwk-editor-advance",
+      "body": [
+        "<x-hwkui-editor",
+        "    id=\"${1:editor}\"",
+        "    placeholder=\"${2:placeholder}\"",
+        "    wire:model=\"${3:content}\"",
+        "    render-view=\"${4:content}\"",
+        "    insert-view=\"${5:content}\"",
+        "    profile=\"${6:simple}\"",
+        "    mentions=\"${7:[]}\"",
+        "    wire:model=\"${8:content}\"",
+        "/>"
+      ],
+      "description": "Insert a hwkUI rich text editor component."
+    },
   "Blade Components / Flat Picker": {
     "prefix": "hwk-flat-picker",
     "body": [

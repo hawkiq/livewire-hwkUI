@@ -209,15 +209,18 @@ A reusable friendly Card component built with Tailwind CSS v4, part of the hawki
 
 ## 📦 Carousel
 
-A lightweight, Alpine.js-powered carousel component for Laravel, designed for smooth, high-performance slide transitions without the need for heavy external JavaScript dependencies.
+A responsive, direction-aware carousel component for displaying multi-item card feeds, hero banners, and media showcases.
 
 - Basic Usage
 
 ```html
-<x-hwkui-carousel.wrapper :items="$featured" interval="7000">
-    @foreach ($featured as $i => $campaign)
-        <x-hwkui-carousel.item :index="$i">
-            <h1>{{ $campaign->title }}</h1>
+<x-hwkui-carousel.wrapper :items="$articles">
+    @foreach ($articles as $article)
+        <x-hwkui-carousel.item>
+            <div class="relative w-full h-full rounded-xl overflow-hidden bg-zinc-800 p-6 text-white flex flex-col justify-end">
+                <span class="text-xs text-amber-400 font-semibold uppercase">{{ $article->category }}</span>
+                <h3 class="text-xl font-bold mt-2">{{ $article->title }}</h3>
+            </div>
         </x-hwkui-carousel.item>
     @endforeach
 </x-hwkui-carousel.wrapper>
@@ -229,14 +232,43 @@ A lightweight, Alpine.js-powered carousel component for Laravel, designed for sm
 
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-|`items`|`Collection`|`Required`|The collection of data to iterate over.|
+|`items`|`int`|`Required`|number of items inside the the array or collection.|
 |`interval`|`Integer`|`5000`|Time in milliseconds between auto-slides.|
+|`breakpoints`|`array`|`['default' => 1]`|Array defining the number of items visible simultaneously across viewport breakpoints `sm`,`md`,`lg` .|
+|`show-controls`|`bool`|`true`|Toggles the visibility of the previous and next navigation arrow buttons.|
+|`show-indicators`|`bool`|`true`|Toggles the visibility of the pagination dot indicators at the bottom of the carousel.|
+|`show-count`|`bool`|`true`|Toggles the visibility of the numerical range counter (e.g., 1 - 2 / 5) shown in the top corner.|
 
-`<x-hwkui-carousel.item>`
+- Responsive Breakpoints
 
-| Attribute | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-|`index`|`Integer`|`Required`|The current index of the item (usually passed from the loop `$i`).|
+Customize how many slides are visible at specific screen sizes by passing a key-value array to the :breakpoints prop. Supported breakpoint keys are `default`, `sm`, `md`, and `lg`.
+
+```html
+
+<x-hwkui-carousel.wrapper 
+    :items="$articles" 
+    :interval="4000"
+    :breakpoints="[
+        'default' => 1,
+        'sm'      => 2,
+        'md'      => 3,
+        'lg'      => 5,
+    ]"
+>
+    @foreach ($articles as $article)
+        <x-hwkui-carousel.item>
+            <x-hwkui-carousel.item>
+            <div class="relative w-full h-full rounded-xl overflow-hidden bg-zinc-800 p-6 text-white flex flex-col justify-end">
+                <span class="text-xs text-amber-400 font-semibold uppercase">{{ $article->category }}</span>
+                <h3 class="text-xl font-bold mt-2">{{ $article->title }}</h3>
+            </div>
+        </x-hwkui-carousel.item>
+        </x-hwkui-carousel.item>
+    @endforeach
+</x-hwkui-carousel.wrapper>
+
+```
+
 
 ---
 

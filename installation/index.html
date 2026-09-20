@@ -366,9 +366,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#publish-assets" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -378,12 +379,28 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#update" class="md-nav__link">
     <span class="md-ellipsis">
       
         Update
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laravel-boost-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Laravel Boost Support
       
     </span>
   </a>
@@ -644,9 +661,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#publish-assets" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -656,12 +674,28 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#update" class="md-nav__link">
     <span class="md-ellipsis">
       
         Update
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laravel-boost-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Laravel Boost Support
       
     </span>
   </a>
@@ -726,7 +760,7 @@
 <h2 id="install">Install</h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>composer<span class="w"> </span>require<span class="w"> </span>hawkiq/hwkui
 </span></code></pre></div>
-<h2 id="publish-assets">Publish Assets</h2>
+<h3 id="publish-assets">Publish Assets</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>vendor:publish<span class="w"> </span>--tag<span class="o">=</span>hwkui-assets
 </span></code></pre></div>
 <p>If you updated the package you must force publish.</p>
@@ -740,6 +774,12 @@
 <p>if you want to update use 
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>composer<span class="w"> </span>update<span class="w"> </span>hawkiq/hwkui
 </span></code></pre></div></p>
+<h2 id="laravel-boost-support">Laravel Boost Support</h2>
+<p>This package includes a dedicated <strong>Laravel Boost skill</strong> to help AI coding agents understand and correctly use hwkUI components, APIs, styling, Livewire integration, and package conventions.</p>
+<p>The skill is automatically discovered by Laravel Boost when the package is installed, if not you can always use command to update skills.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>boost:update
+</span></code></pre></div>
+<p>This allows AI agents to generate hwkUI code using the correct component names, properties, slots, semantic colors, and integration patterns.</p>
 <h2 id="helpers">Helpers</h2>
 <p>if you want to use our snippets you can follow instructions in <a href="../snippet/">Snippets</a></p>
 

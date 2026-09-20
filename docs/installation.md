@@ -13,7 +13,7 @@
 composer require hawkiq/hwkui
 ```
 
-## Publish Assets
+### Publish Assets
 
 ```bash
 php artisan vendor:publish --tag=hwkui-assets
@@ -38,6 +38,19 @@ if you want to update use
 ```bash
 composer update hawkiq/hwkui
 ```
+
+## Laravel Boost Support
+
+This package includes a dedicated **Laravel Boost skill** to help AI coding agents understand and correctly use hwkUI components, APIs, styling, Livewire integration, and package conventions.
+
+The skill is automatically discovered by Laravel Boost when the package is installed, if not you can always use command to update skills.
+
+```bash
+php artisan boost:update
+```
+
+This allows AI agents to generate hwkUI code using the correct component names, properties, slots, semantic colors, and integration patterns.
+
 
 ## Helpers
 

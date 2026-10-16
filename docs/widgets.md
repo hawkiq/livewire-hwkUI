@@ -713,6 +713,7 @@ A high-performance, accessible, and lightweight Onboarding Tour component.
 | :--- | :--- | :--- |:--- |
 |`steps`|`array`|`[]`| An array of step objects defining the tour sequence (see Step Configuration). |
 |`open`|`boolean`|`false`|Determines if the tour starts immediately upon page load.|
+|`options`|`array`|`[]`|An array of optional settings to customize text labels and theme styling (see Options Configuration).|
 
 
 - Step Configuration
@@ -724,6 +725,16 @@ A high-performance, accessible, and lightweight Onboarding Tour component.
 |`body`|`string`|The descriptive text for the step.|
 |`placement`|`string`|Preferred side: `top`, `bottom`, `left`, or `right`.|
 
+- Options Configuration
+
+| Key | Type | Default | Description |
+| :--- | :--- | :--- |:--- |
+|`next-text`|`string`|`Next`|Text label for the next step button.|
+|`back-text`|`string`|`Back`|Text label for the back button.|
+|`skip-text`|`string`|`Skip`|Text label for skipping the tour.|
+|`done-text`|`string`|`Done`|Text label for the final step finish button.|
+|`ofText`|`string`|`'OF'`|"Text separator used in the step counter (e.g., 1 OF 3)."|
+|`next-button-color`|`string`|`null`|"Tailwind color variant for the primary action button (e.g., 'red', 'emerald')."|
 
 - Basic Usage
 
@@ -753,6 +764,22 @@ A high-performance, accessible, and lightweight Onboarding Tour component.
     </button>
 </x-hwkui-tour>
 
+```
+
+```html
+<x-hwkui-tour 
+    :steps="$steps" 
+    :options="[
+        'next-text' => __('mylang.next'),
+        'back-text' => __('mylang.back'),
+        'skip-text' => __('mylang.skip'),
+        'next-button-color' => 'red',
+    ]"
+>
+    <button @click="start()" class="btn-primary">
+        Take the Tour
+    </button>
+</x-hwkui-tour>
 
 ```
 

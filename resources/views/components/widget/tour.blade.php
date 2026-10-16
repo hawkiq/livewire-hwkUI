@@ -1,41 +1,35 @@
-<div
-    x-data="onboardingTour(@js($steps), @js($open))"
-    @keydown.escape.window="end()"
-    @resize.window.debounce.10ms="updatePosition()"
-    @scroll.window.debounce.10ms="updatePosition()"
-    {{ $attributes->merge(['class' => 'block']) }}
->
+@props([
+'steps' => [],
+'open' => false,
+'options' => [],
+])
+
+<div x-data="onboardingTour(@js($steps), @js($open), @js($options))" @keydown.escape.window="end()"
+    @resize.window.debounce.10ms="updatePosition()" @scroll.window.debounce.10ms="updatePosition()" {{ $attributes->
+    merge(['class' => 'block']) }}
+    >
     {{ $slot }}
 
     <template x-teleport="body">
-        <div 
-            x-show="active" 
-            class="fixed inset-0 z-9999" 
-            style="display: none;"
-        >
+        <div x-show="active" class="fixed inset-0 z-9999" style="display: none;">
             <div class="absolute inset-0 overflow-hidden pointer-events-auto">
-                <div 
-                    x-show="hasTarget"
+                <div x-show="hasTarget"
                     class="absolute transition-all duration-300 ease-in-out bg-transparent rounded-lg shadow-[0_0_0_9999px_rgba(0,0,0,0.6)]"
-                    :style="spotlightStyle"
-                ></div>
-                
-                <div 
-                    x-show="!hasTarget" 
-                    class="absolute inset-0 bg-black/60 transition-opacity duration-300"
-                ></div>
+                    :style="spotlightStyle"></div>
+
+                <div x-show="!hasTarget" class="absolute inset-0 bg-black/60 transition-opacity duration-300"></div>
             </div>
 
-            <div 
-                x-ref="popover"
+            <div x-ref="popover"
                 class="absolute z-50 w-80 bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-800 pointer-events-auto transition-all duration-300 ease-in-out p-4 flex flex-col"
-                :style="popoverStyle"
-            >
+                :style="popoverStyle">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-xs font-semibold tracking-wide text-gray-500 dark:text-gray-400">
-                        <span x-text="currentIndex + 1"></span> OF <span x-text="steps.length"></span>
+                        <span x-text="currentIndex + 1"></span> <span x-text="opts.ofText"></span> <span
+                            x-text="steps.length"></span>
                     </span>
-                    <button @click="end()" class="cursor-pointer text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-300 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-sm">
+                    <button @click="end()"
+                        class="cursor-pointer text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-300 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-sm">
                         <x-hwkui-icon name="xmark" class="w-4 h-4" />
                     </button>
                 </div>
@@ -44,24 +38,22 @@
                 <p class="mt-1 text-sm text-gray-600 dark:text-gray-300 leading-relaxed" x-text="currentStep.body"></p>
 
                 <div class="flex items-center justify-between mt-6">
-                    <button @click="end()" class="cursor-pointer text-sm font-medium text-gray-500 transition-colors hover:text-gray-700 dark:hover:text-gray-300 outline-none rounded-sm focus-visible:ring-2 focus-visible:ring-blue-500">
-                        Skip
+                    <button @click="end()"
+                        class="cursor-pointer text-sm font-medium text-gray-500 transition-colors hover:text-gray-700 dark:hover:text-gray-300 outline-none rounded-sm focus-visible:ring-2 focus-visible:ring-blue-500">
+                        <span x-text="opts['skip-text']"></span>
                     </button>
-                    
+
                     <div class="flex items-center gap-2">
-                        <button 
-                            x-show="currentIndex > 0" 
-                            @click="back()" 
-                            class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                        >
-                            <x-hwkui-icon name="chevron-left" class="w-4 h-4" /> Back
+                        <button x-show="currentIndex > 0" @click="back()"
+                            class="cursor-pointer inline-flex items-center justify-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                            <x-hwkui-icon name="chevron-left" class="w-4 h-4" />
+                            <span x-text="opts['back-text']"></span>
                         </button>
-                        
-                        <button 
-                            @click="next()" 
-                            class="cursor-pointer inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
-                        >
-                            <span x-text="isLast ? 'Done' : 'Next'"></span>
+
+                        <button @click="next()"
+                            class="cursor-pointer inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white rounded-md transition-colors shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
+                            :class="opts['next-button-color'] ? `bg-${opts['next-button-color']}-600 hover:bg-${opts['next-button-color']}-700 focus-visible:ring-${opts['next-button-color']}-500` : 'bg-blue-600 hover:bg-blue-700 focus-visible:ring-blue-500'">
+                            <span x-text="isLast ? opts['done-text'] : opts['next-text']"></span>
                             <template x-if="!isLast">
                                 <x-hwkui-icon name="chevron-right" class="w-4 h-4" />
                             </template>
@@ -78,140 +70,165 @@
 
 @once
 <script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('onboardingTour', (steps, startOpen) => ({
-            steps: steps || [],
-            active: startOpen,
-            currentIndex: 0,
-            hasTarget: false,
-            spotlightStyle: '',
-            popoverStyle: '',
-            padding: 8,
+    (function () {
+        const registerOnboardingTour = () => {
+            Alpine.data('onboardingTour', (steps, startOpen, options = {}) => ({
+                steps: steps || [],
+                active: startOpen,
+                currentIndex: 0,
+                hasTarget: false,
+                spotlightStyle: '',
+                popoverStyle: '',
+                padding: 8,
 
-            get currentStep() {
-                return this.steps[this.currentIndex] || {};
-            },
+                opts: {
+                    'next-text': 'Next',
+                    'back-text': 'Back',
+                    'skip-text': 'Skip',
+                    'done-text': 'Done',
+                    'ofText': 'OF',
+                    'next-button-color': null,
+                    ...options
+                },
 
-            get isLast() {
-                return this.currentIndex === this.steps.length - 1;
-            },
+                get currentStep() {
+                    return this.steps[this.currentIndex] || {};
+                },
 
-            init() {
-                if (this.active) {
-                    this.$nextTick(() => this.update());
-                }
-                this.$watch('active', val => {
-                    if (val) this.$nextTick(() => this.update());
-                });
-            },
+                get isLast() {
+                    return this.currentIndex === this.steps.length - 1;
+                },
 
-            start() {
-                this.currentIndex = 0;
-                this.active = true;
-            },
+                init() {
+                    if (this.active) {
+                        this.$nextTick(() => this.update());
+                    }
+                    this.$watch('active', val => {
+                        if (val) this.$nextTick(() => this.update());
+                    });
 
-            end() {
-                this.active = false;
-            },
+                    return () => {
+                        const popover = this.$refs.popover;
+                        if (popover && popover.parentNode === document.body) {
+                            popover.remove();
+                        }
+                    };
+                },
 
-            next() {
-                if (this.isLast) {
-                    this.end();
-                } else {
-                    this.currentIndex++;
-                    this.update();
-                }
-            },
+                start() {
+                    this.currentIndex = 0;
+                    this.active = true;
+                },
 
-            back() {
-                if (this.currentIndex > 0) {
-                    this.currentIndex--;
-                    this.update();
-                }
-            },
+                end() {
+                    this.active = false;
+                },
 
-            update() {
-                if (!this.active || !this.steps.length) return;
+                next() {
+                    if (this.isLast) {
+                        this.end();
+                    } else {
+                        this.currentIndex++;
+                        this.update();
+                    }
+                },
 
-                const targetEl = document.querySelector(this.currentStep.target);
+                back() {
+                    if (this.currentIndex > 0) {
+                        this.currentIndex--;
+                        this.update();
+                    }
+                },
 
-                if (targetEl) {
-                    this.hasTarget = true;
-                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                update() {
+                    if (!this.active || !this.steps.length) return;
+
+                    const targetEl = document.querySelector(this.currentStep.target);
+
+                    if (targetEl) {
+                        this.hasTarget = true;
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        setTimeout(() => {
+                            this.updatePosition(targetEl);
+                        }, 300);
+                    } else {
+                        this.hasTarget = false;
+                        this.positionPopoverCenter();
+                    }
+                },
+
+                updatePosition(el = null) {
+                    if (!this.active || !this.hasTarget) return;
                     
-                    setTimeout(() => {
-                        this.updatePosition(targetEl);
-                    }, 300);
-                } else {
-                    this.hasTarget = false;
-                    this.positionPopoverCenter();
+                    const targetEl = el instanceof HTMLElement ? el : document.querySelector(this.currentStep.target);
+                    if (!targetEl) return;
+
+                    const rect = targetEl.getBoundingClientRect();
+                    
+                    this.spotlightStyle = `
+                        top: ${rect.top - this.padding}px;
+                        left: ${rect.left - this.padding}px;
+                        width: ${rect.width + (this.padding * 2)}px;
+                        height: ${rect.height + (this.padding * 2)}px;
+                    `;
+
+                    this.positionPopover(rect, this.currentStep.placement || 'bottom');
+                },
+
+                positionPopover(targetRect, placement) {
+                    const popover = this.$refs.popover;
+                    if (!popover) return;
+                    
+                    const popRect = popover.getBoundingClientRect();
+                    const offset = 16;
+                    let top = 0;
+                    let left = 0;
+
+                    switch (placement) {
+                        case 'top':
+                            top = targetRect.top - this.padding - popRect.height - offset;
+                            left = targetRect.left + (targetRect.width / 2) - (popRect.width / 2);
+                            break;
+                        case 'bottom':
+                            top = targetRect.bottom + this.padding + offset;
+                            left = targetRect.left + (targetRect.width / 2) - (popRect.width / 2);
+                            break;
+                        case 'left':
+                            top = targetRect.top + (targetRect.height / 2) - (popRect.height / 2);
+                            left = targetRect.left - this.padding - popRect.width - offset;
+                            break;
+                        case 'right':
+                            top = targetRect.top + (targetRect.height / 2) - (popRect.height / 2);
+                            left = targetRect.right + this.padding + offset;
+                            break;
+                    }
+
+                    const margin = 16;
+                    left = Math.max(margin, Math.min(left, window.innerWidth - popRect.width - margin));
+                    top = Math.max(margin, Math.min(top, window.innerHeight - popRect.height - margin));
+
+                    this.popoverStyle = `top: ${top}px; left: ${left}px;`;
+                },
+
+                positionPopoverCenter() {
+                    const popover = this.$refs.popover;
+                    if (!popover) return;
+                    
+                    const popRect = popover.getBoundingClientRect();
+                    const top = (window.innerHeight / 2) - (popRect.height / 2);
+                    const left = (window.innerWidth / 2) - (popRect.width / 2);
+                    
+                    this.popoverStyle = `top: ${top}px; left: ${left}px;`;
                 }
-            },
+            }));
+        };
 
-            updatePosition(el = null) {
-                if (!this.active || !this.hasTarget) return;
-                
-                const targetEl = el instanceof HTMLElement ? el : document.querySelector(this.currentStep.target);
-                if (!targetEl) return;
-
-                const rect = targetEl.getBoundingClientRect();
-                
-                this.spotlightStyle = `
-                    top: ${rect.top - this.padding}px;
-                    left: ${rect.left - this.padding}px;
-                    width: ${rect.width + (this.padding * 2)}px;
-                    height: ${rect.height + (this.padding * 2)}px;
-                `;
-
-                this.positionPopover(rect, this.currentStep.placement || 'bottom');
-            },
-
-            positionPopover(targetRect, placement) {
-                const popover = this.$refs.popover;
-                if (!popover) return;
-                
-                const popRect = popover.getBoundingClientRect();
-                const offset = 16; // Space between spotlight border and popover card
-                let top = 0;
-                let left = 0;
-
-                switch (placement) {
-                    case 'top':
-                        top = targetRect.top - this.padding - popRect.height - offset;
-                        left = targetRect.left + (targetRect.width / 2) - (popRect.width / 2);
-                        break;
-                    case 'bottom':
-                        top = targetRect.bottom + this.padding + offset;
-                        left = targetRect.left + (targetRect.width / 2) - (popRect.width / 2);
-                        break;
-                    case 'left':
-                        top = targetRect.top + (targetRect.height / 2) - (popRect.height / 2);
-                        left = targetRect.left - this.padding - popRect.width - offset;
-                        break;
-                    case 'right':
-                        top = targetRect.top + (targetRect.height / 2) - (popRect.height / 2);
-                        left = targetRect.right + this.padding + offset;
-                        break;
-                }
-
-                const margin = 16;
-                left = Math.max(margin, Math.min(left, window.innerWidth - popRect.width - margin));
-                top = Math.max(margin, Math.min(top, window.innerHeight - popRect.height - margin));
-
-                this.popoverStyle = `top: ${top}px; left: ${left}px;`;
-            },
-
-            positionPopoverCenter() {
-                const popover = this.$refs.popover;
-                if (!popover) return;
-                
-                const popRect = popover.getBoundingClientRect();
-                const top = (window.innerHeight / 2) - (popRect.height / 2);
-                const left = (window.innerWidth / 2) - (popRect.width / 2);
-                
-                this.popoverStyle = `top: ${top}px; left: ${left}px;`;
-            }
-        }));
-    });
+        if (window.Alpine) {
+            registerOnboardingTour();
+        } else {
+            document.addEventListener('alpine:init', registerOnboardingTour);
+        }
+    })();
 </script>
 @endonce
